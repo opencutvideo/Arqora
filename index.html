@@ -419,7 +419,7 @@ function priorityBadge(p){ const m={High:'b-warn',Critical:'b-danger',Medium:'b-
 /* ============================================================
    AUTH
    ============================================================ */
-async function bootAuth(){ const s=getSession(); if(s && s.userId){ const u=await dbGet('users',s.userId); if(u){ state.user=u; state.workspace=await dbGet('workspaces',s.workspaceId); return true; } clearSession(); } return false; }
+async function bootAuth(){ const s=getSession(); if(s && s.userId){ const u=await dbGet('users',s.userId); if(u){ state.user=u; state.workspace=await dbGet('workspaces',s.workspaceId); return true; } clearSession(); } const guestId='guest-user'; const workspaceId='guest-workspace'; let u=await dbGet('users',guestId); if(!u){ u={id:guestId,name:'ARQORA Guest',email:'guest@arqora.local',passwordHash:'',avatarColor:'#c8552b',workspaceId}; await dbPut('users',u); } else if(!u.workspaceId){ u={...u,workspaceId}; await dbPut('users',u); } let ws=await dbGet('workspaces',workspaceId); if(!ws){ ws={id:workspaceId,name:'Studio Arqora',logo:'A',currency:'IDR',timezone:'Asia/Jakarta',dateFormat:'MM/DD/YYYY',role:'Owner',createdAt:nowISO(),updatedAt:nowISO()}; await dbPut('workspaces',ws); await dbPut('workspace_members',{id:'guest-member',workspaceId,userId:guestId,role:'Owner'}); } state.user=u; state.workspace=ws; const projects=await dbFilter('projects',p=>p.workspaceId===workspaceId); if(!projects.length) await seedDemo(workspaceId,guestId,u.name); return true; }
 async function registerUser(name,email,password){ if(await dbFind('users',u=>u.email===email.toLowerCase())) throw new Error('An account with this email already exists.'); const u={id:uid(),name,email:email.toLowerCase(),passwordHash:await hashPW(password),avatarColor:pickColor(name),createdAt:nowISO(),updatedAt:nowISO(),theme:'system'}; await dbPut('users',u); setSession({userId:u.id}); await saveKV('lastUserId',u.id); state.user=u; return u; }
 async function loginUser(email,password){ const u=await dbFind('users',x=>x.email===email.toLowerCase()); if(!u) throw new Error('No account found with this email.'); const h=await hashPW(password); if(u.passwordHash!==h) throw new Error('Incorrect password.'); setSession({userId:u.id,workspaceId:u.workspaceId}); saveKV('lastUserId',u.id); state.user=u; state.workspace=u.workspaceId? await dbGet('workspaces',u.workspaceId):null; return u; }
 async function signOut(){ clearSession(); state.user=null; state.workspace=null; state.project=null; location.hash='#/login'; renderFull(); }
@@ -1500,7 +1500,7 @@ self.addEventListener('fetch',e=>{
 /* ============================================================
    INIT
    ============================================================ */
-async function main(){ initTheme(); injectManifest(); await openDB();
+async function main(){ initTheme(); injectManifest(); await openDB(); await bootAuth();
   // migrate legacy fields
   const projects=await dbAll('projects'); for(const p of projects){ if(!p.clientName){ const cl=p.clientId?await dbGet('clients',p.clientId):null; if(cl) await dbPut('projects',{...p,clientName:cl.name,clientCompany:cl.company}); } if(!p.members) await dbPut('projects',{...p,members:[{userId:p.pmId||state.user?.id,role:'Owner'}]}); }
   await updatePending();
