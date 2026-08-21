@@ -640,7 +640,7 @@ function renderAuth(mode){ const app=$('#app'); const isLogin=mode==='login'; co
       if(mode==='signup'){ const u=await registerUser(f.name.value.trim(),f.email.value.trim(),f.password.value); if(!u.workspaceId){ location.hash='#/onboarding'; renderOnboarding(); } else { location.hash='#/dashboard'; await loadApp(); } }
       else if(mode==='login'){ await loginUser(f.email.value.trim(),f.password.value); await loadApp(); }
       else if(mode==='forgot'){ toast('If an account exists, a reset link has been sent.','ok'); btn.disabled=false; btn.textContent='Send reset link'; }
-      else if(mode==='reset'){ const u=await dbFind('users',x=>x.id===(await getKV('lastUserId'))); if(u){ u.passwordHash=await hashPW(f.password.value.trim()); await dbPut('users',u); } toast('Password updated.','ok'); location.hash='#/login'; renderAuth('login'); }
+      else if(mode==='reset'){ const lastUserId=await getKV('lastUserId'); const u=await dbFind('users',x=>x.id===lastUserId); if(u){ u.passwordHash=await hashPW(f.password.value.trim()); await dbPut('users',u); } toast('Password updated.','ok'); location.hash='#/login'; renderAuth('login'); }
     }catch(err){ errp.textContent=err.message; btn.disabled=false; btn.textContent=mode==='login'?'Sign in':mode==='signup'?'Create account':mode==='forgot'?'Send reset link':'Update password'; }
   };
 }
