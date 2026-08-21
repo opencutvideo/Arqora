@@ -348,14 +348,41 @@ input:hover,select:hover,textarea:hover{border-color:var(--text-3)}
 .landing-features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px}.landing-feature{padding:25px;border:1px solid var(--border);border-radius:14px;background:var(--surface);transition:transform .25s var(--ease-out),box-shadow .25s var(--ease-out),border-color .25s var(--ease)}.landing-feature:hover{transform:translateY(-6px);border-color:var(--accent);box-shadow:0 16px 40px rgba(20,20,20,.1)}.landing-feature-mark{width:38px;height:38px;display:grid;place-items:center;border-radius:10px;background:var(--accent-soft);color:var(--accent);margin-bottom:32px;transition:transform .3s var(--ease-spring)}.landing-feature:hover .landing-feature-mark{transform:scale(1.12) rotate(-5deg)}.landing-feature h3{font-size:16px;margin:0 0 8px}.landing-feature p{font-size:13px;line-height:1.65;color:var(--text-2);margin:0}
 .landing-workflow{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}.landing-workflow .landing-section{display:grid;grid-template-columns:.82fr 1.18fr;gap:80px;align-items:start}.landing-steps{display:grid;gap:0;border-top:1px solid var(--border);margin-top:5px}.landing-step{display:grid;grid-template-columns:36px 1fr;gap:15px;padding:22px 0;border-bottom:1px solid var(--border);transition:padding-left .2s var(--ease)}.landing-step:hover{padding-left:8px}.landing-step-num{width:28px;height:28px;display:grid;place-items:center;border-radius:50%;border:1px solid var(--border-2);font-family:var(--mono);font-size:11px;color:var(--accent);transition:background .2s var(--ease),color .2s}.landing-step:hover .landing-step-num{background:var(--accent);color:#fff;border-color:var(--accent)}.landing-step h3{font-size:14px;margin:2px 0 5px}.landing-step p{font-size:12px;color:var(--text-2);line-height:1.6;margin:0}
 .landing-cta{max-width:1176px;margin:0 auto;padding:0 32px 105px}.landing-cta-inner{border-radius:18px;background:var(--text);color:var(--surface);padding:55px 58px;display:flex;justify-content:space-between;align-items:center;gap:30px;overflow:hidden;position:relative;transition:transform .3s var(--ease-out)}.landing-cta-inner:hover{transform:scale(1.01)}.landing-cta-inner:after{content:'';position:absolute;width:300px;height:300px;right:4%;top:-140px;border-radius:50%;border:1px solid rgba(255,255,255,.15);box-shadow:0 0 0 28px rgba(255,255,255,.035),0 0 0 57px rgba(255,255,255,.025)}.landing-cta h2{font-size:clamp(28px,4vw,48px);letter-spacing:-.06em;line-height:1;margin:0 0 10px;max-width:590px}.landing-cta p{color:rgba(255,255,255,.62);margin:0;font-size:14px}.landing-cta .btn{position:relative;z-index:1;background:var(--accent);border-color:var(--accent);white-space:nowrap;padding:0 22px;min-height:48px}.landing-cta .btn:hover{background:var(--accent-text);transform:translateY(-2px)}
-.landing-footer{max-width:1176px;margin:auto;padding:26px 32px 34px;border-top:1px solid var(--border);display:flex;justify-content:space-between;color:var(--text-3);font-size:11px}.landing-footer strong{color:var(--text-2)}
+.landing-footer{max-width:1240px;margin:auto;padding:64px 32px 40px;border-top:1px solid var(--border);position:relative}
+.landing-footer:before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:200px;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent);opacity:.5}
+.lf-top{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;margin-bottom:44px}
+.lf-brand-block{display:flex;flex-direction:column;gap:14px;max-width:300px}
+.lf-brand-row{display:flex;align-items:center;gap:10px}
+.lf-brand-row .landing-brand-mark{width:34px;height:34px}
+.lf-brand-name{font-size:17px;font-weight:800;letter-spacing:-.03em}
+.lf-tagline{color:var(--text-2);font-size:13px;line-height:1.6;margin:0}
+.lf-social{display:flex;gap:8px;margin-top:4px}
+.lf-social a{width:36px;height:36px;border-radius:10px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-3);transition:var(--transition)}
+.lf-social a:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-soft);transform:translateY(-2px)}
+.lf-col h4{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--text-3);margin:0 0 16px}
+.lf-col ul{list-style:none;padding:0;margin:0;display:flex;flex-direction:column;gap:10px}
+.lf-col a{color:var(--text-2);font-size:13px;font-weight:500;transition:color .15s var(--ease);display:inline-flex;align-items:center;gap:6px}
+.lf-col a:hover{color:var(--accent)}
+.lf-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid var(--border);flex-wrap:wrap;gap:12px}
+.lf-copy{color:var(--text-3);font-size:12px}
+.lf-copy strong{color:var(--text-2);font-weight:700}
+.lf-legal{display:flex;gap:20px}
+.lf-legal a{color:var(--text-3);font-size:12px;font-weight:500;transition:color .15s var(--ease)}
+.lf-legal a:hover{color:var(--text)}
+.lf-badge{display:inline-flex;align-items:center;gap:6px;padding:4px 10px;border-radius:20px;background:var(--surface-2);border:1px solid var(--border);font-size:11px;font-weight:600;color:var(--text-3)}
+.lf-badge .dot{width:6px;height:6px;border-radius:50%;background:var(--ok);animation:badgePulse 2s infinite}
+.lf-newsletter{display:flex;gap:8px;margin-top:6px}
+.lf-newsletter input{flex:1;font-size:13px;padding:10px 12px;border-radius:var(--radius-sm)}
+.lf-newsletter button{white-space:nowrap}
+@media(max-width:850px){.lf-top{grid-template-columns:1fr 1fr;gap:32px}.lf-brand-block{grid-column:1/-1;max-width:100%}.landing-footer{padding:48px 20px 32px}.lf-bottom{flex-direction:column;align-items:flex-start;gap:14px}.lf-legal{flex-wrap:wrap;gap:14px}}
+@media(max-width:520px){.lf-top{grid-template-columns:1fr;gap:28px}.landing-footer{padding:40px 20px 28px}}
 @keyframes landingRise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
 @keyframes landingFloat{0%,100%{transform:rotate(1.2deg) translateY(0)}50%{transform:rotate(0deg) translateY(-10px)}}
 @keyframes landingBars{from{transform:scaleY(0);transform-origin:bottom}to{transform:scaleY(1)}}
 @keyframes heroGlow{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.7;transform:scale(1.1)}}
 @keyframes emUnderline{from{width:0}to{width:100%}}
-@media(max-width:850px){.landing-hero{grid-template-columns:1fr;gap:52px;padding-top:54px;padding-bottom:60px}.landing-window{max-width:600px;width:100%;margin:auto;transform:rotate(0deg) translateY(0);animation:landingFloat 6s ease-in-out infinite,landingRise .9s .18s both}.landing-strip-inner{grid-template-columns:repeat(2,1fr)}.landing-features{grid-template-columns:1fr}.landing-workflow .landing-section{grid-template-columns:1fr;gap:36px}.landing-cta-inner{align-items:flex-start;flex-direction:column;padding:40px 30px}.landing-nav .landing-links{display:none}.landing-nav{height:64px;padding:0 20px}.landing-hero h1{font-size:clamp(36px,9vw,52px);letter-spacing:-.05em}.landing-lede{font-size:16px}.landing-actions{width:100%}.landing-actions .btn{flex:1;min-height:48px;font-size:14px}.landing-actions .btn-lg{font-size:15px}.landing-section{padding:70px 20px}.landing-features{gap:12px;margin-top:36px}.landing-feature{padding:22px 20px}.landing-feature-mark{margin-bottom:24px}.landing-step{padding:18px 0}.landing-cta{padding:0 20px 80px}.landing-cta-inner{padding:36px 24px;border-radius:14px}.landing-cta h2{font-size:clamp(24px,6vw,36px)}.landing-footer{padding:20px;flex-direction:column;gap:8px;align-items:flex-start}}
-@media(max-width:520px){.landing-nav,.landing-hero,.landing-section,.landing-cta,.landing-strip{padding-left:20px;padding-right:20px}.landing-hero h1{font-size:48px}.landing-strip-inner{gap:16px}.landing-window-grid{gap:5px}.landing-stat{padding:8px}.landing-stat strong{font-size:17px}.landing-footer{padding-left:20px;padding-right:20px;gap:10px;flex-direction:column}}
+@media(max-width:850px){.landing-hero{grid-template-columns:1fr;gap:52px;padding-top:54px;padding-bottom:60px}.landing-window{max-width:600px;width:100%;margin:auto;transform:rotate(0deg) translateY(0);animation:landingFloat 6s ease-in-out infinite,landingRise .9s .18s both}.landing-strip-inner{grid-template-columns:repeat(2,1fr)}.landing-features{grid-template-columns:1fr}.landing-workflow .landing-section{grid-template-columns:1fr;gap:36px}.landing-cta-inner{align-items:flex-start;flex-direction:column;padding:40px 30px}.landing-nav .landing-links{display:none}.landing-nav{height:64px;padding:0 20px}.landing-hero h1{font-size:clamp(36px,9vw,52px);letter-spacing:-.05em}.landing-lede{font-size:16px}.landing-actions{width:100%}.landing-actions .btn{flex:1;min-height:48px;font-size:14px}.landing-actions .btn-lg{font-size:15px}.landing-section{padding:70px 20px}.landing-features{gap:12px;margin-top:36px}.landing-feature{padding:22px 20px}.landing-feature-mark{margin-bottom:24px}.landing-step{padding:18px 0}.landing-cta{padding:0 20px 80px}.landing-cta-inner{padding:36px 24px;border-radius:14px}.landing-cta h2{font-size:clamp(24px,6vw,36px)}}
+@media(max-width:520px){.landing-nav,.landing-hero,.landing-section,.landing-cta,.landing-strip{padding-left:20px;padding-right:20px}.landing-hero h1{font-size:48px}.landing-strip-inner{gap:16px}.landing-window-grid{gap:5px}.landing-stat{padding:8px}.landing-stat strong{font-size:17px}}
 </style>
 
 </head>
@@ -797,7 +824,56 @@ function renderLanding(){ const app=$('#app'); app.innerHTML=`<div class="landin
     <section class="landing-section" id="capabilities"><div class="landing-eyebrow">The operating layer</div><h2>Clarity for the work that matters.</h2><p class="landing-section-intro">From the first brief to the final handover, ARQORA gives your team one shared view of what is happening, what needs attention, and what comes next.</p><div class="landing-features"><article class="landing-feature"><div class="landing-feature-mark">${icon('grid',19)}</div><h3>See the whole picture</h3><p>Portfolio-level visibility with the detail to move from a strategic decision to the exact task behind it.</p></article><article class="landing-feature"><div class="landing-feature-mark">${icon('draw',19)}</div><h3>Keep design connected</h3><p>Drawings, options, approvals, and conversations stay close to the decisions they support.</p></article><article class="landing-feature"><div class="landing-feature-mark">${icon('crane',19)}</div><h3>Deliver with confidence</h3><p>Turn site updates, issues, RFIs, and handover checklists into a reliable project rhythm.</p></article></div></section>
     <section class="landing-workflow" id="workflow"><div class="landing-section"><div><div class="landing-eyebrow">One connected rhythm</div><h2>Less chasing. More building.</h2><p class="landing-section-intro">A considered workflow for studios that want their tools to feel as thoughtful as their work.</p></div><div class="landing-steps"><div class="landing-step"><span class="landing-step-num">01</span><div><h3>Frame the brief</h3><p>Give every project a clear starting point, shared context, and accountable team.</p></div></div><div class="landing-step"><span class="landing-step-num">02</span><div><h3>Coordinate the work</h3><p>Bring decisions, deliverables, dependencies, and timelines into one living view.</p></div></div><div class="landing-step"><span class="landing-step-num">03</span><div><h3>Close the loop</h3><p>Capture what happened on site and carry momentum all the way through handover.</p></div></div></div></div></section>
     <section class="landing-cta"><div class="landing-cta-inner"><div><h2>Your next project starts with a clearer view.</h2><p>Step into the ARQORA demo workspace and explore the full operating system.</p></div><button class="btn" onclick="enterApp(event)">Enter ARQORA ${icon('arrowR',16)}</button></div></section>
-  </main><footer class="landing-footer"><span><strong>ARQORA</strong> · Architecture Project Operating System</span><span>From concept to construction.</span></footer>
+  </main>
+  <footer class="landing-footer">
+    <div class="lf-top">
+      <div class="lf-brand-block">
+        <div class="lf-brand-row"><span class="landing-brand-mark">${icon('logo',18)}</span><span class="lf-brand-name">ARQORA</span></div>
+        <p class="lf-tagline">The calm command center for architecture and construction studios. From concept to construction — one connected workspace.</p>
+        <div class="lf-social">
+          <a href="https://github.com/opencutvideo/Arqora" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">${icon('link',18)}</a>
+          <a href="#" onclick="event.preventDefault();enterApp(event)" aria-label="Open workspace" title="Open workspace">${icon('arrowR',18)}</a>
+          <a href="#capabilities" aria-label="Capabilities" title="Capabilities">${icon('grid',18)}</a>
+          <a href="#workflow" aria-label="How it works" title="How it works">${icon('timeline',18)}</a>
+        </div>
+      </div>
+      <div class="lf-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="#capabilities" onclick="event.preventDefault();document.getElementById('capabilities').scrollIntoView({behavior:'smooth'})">Capabilities</a></li>
+          <li><a href="#workflow" onclick="event.preventDefault();document.getElementById('workflow').scrollIntoView({behavior:'smooth'})">How it works</a></li>
+          <li><a href="#" onclick="event.preventDefault();enterApp(event)">Open workspace</a></li>
+          <li><a href="#" onclick="event.preventDefault();enterApp(event)">Demo studio</a></li>
+        </ul>
+      </div>
+      <div class="lf-col">
+        <h4>Modules</h4>
+        <ul>
+          <li><a href="#" onclick="event.preventDefault();enterApp(event);setTimeout(function(){location.hash='#/projects';navigate()},100)">${icon('folder',15)} Projects</a></li>
+          <li><a href="#" onclick="event.preventDefault();enterApp(event);setTimeout(function(){location.hash='#/tasks';navigate()},100)">${icon('check',15)} Tasks</a></li>
+          <li><a href="#" onclick="event.preventDefault();enterApp(event);setTimeout(function(){location.hash='#/documents';navigate()},100)">${icon('doc',15)} Documents</a></li>
+          <li><a href="#" onclick="event.preventDefault();enterApp(event);setTimeout(function(){location.hash='#/reports';navigate()},100)">${icon('chart',15)} Reports</a></li>
+        </ul>
+      </div>
+      <div class="lf-col">
+        <h4>Studio</h4>
+        <ul>
+          <li><a href="#" onclick="event.preventDefault();enterApp(event);setTimeout(function(){location.hash='#/team';navigate()},100)">${icon('users',15)} Team</a></li>
+          <li><a href="#" onclick="event.preventDefault();enterApp(event);setTimeout(function(){location.hash='#/calendar';navigate()},100)">${icon('cal',15)} Calendar</a></li>
+          <li><a href="#" onclick="event.preventDefault();enterApp(event);setTimeout(function(){location.hash='#/settings';navigate()},100)">${icon('gear',15)} Settings</a></li>
+          <li><span class="lf-badge"><span class="dot"></span> Offline-first</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="lf-bottom">
+      <span class="lf-copy"><strong>ARQORA</strong> · Architecture Project Operating System &copy; ${new Date().getFullYear()}</span>
+      <div class="lf-legal">
+        <a href="#" onclick="event.preventDefault();enterApp(event)">Privacy</a>
+        <a href="#" onclick="event.preventDefault();enterApp(event)">Terms</a>
+        <a href="https://github.com/opencutvideo/Arqora" target="_blank" rel="noopener">GitHub</a>
+      </div>
+    </div>
+  </footer>
 </div>`; window.scrollTo(0,0); setTimeout(initScrollReveal,50); }
 window.enterApp=function(e){ if(e) e.preventDefault(); location.hash='#/dashboard'; renderFull(); window.scrollTo(0,0); };
 function initScrollReveal(){ const els=document.querySelectorAll('.landing-section,.landing-feature,.landing-step,.landing-strip-item,.landing-cta-inner'); const io=new IntersectionObserver((entries)=>{ entries.forEach(en=>{ if(en.isIntersecting){ en.target.style.opacity='1'; en.target.style.transform='translateY(0)'; io.unobserve(en.target); } }); },{threshold:.12,rootMargin:'0px 0px -40px 0px'}); els.forEach((el,i)=>{ el.style.opacity='0'; el.style.transform='translateY(24px)'; el.style.transition='opacity .6s var(--ease-out),transform .6s var(--ease-out)'; el.style.transitionDelay=(i%4)*80+'ms'; io.observe(el); }); }
