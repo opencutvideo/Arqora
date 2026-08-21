@@ -840,10 +840,10 @@ function renderLanding(){ const app=$('#app'); app.innerHTML=`<div class="landin
       <div class="lf-col">
         <h4>Product</h4>
         <ul>
+          <li><a href="about.html">About ARQORA</a></li>
+          <li><a href="guide.html">Guide & how-to</a></li>
           <li><a href="#capabilities" onclick="event.preventDefault();document.getElementById('capabilities').scrollIntoView({behavior:'smooth'})">Capabilities</a></li>
           <li><a href="#workflow" onclick="event.preventDefault();document.getElementById('workflow').scrollIntoView({behavior:'smooth'})">How it works</a></li>
-          <li><a href="#" onclick="event.preventDefault();enterApp(event)">Open workspace</a></li>
-          <li><a href="#" onclick="event.preventDefault();enterApp(event)">Demo studio</a></li>
         </ul>
       </div>
       <div class="lf-col">
@@ -861,15 +861,17 @@ function renderLanding(){ const app=$('#app'); app.innerHTML=`<div class="landin
           <li><a href="#" onclick="event.preventDefault();enterApp(event);setTimeout(function(){location.hash='#/team';navigate()},100)">${icon('users',15)} Team</a></li>
           <li><a href="#" onclick="event.preventDefault();enterApp(event);setTimeout(function(){location.hash='#/calendar';navigate()},100)">${icon('cal',15)} Calendar</a></li>
           <li><a href="#" onclick="event.preventDefault();enterApp(event);setTimeout(function(){location.hash='#/settings';navigate()},100)">${icon('gear',15)} Settings</a></li>
-          <li><span class="lf-badge"><span class="dot"></span> Offline-first</span></li>
+          <li><a href="about.html">About us</a></li>
         </ul>
       </div>
     </div>
     <div class="lf-bottom">
       <span class="lf-copy"><strong>ARQORA</strong> · Architecture Project Operating System &copy; ${new Date().getFullYear()}</span>
       <div class="lf-legal">
-        <a href="#" onclick="event.preventDefault();enterApp(event)">Privacy</a>
-        <a href="#" onclick="event.preventDefault();enterApp(event)">Terms</a>
+        <a href="privacy.html">Privacy</a>
+        <a href="terms.html">Terms</a>
+        <a href="cookies.html">Cookies</a>
+        <a href="guide.html">Guide</a>
         <a href="https://github.com/opencutvideo/Arqora" target="_blank" rel="noopener">GitHub</a>
       </div>
     </div>

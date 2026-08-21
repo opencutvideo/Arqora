@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="system">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0f1115" />
+<meta name="description" content="ARQORA privacy policy — how we collect, use, and protect your data." />
+<title>Privacy Policy — ARQORA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<style>
+:root{
+  --bg:#f7f7f5; --surface:#ffffff; --surface-2:#f1f1ee; --surface-3:#ebebe6; --border:#e6e6e1; --border-2:#d9d9d3;
+  --text:#17181a; --text-2:#595c63; --text-3:#8a8d94; --accent:#c8552b; --accent-soft:#f7e7e0;
+  --accent-text:#b54421; --accent-glow:rgba(200,85,43,.18); --ok:#2f7d4f; --ok-soft:#e3f1e8;
+  --warn:#b07a1a; --warn-soft:#f7eed7; --danger:#c0392b; --info:#2b62a0; --neutral:#6b6e75;
+  --shadow:0 1px 2px rgba(20,20,20,.04),0 4px 16px rgba(20,20,20,.06);
+  --shadow-md:0 4px 12px rgba(20,20,20,.08),0 8px 24px rgba(20,20,20,.06);
+  --radius:10px; --radius-sm:7px; --radius-lg:14px; --radius-xl:20px;
+  --font:'Inter',system-ui,-apple-system,sans-serif;
+  --ease:cubic-bezier(.4,0,.2,1); --ease-out:cubic-bezier(.16,1,.3,1); --transition:.18s var(--ease);
+}
+[data-theme="dark"]{
+  --bg:#0e0f12; --surface:#15171a; --surface-2:#1c1e23; --surface-3:#22252b; --border:#26282e; --border-2:#33363d;
+  --text:#eceef1; --text-2:#a6aab2; --text-3:#6e727b; --accent:#e06a3a; --accent-soft:#3a2620;
+  --accent-text:#ef8a5f; --accent-glow:rgba(224,106,58,.22); --ok:#4dbb76; --ok-soft:#18261d;
+  --warn:#d9a63f; --warn-soft:#2b2414; --danger:#e2776a; --info:#6da1d9;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 4px 16px rgba(0,0,0,.35);
+  --shadow-md:0 4px 12px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;height:100%}
+body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;letter-spacing:-.006em}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+::selection{background:var(--accent);color:#fff}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:var(--border-2);border-radius:8px;border:2px solid transparent;background-clip:content-box}
+::-webkit-scrollbar-thumb:hover{background:var(--text-3)}
+::-webkit-scrollbar-track{background:transparent}
+
+.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 84%,transparent);backdrop-filter:blur(16px) saturate(1.4);border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 24px}
+.nav-brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px;letter-spacing:-.03em}
+.nav-brand .mark{width:30px;height:30px;border-radius:8px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800}
+.nav-links{display:flex;gap:6px;align-items:center}
+.nav-links a{padding:7px 14px;border-radius:var(--radius-sm);font-size:13px;font-weight:600;color:var(--text-2);transition:var(--transition)}
+.nav-links a:hover{background:var(--surface-2);color:var(--text)}
+.nav-links a.btn-primary{background:var(--accent);color:#fff;border:none}
+.nav-links a.btn-primary:hover{background:var(--accent-text)}
+@media(max-width:640px){.nav-links a:not(.btn-primary){display:none}.nav{padding:0 16px}}
+
+.hero{max-width:780px;margin:0 auto;padding:64px 24px 32px;text-align:center}
+.hero h1{font-size:clamp(28px,5vw,44px);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin:0 0 12px}
+.hero .meta{font-size:13px;color:var(--text-3);margin-top:8px}
+.hero .tag{display:inline-flex;align-items:center;gap:7px;padding:5px 14px;border-radius:20px;background:var(--accent-soft);color:var(--accent-text);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:18px}
+.hero .tag .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+.legal{max-width:760px;margin:0 auto;padding:0 24px 80px}
+.legal section{margin-bottom:36px;scroll-margin-top:80px}
+.legal h2{font-size:clamp(18px,3vw,24px);font-weight:800;letter-spacing:-.03em;margin:0 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.legal h3{font-size:15px;font-weight:700;margin:20px 0 8px}
+.legal p{color:var(--text-2);margin:0 0 14px}
+.legal ul{color:var(--text-2);line-height:1.8;padding-left:20px;margin:0 0 14px}
+.legal li{margin-bottom:6px}
+.legal strong{color:var(--text)}
+.legal code{font-family:ui-monospace,monospace;font-size:13px;background:var(--surface-2);padding:2px 6px;border-radius:4px;border:1px solid var(--border)}
+
+.callout{background:var(--accent-soft);border:1px solid color-mix(in srgb,var(--accent) 20%,transparent);border-radius:var(--radius);padding:16px 20px;margin:20px 0;font-size:13px;color:var(--text-2);line-height:1.6}
+.callout strong{color:var(--accent-text)}
+
+.toc{max-width:760px;margin:0 auto;padding:0 24px 24px}
+.toc h4{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-3);margin:0 0 10px}
+.toc-links{display:flex;flex-wrap:wrap;gap:8px}
+.toc-links a{padding:5px 12px;border-radius:20px;background:var(--surface);border:1px solid var(--border);font-size:12px;font-weight:600;color:var(--text-2);transition:var(--transition)}
+.toc-links a:hover{border-color:var(--accent);color:var(--accent-text);background:var(--accent-soft)}
+
+.footer{max-width:1240px;margin:0 auto;padding:40px 24px 32px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer .copy{font-size:12px;color:var(--text-3)}
+.footer .copy strong{color:var(--text-2)}
+.footer .links{display:flex;gap:20px}
+.footer .links a{font-size:12px;color:var(--text-3);font-weight:500;transition:color .15s var(--ease)}
+.footer .links a:hover{color:var(--text)}
+@media(max-width:520px){.footer{flex-direction:column;align-items:flex-start;gap:14px}}
+
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out)}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-brand"><span class="mark">A</span> ARQORA</a>
+  <div class="nav-links">
+    <a href="about.html">About</a>
+    <a href="guide.html">Guide</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="workspace.html" class="btn-primary" style="padding:8px 16px;border-radius:8px">Open workspace</a>
+  </div>
+</nav>
+
+<section class="hero fade-in">
+  <span class="tag"><span class="dot"></span> Legal</span>
+  <h1>Privacy Policy</h1>
+  <div class="meta">Last updated: August 21, 2026</div>
+</section>
+
+<div class="toc fade-in">
+  <h4>Contents</h4>
+  <div class="toc-links">
+    <a href="#collect">Data we collect</a>
+    <a href="#use">How we use it</a>
+    <a href="#store">Data storage</a>
+    <a href="#share">Data sharing</a>
+    <a href="#rights">Your rights</a>
+    <a href="#cookies">Cookies</a>
+    <a href="#security">Security</a>
+    <a href="#retention">Retention</a>
+    <a href="#children">Children</a>
+    <a href="#changes">Changes</a>
+    <a href="#contact">Contact</a>
+  </div>
+</div>
+
+<div class="legal">
+  <section id="intro" class="fade-in">
+    <p>ARQORA ("we", "us", "our") operates the ARQORA architecture project operating system (the "Service"). This Privacy Policy explains how we collect, use, store, and protect your information when you use our Service.</p>
+    <p>By using ARQORA, you agree to the practices described in this policy. If you do not agree, please do not use the Service.</p>
+  </section>
+
+  <section id="collect" class="fade-in">
+    <h2>Data we collect</h2>
+    <h3>Account information</h3>
+    <ul>
+      <li><strong>Name and email</strong> — used to identify you and send notifications.</li>
+      <li><strong>Workspace details</strong> — your studio name, logo, currency, and timezone preferences.</li>
+      <li><strong>Authentication data</strong> — securely hashed passwords. We never store plain-text passwords.</li>
+    </ul>
+    <h3>Project data</h3>
+    <ul>
+      <li><strong>Project information</strong> — names, codes, descriptions, client details, site addresses, and GPS coordinates.</li>
+      <li><strong>Documents and drawings</strong> — files you upload, including metadata like categories and revision numbers.</li>
+      <li><strong>Site data</strong> — site diaries, photos, inspection records, and progress updates.</li>
+      <li><strong>Financial data</strong> — budget items, BOQ/RAB entries, change orders, and material costs.</li>
+    </ul>
+    <h3>Usage data</h3>
+    <ul>
+      <li><strong>Activity logs</strong> — audit trail of actions (create, update, delete) for accountability.</li>
+      <li><strong>Device and browser</strong> — browser type, screen size, and theme preference for compatibility.</li>
+    </ul>
+  </section>
+
+  <section id="use" class="fade-in">
+    <h2>How we use your data</h2>
+    <ul>
+      <li><strong>To provide the Service</strong> — display your projects, tasks, documents, and enable collaboration.</li>
+      <li><strong>To send notifications</strong> — task assignments, approvals, and sync status updates.</li>
+      <li><strong>To improve the platform</strong> — understand which features are used and fix issues.</li>
+      <li><strong>To ensure security</strong> — audit logs help detect unauthorized access and track changes.</li>
+      <li><strong>For offline functionality</strong> — data is cached locally so you can work without a connection.</li>
+    </ul>
+    <p>We do <strong>not</strong> use your data to train AI models, sell to third parties, or for advertising.</p>
+  </section>
+
+  <section id="store" class="fade-in">
+    <h2>Data storage</h2>
+    <h3>Local storage</h3>
+    <p>ARQORA is an offline-first application. Your data is stored locally in your browser's IndexedDB storage. This allows full functionality without an internet connection.</p>
+    <h3>Cloud storage</h3>
+    <p>When online, data syncs to our secure cloud infrastructure. All data in transit is encrypted using TLS (Transport Layer Security). Data at rest is encrypted at the database level.</p>
+    <div class="callout"><strong>Note:</strong> In the current demo build, data is stored locally in your browser only. Clearing your browser data will remove all project information. Cloud sync is available in the production deployment.</div>
+  </section>
+
+  <section id="share" class="fade-in">
+    <h2>Data sharing</h2>
+    <p>We do not sell, rent, or trade your data. We share data only in these cases:</p>
+    <ul>
+      <li><strong>Within your workspace</strong> — team members in the same workspace can see shared project data based on their role.</li>
+      <li><strong>Service providers</strong> — hosting and database providers who help operate the Service, under strict data processing agreements.</li>
+      <li><strong>Legal compliance</strong> — if required by law, court order, or to protect our legal rights.</li>
+    </ul>
+  </section>
+
+  <section id="rights" class="fade-in">
+    <h2>Your rights</h2>
+    <p>You have the following rights regarding your data:</p>
+    <ul>
+      <li><strong>Access</strong> — request a copy of your data at any time.</li>
+      <li><strong>Correction</strong> — update your profile, project, or workspace information.</li>
+      <li><strong>Deletion</strong> — delete projects, documents, or your entire workspace.</li>
+      <li><strong>Export</strong> — export your data as CSV or PDF from the Reports page.</li>
+      <li><strong>Opt-out</strong> — disable notifications or certain features at any time.</li>
+    </ul>
+    <p>To exercise any of these rights, use the in-app Settings page or contact us at the email listed below.</p>
+  </section>
+
+  <section id="cookies" class="fade-in">
+    <h2>Cookies and local storage</h2>
+    <p>ARQORA uses browser local storage (not traditional cookies) to:</p>
+    <ul>
+      <li>Store your theme preference (light, dark, or system).</li>
+      <li>Cache project data for offline use.</li>
+      <li>Keep you signed in during your session.</li>
+    </ul>
+    <p>We do not use advertising cookies, tracking pixels, or third-party analytics. See our <a href="cookies.html" style="color:var(--accent-text);font-weight:600">Cookie Policy</a> for more details.</p>
+  </section>
+
+  <section id="security" class="fade-in">
+    <h2>Security</h2>
+    <p>We take reasonable measures to protect your data:</p>
+    <ul>
+      <li>All data in transit is encrypted via TLS.</li>
+      <li>Passwords are hashed using industry-standard algorithms.</li>
+      <li>Row-level security policies restrict data access to authorized users.</li>
+      <li>Audit logs track all create, update, and delete actions.</li>
+    </ul>
+    <p>No system is perfectly secure. If you discover a vulnerability, please contact us responsibly.</p>
+  </section>
+
+  <section id="retention" class="fade-in">
+    <h2>Data retention</h2>
+    <ul>
+      <li><strong>Active data</strong> — kept as long as your workspace is active.</li>
+      <li><strong>Deleted projects</strong> — soft-deleted and recoverable for 30 days, then permanently removed.</li>
+      <li><strong>Audit logs</strong> — retained for 12 months for accountability.</li>
+      <li><strong>Account closure</strong> — all data is deleted within 30 days of account closure.</li>
+    </ul>
+  </section>
+
+  <section id="children" class="fade-in">
+    <h2>Children's privacy</h2>
+    <p>ARQORA is designed for professional architecture and construction studios. We do not knowingly collect data from children under 16. If you believe a minor has provided data, please contact us.</p>
+  </section>
+
+  <section id="changes" class="fade-in">
+    <h2>Changes to this policy</h2>
+    <p>We may update this Privacy Policy from time to time. We will notify you of material changes by posting a notice in the application or by email. The "Last updated" date at the top of this page reflects the most recent revision.</p>
+  </section>
+
+  <section id="contact" class="fade-in">
+    <h2>Contact us</h2>
+    <p>If you have questions about this Privacy Policy or your data, please contact us:</p>
+    <ul>
+      <li>Email: <code>privacy@arqora.app</code></li>
+      <li>GitHub: <a href="https://github.com/opencutvideo/Arqora" target="_blank" rel="noopener" style="color:var(--accent-text);font-weight:600">github.com/opencutvideo/Arqora</a></li>
+    </ul>
+  </section>
+</div>
+
+<footer class="footer">
+  <span class="copy"><strong>ARQORA</strong> &copy; 2026 · Architecture Project Operating System</span>
+  <div class="links">
+    <a href="about.html">About</a>
+    <a href="guide.html">Guide</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="cookies.html">Cookies</a>
+    <a href="https://github.com/opencutvideo/Arqora" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var stored=localStorage.getItem('arqora-theme');
+  if(stored==='dark') document.documentElement.setAttribute('data-theme','dark');
+  else if(stored==='light') document.documentElement.setAttribute('data-theme','light');
+  else if(stored==='system' || !stored){
+    if(window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)
+      document.documentElement.setAttribute('data-theme','dark');
+  }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+  },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.fade-in').forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
