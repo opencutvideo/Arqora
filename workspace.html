@@ -8,44 +8,53 @@
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 <meta name="apple-mobile-web-app-title" content="ARQORA" />
-<meta name="description" content="ARQORA — Architecture Project Operating System. From concept to construction. One connected workspace." />
-<title>ARQORA — Architecture Project Operating System</title>
+<meta name="description" content="ARQORA - Architecture Project Operating System. From concept to construction. One connected workspace." />
+<title>ARQORA - Architecture Project Operating System</title>
 <link id="manifestlink" rel="manifest" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 <style>
 :root{
-  --bg:#f7f7f5; --surface:#ffffff; --surface-2:#f1f1ee; --border:#e6e6e1; --border-2:#d9d9d3;
+  --bg:#f7f7f5; --surface:#ffffff; --surface-2:#f1f1ee; --surface-3:#ebebe6; --border:#e6e6e1; --border-2:#d9d9d3;
   --text:#17181a; --text-2:#595c63; --text-3:#8a8d94; --accent:#c8552b; --accent-soft:#f7e7e0;
-  --accent-text:#b54421; --ok:#2f7d4f; --ok-soft:#e3f1e8; --warn:#b07a1a; --warn-soft:#f7eed7;
+  --accent-text:#b54421; --accent-glow:rgba(200,85,43,.18); --ok:#2f7d4f; --ok-soft:#e3f1e8;
+  --warn:#b07a1a; --warn-soft:#f7eed7;
   --danger:#c0392b; --danger-soft:#f8e4e1; --info:#2b62a0; --info-soft:#e2ecf7; --neutral:#6b6e75;
-  --shadow:0 1px 2px rgba(20,20,20,.05),0 4px 16px rgba(20,20,20,.05);
+  --shadow:0 1px 2px rgba(20,20,20,.04),0 4px 16px rgba(20,20,20,.06);
+  --shadow-md:0 4px 12px rgba(20,20,20,.08),0 8px 24px rgba(20,20,20,.06);
   --shadow-lg:0 8px 40px rgba(20,20,20,.14);
-  --radius:10px; --radius-sm:7px; --radius-lg:14px;
+  --shadow-xl:0 20px 60px rgba(20,20,20,.18);
+  --radius:10px; --radius-sm:7px; --radius-lg:14px; --radius-xl:20px;
   --font:'Inter',system-ui,-apple-system,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+  --ease:cubic-bezier(.4,0,.2,1); --ease-out:cubic-bezier(.16,1,.3,1); --ease-spring:cubic-bezier(.34,1.56,.64,1);
+  --transition:.18s var(--ease);
 }
 [data-theme="dark"]{
-  --bg:#0e0f12; --surface:#15171a; --surface-2:#1c1e23; --border:#26282e; --border-2:#33363d;
+  --bg:#0e0f12; --surface:#15171a; --surface-2:#1c1e23; --surface-3:#22252b; --border:#26282e; --border-2:#33363d;
   --text:#eceef1; --text-2:#a6aab2; --text-3:#6e727b; --accent:#e06a3a; --accent-soft:#3a2620;
-  --accent-text:#ef8a5f; --ok:#4dbb76; --ok-soft:#18261d; --warn:#d9a63f; --warn-soft:#2b2414;
+  --accent-text:#ef8a5f; --accent-glow:rgba(224,106,58,.22); --ok:#4dbb76; --ok-soft:#18261d;
+  --warn:#d9a63f; --warn-soft:#2b2414;
   --danger:#e2776a; --danger-soft:#311f1d; --info:#6da1d9; --info-soft:#1b2530; --neutral:#8a8e96;
-  --shadow:0 1px 2px rgba(0,0,0,.4),0 4px 16px rgba(0,0,0,.4);
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 4px 16px rgba(0,0,0,.35);
+  --shadow-md:0 4px 12px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
   --shadow-lg:0 8px 40px rgba(0,0,0,.6);
+  --shadow-xl:0 20px 60px rgba(0,0,0,.7);
 }
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 html,body{margin:0;padding:0;height:100%}
-body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased;overscroll-behavior:none}
+body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overscroll-behavior:none;letter-spacing:-.006em}
 #app{min-height:100dvh}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer}
-input,select,textarea{font-family:inherit;font-size:14px;color:var(--text);background:var(--surface);border:1px solid var(--border-2);border-radius:var(--radius-sm);padding:9px 11px;width:100%;outline:none}
-input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+input,select,textarea{font-family:inherit;font-size:14px;color:var(--text);background:var(--surface);border:1px solid var(--border-2);border-radius:var(--radius-sm);padding:9px 11px;width:100%;outline:none;transition:border-color .15s var(--ease),box-shadow .15s var(--ease)}
+input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-glow)}
 label{font-size:12px;font-weight:600;color:var(--text-2);display:block;margin-bottom:5px;letter-spacing:.01em}
 textarea{resize:vertical;min-height:80px}
 ::selection{background:var(--accent);color:#fff}
 ::-webkit-scrollbar{width:10px;height:10px}
 ::-webkit-scrollbar-thumb{background:var(--border-2);border-radius:8px;border:2px solid transparent;background-clip:content-box}
+::-webkit-scrollbar-thumb:hover{background:var(--text-3)}
 ::-webkit-scrollbar-track{background:transparent}
 .mono{font-family:var(--mono)}
 .truncate{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
@@ -54,13 +63,14 @@ textarea{resize:vertical;min-height:80px}
 
 /* Layout */
 .shell{display:flex;min-height:100dvh}
-.sidebar{width:252px;background:var(--surface);border-right:1px solid var(--border);flex-shrink:0;display:flex;flex-direction:column;position:fixed;top:0;left:0;bottom:0;z-index:40}
+.sidebar{width:252px;background:var(--surface);border-right:1px solid var(--border);flex-shrink:0;display:flex;flex-direction:column;position:fixed;top:0;left:0;bottom:0;z-index:40;transition:transform .25s var(--ease)}
 .main{flex:1;margin-left:252px;min-width:0;display:flex;flex-direction:column}
-.topbar{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 86%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;padding:0 20px;height:56px}
+.topbar{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 84%,transparent);backdrop-filter:blur(16px) saturate(1.4);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:12px;padding:0 20px;height:56px}
 .content{padding:24px 28px 120px;max-width:1180px;width:100%;margin:0 auto}
 .mobilenav{display:none}
 @media(max-width:900px){
-  .sidebar{display:none}
+  .sidebar{transform:translateX(-100%);transition:transform .3s var(--ease)}
+  .sidebar.open{transform:translateX(0)}
   .main{margin-left:0}
   .content{padding:16px 14px 110px}
   .topbar{padding:0 12px;height:52px}
@@ -71,31 +81,33 @@ textarea{resize:vertical;min-height:80px}
 @media(min-width:901px){.quickfab{display:none}}
 
 /* Buttons */
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:1px solid var(--border-2);background:var(--surface);color:var(--text);padding:8px 13px;border-radius:var(--radius-sm);font-size:13px;font-weight:600;transition:.14s;white-space:nowrap}
-.btn:hover{border-color:var(--text-3);background:var(--surface-2)}
-.btn:active{transform:scale(.98)}
-.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:1px solid var(--border-2);background:var(--surface);color:var(--text);padding:8px 13px;border-radius:var(--radius-sm);font-size:13px;font-weight:600;transition:var(--transition);white-space:nowrap;position:relative;overflow:hidden}
+.btn:hover{border-color:var(--text-3);background:var(--surface-2);transform:translateY(-1px)}
+.btn:active{transform:scale(.97)}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
 .btn-primary{background:var(--accent);border-color:var(--accent);color:#fff}
 .btn-primary:hover{background:var(--accent-text);border-color:var(--accent-text)}
 .btn-danger{background:var(--danger-soft);border-color:var(--danger-soft);color:var(--danger)}
+.btn-danger:hover{background:var(--danger);color:#fff;border-color:var(--danger)}
 .btn-ghost{border-color:transparent;background:transparent}
 .btn-ghost:hover{border-color:transparent;background:var(--surface-2)}
 .btn-sm{padding:5px 9px;font-size:12px}
 .btn-lg{padding:11px 18px;font-size:14px;border-radius:var(--radius)}
 .btn-block{width:100%}
-.iconbtn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--surface);color:var(--text-2);flex-shrink:0}
-.iconbtn:hover{background:var(--surface-2);color:var(--text)}
+.iconbtn{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:var(--radius-sm);border:1px solid var(--border);background:var(--surface);color:var(--text-2);flex-shrink:0;transition:var(--transition)}
+.iconbtn:hover{background:var(--surface-2);color:var(--text);transform:translateY(-1px)}
+.iconbtn:active{transform:scale(.92)}
 .iconbtn.active{background:var(--accent-soft);color:var(--accent);border-color:var(--accent)}
 
 /* Cards */
-.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow)}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);transition:transform .2s var(--ease-out),box-shadow .2s var(--ease-out),border-color .2s var(--ease)}
 .card-head{padding:14px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:10px}
 .card-body{padding:16px}
 .card-title{font-size:14px;font-weight:700;letter-spacing:-.01em}
 
 /* Badges / status */
-.badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;padding:2px 8px;border-radius:20px;border:1px solid var(--border-2);color:var(--text-2);line-height:1.6;white-space:nowrap}
-.badge .dot{width:6px;height:6px;border-radius:50%;background:currentColor}
+.badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;padding:2px 8px;border-radius:20px;border:1px solid var(--border-2);color:var(--text-2);line-height:1.6;white-space:nowrap;transition:transform .15s var(--ease)}
+.badge .dot{width:6px;height:6px;border-radius:50%;background:currentColor;animation:badgePulse 2s ease-in-out infinite}
 .b-ok{color:var(--ok);border-color:color-mix(in srgb,var(--ok) 30%,transparent);background:var(--ok-soft)}
 .b-warn{color:var(--warn);border-color:color-mix(in srgb,var(--warn) 30%,transparent);background:var(--warn-soft)}
 .b-danger{color:var(--danger);border-color:color-mix(in srgb,var(--danger) 30%,transparent);background:var(--danger-soft)}
@@ -106,27 +118,34 @@ textarea{resize:vertical;min-height:80px}
 .b-solid-warn{background:var(--warn);color:#fff;border-color:var(--warn)}
 .b-solid-danger{background:var(--danger);color:#fff;border-color:var(--danger)}
 .b-solid-accent{background:var(--accent);color:#fff;border-color:var(--accent)}
+@keyframes badgePulse{0%,100%{opacity:1}50%{opacity:.5}}
 
 /* Nav */
-.nav-item{display:flex;align-items:center;gap:11px;padding:8px 11px;border-radius:var(--radius-sm);font-size:13.5px;font-weight:500;color:var(--text-2);width:100%;text-align:left;border:none;background:transparent;transition:.12s}
-.nav-item:hover{background:var(--surface-2);color:var(--text)}
+.nav-item{display:flex;align-items:center;gap:11px;padding:8px 11px;border-radius:var(--radius-sm);font-size:13.5px;font-weight:500;color:var(--text-2);width:100%;text-align:left;border:none;background:transparent;transition:.14s var(--ease);position:relative}
+.nav-item:hover{background:var(--surface-2);color:var(--text);padding-left:14px}
 .nav-item.active{background:var(--surface-2);color:var(--text);font-weight:600}
-.nav-item svg{flex-shrink:0;width:17px;height:17px}
-.nav-item .cnt{margin-left:auto;font-size:11px;color:var(--text-3);background:var(--surface-2);padding:1px 7px;border-radius:10px}
-.mobnav{position:fixed;bottom:0;left:0;right:0;height:64px;background:var(--surface);border-top:1px solid var(--border);display:flex;z-index:50;padding-bottom:env(safe-area-inset-bottom)}
-.mobnav button{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:10px;font-weight:500;color:var(--text-3);background:none;border:none}
+.nav-item.active:before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:3px;height:18px;border-radius:2px;background:var(--accent)}
+.nav-item svg{flex-shrink:0;width:17px;height:17px;transition:transform .14s var(--ease)}
+.nav-item:hover svg{transform:scale(1.12)}
+.nav-item .cnt{margin-left:auto;font-size:11px;color:var(--text-3);background:var(--surface-2);padding:1px 7px;border-radius:10px;transition:background .14s}
+.nav-item.active .cnt{background:var(--accent-soft);color:var(--accent-text)}
+.mobnav{position:fixed;bottom:0;left:0;right:0;height:64px;background:color-mix(in srgb,var(--surface) 92%,transparent);backdrop-filter:blur(16px) saturate(1.4);border-top:1px solid var(--border);display:flex;z-index:50;padding-bottom:env(safe-area-inset-bottom)}
+.mobnav button{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;font-size:10px;font-weight:500;color:var(--text-3);background:none;border:none;transition:color .15s var(--ease)}
 .mobnav button.active{color:var(--accent)}
-.mobnav button svg{width:22px;height:22px}
-.mobnav .mobadd{width:46px;height:46px;background:var(--accent);color:#fff;border-radius:50%;align-self:center;display:flex;align-items:center;justify-content:center;margin-top:-28px;box-shadow:var(--shadow-lg);border:none}
+.mobnav button svg{width:22px;height:22px;transition:transform .15s var(--ease-spring)}
+.mobnav button.active svg{transform:scale(1.1) translateY(-1px)}
+.mobnav .mobadd{width:46px;height:46px;background:var(--accent);color:#fff;border-radius:50%;align-self:center;display:flex;align-items:center;justify-content:center;margin-top:-28px;box-shadow:0 6px 20px var(--accent-glow);border:none;transition:transform .2s var(--ease-spring)}
+.mobnav .mobadd:active{transform:scale(.9)}
 
 /* Tables */
-.tbl-wrap{overflow-x:auto;border-radius:var(--radius);border:1px solid var(--border)}
+.tbl-wrap{overflow-x:auto;border-radius:var(--radius);border:1px solid var(--border);box-shadow:var(--shadow)}
 table.tbl{width:100%;border-collapse:collapse;font-size:13px;background:var(--surface)}
-table.tbl th{text-align:left;padding:10px 14px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);border-bottom:1px solid var(--border);white-space:nowrap;background:var(--surface)}
+table.tbl th{text-align:left;padding:10px 14px;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.04em;color:var(--text-3);border-bottom:1px solid var(--border);white-space:nowrap;background:var(--surface-2)}
 table.tbl td{padding:10px 14px;border-bottom:1px solid var(--border);vertical-align:middle}
 table.tbl tr:last-child td{border-bottom:none}
+table.tbl tbody tr{transition:background .12s var(--ease)}
 table.tbl tbody tr:hover{background:var(--surface-2)}
-table.tbl a.rlink{color:var(--text);font-weight:500}
+table.tbl a.rlink{color:var(--text);font-weight:500;transition:color .12s}
 table.tbl a.rlink:hover{color:var(--accent)}
 
 /* Forms */
@@ -137,30 +156,32 @@ table.tbl a.rlink:hover{color:var(--accent)}
 .err{font-size:12px;color:var(--danger);margin-top:4px}
 
 /* Progress */
-.prog{height:7px;background:var(--surface-2);border-radius:10px;overflow:hidden}
-.prog>div{height:100%;background:var(--accent);border-radius:10px;transition:width .4s}
+.prog{height:7px;background:var(--surface-2);border-radius:10px;overflow:hidden;position:relative}
+.prog>div{height:100%;background:var(--accent);border-radius:10px;transition:width .5s var(--ease-out);position:relative}
+.prog>div:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);animation:progShine 2s linear infinite}
 .prog.p-ok>div{background:var(--ok)}
 .prog.p-warn>div{background:var(--warn)}
 .prog.p-danger>div{background:var(--danger)}
+@keyframes progShine{0%{transform:translateX(-100%)}100%{transform:translateX(200%)}}
 
 /* Toasts */
 .toasts{position:fixed;bottom:calc(76px + env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);z-index:100;display:flex;flex-direction:column;gap:8px;align-items:center;width:calc(100% - 32px);max-width:420px;pointer-events:none}
 @media(min-width:901px){.toasts{bottom:24px}}
-.toast{background:var(--text);color:var(--bg);padding:11px 16px;border-radius:var(--radius);font-size:13px;font-weight:500;box-shadow:var(--shadow-lg);display:flex;align-items:center;gap:9px;animation:tlidein .2s ease;max-width:100%}
+.toast{background:var(--text);color:var(--bg);padding:11px 16px;border-radius:var(--radius);font-size:13px;font-weight:500;box-shadow:var(--shadow-lg);display:flex;align-items:center;gap:9px;animation:toastIn .35s var(--ease-spring);max-width:100%;backdrop-filter:blur(8px)}
 .toast.ok{background:var(--ok);color:#fff}
 .toast.err{background:var(--danger);color:#fff}
 .toast.warn{background:var(--warn);color:#fff}
-@keyframes tlidein{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes toastIn{from{opacity:0;transform:translateY(20px) scale(.9)}to{opacity:1;transform:translateY(0) scale(1)}}
 
 /* Modal */
-.modal-back{position:fixed;inset:0;background:rgba(10,10,12,.5);z-index:90;display:flex;align-items:flex-end;justify-content:center;animation:fade .15s}
+.modal-back{position:fixed;inset:0;background:rgba(10,10,12,.5);backdrop-filter:blur(4px);z-index:90;display:flex;align-items:flex-end;justify-content:center;animation:fade .2s var(--ease)}
 @media(min-width:640px){.modal-back{align-items:center;padding:24px}}
-.modal{background:var(--surface);border-radius:var(--radius-lg) var(--radius-lg) 0 0;width:100%;max-width:560px;max-height:92dvh;overflow-y:auto;box-shadow:var(--shadow-lg);animation:up .22s ease}
+.modal{background:var(--surface);border-radius:var(--radius-lg) var(--radius-lg) 0 0;width:100%;max-width:560px;max-height:92dvh;overflow-y:auto;box-shadow:var(--shadow-xl);animation:modalUp .3s var(--ease-out)}
 @media(min-width:640px){.modal{border-radius:var(--radius-lg)}}
 .modal-head{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--border);position:sticky;top:0;background:var(--surface);z-index:2}
 .modal-body{padding:20px}
 .modal-foot{padding:14px 20px;border-top:1px solid var(--border);display:flex;justify-content:flex-end;gap:10px;position:sticky;bottom:0;background:var(--surface)}
-@keyframes up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes modalUp{from{opacity:0;transform:translateY(30px) scale(.97)}to{opacity:1;transform:translateY(0) scale(1)}}
 @keyframes fade{from{opacity:0}to{opacity:1}}
 
 /* Skeleton */
@@ -168,59 +189,67 @@ table.tbl a.rlink:hover{color:var(--accent)}
 @keyframes sh{0%{background-position:200% 0}100%{background-position:-200% 0}}
 
 /* Misc */
-.avatar{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-2);display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;border:1px solid var(--border)}
+.avatar{width:28px;height:28px;border-radius:50%;background:var(--surface-2);color:var(--text-2);display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;flex-shrink:0;border:1px solid var(--border);transition:transform .15s var(--ease)}
+.avatar:hover{transform:scale(1.08)}
 .avatar.lg{width:40px;height:40px;font-size:14px}
 .divider{height:1px;background:var(--border);margin:14px 0}
 .muted{color:var(--text-3);font-size:12px}
 .pillfield{display:flex;flex-wrap:wrap;gap:6px}
-.chip{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border-radius:20px;background:var(--surface-2);font-size:12px;font-weight:500;border:1px solid var(--border)}
+.chip{display:inline-flex;align-items:center;gap:6px;padding:4px 11px;border-radius:20px;background:var(--surface-2);font-size:12px;font-weight:500;border:1px solid var(--border);transition:var(--transition)}
+.chip:hover{border-color:var(--text-3)}
 .chip.active{background:var(--accent-soft);border-color:var(--accent);color:var(--accent-text)}
+.chip.active:hover{border-color:var(--accent-text)}
 .grid{display:grid;gap:14px}
 .g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
 @media(max-width:700px){.g2,.g3,.g4{grid-template-columns:1fr}}
 @media(max-width:500px){.row{flex-direction:column;gap:0}}
 .kpi{font-size:22px;font-weight:800;letter-spacing:-.02em;line-height:1}
 .phbar{display:flex;gap:2px;height:10px;border-radius:5px;overflow:hidden}
-.phbar span{flex:1;background:var(--surface-2)}
+.phbar span{flex:1;background:var(--surface-2);transition:background .3s var(--ease)}
 .phbar span.on{background:var(--accent)}
 .phbar span.done{background:var(--ok)}
 .phbar span.risk{background:var(--danger)}
 .lifecycle{display:flex;overflow-x:auto;gap:0;padding:4px 0;scrollbar-width:none}
 .lifecycle::-webkit-scrollbar{display:none}
-.lcstep{display:flex;align-items:center;gap:6px;padding:6px 12px;border-radius:20px;font-size:12px;font-weight:600;color:var(--text-3);white-space:nowrap;border:1px solid transparent}
-.lcstep .dot{width:7px;height:7px;border-radius:50%;background:var(--border-2)}
+.lcstep{display:flex;align-items:center;gap:6px;padding:6px 12px;border-radius:20px;font-size:12px;font-weight:600;color:var(--text-3);white-space:nowrap;border:1px solid transparent;transition:.15s var(--ease)}
+.lcstep:hover{color:var(--text-2)}
+.lcstep .dot{width:7px;height:7px;border-radius:50%;background:var(--border-2);transition:background .15s}
 .lcstep.done{color:var(--ok)}
 .lcstep.done .dot{background:var(--ok)}
-.lcstep.cur{color:var(--accent-text);background:var(--accent-soft)}
-.lcstep.cur .dot{background:var(--accent)}
+.lcstep.cur{color:var(--accent-text);background:var(--accent-soft);border-color:color-mix(in srgb,var(--accent) 25%,transparent)}
+.lcstep.cur .dot{background:var(--accent);animation:badgePulse 2s infinite}
 .tabs{display:flex;gap:2px;border-bottom:1px solid var(--border);overflow-x:auto;scrollbar-width:none;margin-bottom:18px}
 .tabs::-webkit-scrollbar{display:none}
-.tab{padding:9px 14px;font-size:13px;font-weight:500;color:var(--text-3);border:none;background:none;white-space:nowrap;border-bottom:2px solid transparent;margin-bottom:-1px}
+.tab{padding:9px 14px;font-size:13px;font-weight:500;color:var(--text-3);border:none;background:none;white-space:nowrap;border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .15s var(--ease),border-color .15s var(--ease)}
+.tab:hover{color:var(--text-2)}
 .tab.active{color:var(--text);border-color:var(--accent);font-weight:600}
-.tab .cnt{font-size:11px;background:var(--surface-2);padding:0 6px;border-radius:8px;margin-left:5px}
-.cmd-back{position:fixed;inset:0;background:rgba(10,10,12,.55);z-index:95;backdrop-filter:blur(2px);animation:fade .12s;display:flex;justify-content:center;padding-top:10vh}
-.cmd{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);width:600px;max-width:calc(100% - 32px);height:fit-content;max-height:60vh;overflow:hidden;box-shadow:var(--shadow-lg)}
+.tab .cnt{font-size:11px;background:var(--surface-2);padding:0 6px;border-radius:8px;margin-left:5px;transition:background .15s}
+.tab.active .cnt{background:var(--accent-soft);color:var(--accent-text)}
+.cmd-back{position:fixed;inset:0;background:rgba(10,10,12,.55);backdrop-filter:blur(6px);z-index:95;animation:fade .15s;display:flex;justify-content:center;padding-top:10vh}
+.cmd{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);width:600px;max-width:calc(100% - 32px);height:fit-content;max-height:60vh;overflow:hidden;box-shadow:var(--shadow-xl);animation:modalUp .25s var(--ease-out)}
 .cmd input{border:none;border-bottom:1px solid var(--border);font-size:16px;padding:16px 18px;border-radius:0}
 .cmd-res{max-height:46vh;overflow-y:auto}
-.cmd-item{display:flex;align-items:center;gap:12px;padding:11px 18px;cursor:pointer;border:none;background:none;width:100%;text-align:left;font-size:13px;color:var(--text)}
+.cmd-item{display:flex;align-items:center;gap:12px;padding:11px 18px;cursor:pointer;border:none;background:none;width:100%;text-align:left;font-size:13px;color:var(--text);transition:background .1s var(--ease)}
 .cmd-item:hover,.cmd-item.sel{background:var(--surface-2)}
 .cmd-item .kbd{margin-left:auto;font-family:var(--mono);font-size:11px;color:var(--text-3)}
-.empty{text-align:center;padding:40px 20px;color:var(--text-3)}
-.empty svg{margin:0 auto 12px;color:var(--text-3);opacity:.6}
+.empty{text-align:center;padding:48px 20px;color:var(--text-3)}
+.empty svg{margin:0 auto 14px;color:var(--text-3);opacity:.5}
 .empty h3{color:var(--text-2);font-size:15px;margin:0 0 4px}
 .empty p{font-size:13px;margin:0 0 16px;max-width:360px;margin-left:auto;margin-right:auto}
-.syncbar{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-2);padding:4px 12px;border-radius:20px;border:1px solid var(--border);background:var(--surface)}
-.syncbar .sd{width:8px;height:8px;border-radius:50%}
-.syncbar.online .sd{background:var(--ok)}
+.syncbar{display:flex;align-items:center;gap:8px;font-size:12px;color:var(--text-2);padding:4px 12px;border-radius:20px;border:1px solid var(--border);background:var(--surface);transition:border-color .15s var(--ease)}
+.syncbar:hover{border-color:var(--text-3)}
+.syncbar .sd{width:8px;height:8px;border-radius:50%;transition:background .2s}
+.syncbar.online .sd{background:var(--ok);box-shadow:0 0 0 3px color-mix(in srgb,var(--ok) 20%,transparent)}
 .syncbar.offline .sd{background:var(--text-3)}
 .syncbar.syncing .sd{background:var(--warn);animation:blink 1s infinite}
-.syncbar.error .sd{background:var(--danger)}
+.syncbar.error .sd{background:var(--danger);box-shadow:0 0 0 3px color-mix(in srgb,var(--danger) 20%,transparent)}
 @keyframes blink{50%{opacity:.3}}
-.banner{padding:10px 16px;font-size:12.5px;font-weight:500;border-radius:var(--radius);display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.banner{padding:10px 16px;font-size:12.5px;font-weight:500;border-radius:var(--radius);display:flex;align-items:center;gap:10px;margin-bottom:18px;animation:toastIn .3s var(--ease-out)}
 .banner.offline{background:var(--danger-soft);color:var(--danger)}
-.menu-item{display:flex;align-items:center;gap:10px;padding:9px 12px;font-size:13px;color:var(--text);width:100%;text-align:left;border:none;background:none;border-radius:var(--radius-sm)}
+.menu-item{display:flex;align-items:center;gap:10px;padding:9px 12px;font-size:13px;color:var(--text);width:100%;text-align:left;border:none;background:none;border-radius:var(--radius-sm);transition:background .12s var(--ease)}
 .menu-item:hover{background:var(--surface-2)}
 .menu-item.danger{color:var(--danger)}
+.menu-item.danger:hover{background:var(--danger-soft)}
 .km{border:1px solid var(--border-2);border-bottom:3px solid var(--border-2);border-radius:5px;padding:0 6px;font-family:var(--mono);font-size:11px}
 .swipe{overflow-x:auto;display:flex;gap:12px;padding-bottom:4px;scroll-snap-type:x mandatory}
 .swipe>*{scroll-snap-align:start;flex-shrink:0}
@@ -231,64 +260,85 @@ table.tbl a.rlink:hover{color:var(--accent)}
 span.mention{color:var(--accent-text);font-weight:600}
 .thumb{width:100%;height:120px;object-fit:cover;border-radius:var(--radius-sm);background:var(--surface-2)}
 .imggrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
-.offline-pill{position:fixed;top:0;left:0;right:0;background:var(--danger);color:#fff;text-align:center;font-size:12px;font-weight:600;padding:4px;z-index:120;display:none}
+.offline-pill{position:fixed;top:0;left:0;right:0;background:var(--danger);color:#fff;text-align:center;font-size:12px;font-weight:600;padding:4px;z-index:120;display:none;animation:toastIn .3s var(--ease)}
 body.offline .offline-pill{display:block}
 
 /* Premium interaction layer */
-body{background:radial-gradient(circle at 82% -12%,rgba(200,85,43,.07),transparent 34%),var(--bg)}
-body:before{content:'';position:fixed;inset:0;pointer-events:none;opacity:.22;background-image:linear-gradient(rgba(23,24,26,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(23,24,26,.035) 1px,transparent 1px);background-size:32px 32px;mask-image:linear-gradient(to bottom,black,transparent 70%);z-index:-1}
-.sidebar{box-shadow:8px 0 28px rgba(20,20,20,.035)}
-.topbar{backdrop-filter:blur(16px);background:color-mix(in srgb,var(--bg) 84%,transparent);box-shadow:0 1px 0 var(--border)}
-.card{transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease}
-.card:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(20,20,20,.08);border-color:var(--border-2)}
-.btn-primary{box-shadow:0 5px 14px rgba(200,85,43,.2);transition:transform .16s ease,box-shadow .16s ease,filter .16s ease}
-.btn-primary:hover{transform:translateY(-1px);filter:saturate(1.08);box-shadow:0 8px 20px rgba(200,85,43,.28)}
-.btn:focus-visible,.menu-item:focus-visible,.tab:focus-visible{outline:3px solid var(--accent-soft);outline-offset:2px}
-.projcard,.list-row,.nav-item{transition:background .16s ease,transform .16s ease}
-.projcard:hover{transform:translateX(2px)}
+body{background:radial-gradient(circle at 82% -12%,rgba(200,85,43,.06),transparent 34%),radial-gradient(circle at 12% 110%,rgba(43,98,160,.04),transparent 30%),var(--bg)}
+body:before{content:'';position:fixed;inset:0;pointer-events:none;opacity:.18;background-image:linear-gradient(rgba(23,24,26,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(23,24,26,.03) 1px,transparent 1px);background-size:32px 32px;mask-image:linear-gradient(to bottom,black,transparent 70%);z-index:-1}
+[data-theme="dark"] body:before{opacity:.12}
+.sidebar{box-shadow:8px 0 28px rgba(20,20,20,.04)}
+[data-theme="dark"] .sidebar{box-shadow:8px 0 28px rgba(0,0,0,.3)}
+.topbar{backdrop-filter:blur(16px) saturate(1.4);background:color-mix(in srgb,var(--bg) 82%,transparent);box-shadow:0 1px 0 var(--border)}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md);border-color:var(--border-2)}
+.btn-primary{box-shadow:0 4px 12px var(--accent-glow);transition:transform .16s var(--ease),box-shadow .16s var(--ease),filter .16s var(--ease),background .16s}
+.btn-primary:hover{transform:translateY(-2px);filter:saturate(1.1);box-shadow:0 8px 24px var(--accent-glow)}
+.btn-primary:active{transform:translateY(0)}
+.btn:focus-visible,.menu-item:focus-visible,.tab:focus-visible{outline:3px solid var(--accent-glow);outline-offset:2px}
+.projcard,.list-row,.nav-item{transition:background .16s var(--ease),transform .16s var(--ease)}
+.projcard:hover{transform:translateX(3px)}
+input:hover,select:hover,textarea:hover{border-color:var(--text-3)}
 @media (prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
 
-/* Landing page — clean premium entrance */
-.landing{min-height:100dvh;overflow:hidden;background:var(--bg);color:var(--text)}
+/* Landing page */
+.landing{min-height:100dvh;overflow:hidden;background:var(--bg);color:var(--text);position:relative}
 .landing-nav{height:76px;display:flex;align-items:center;justify-content:space-between;max-width:1240px;margin:auto;padding:0 32px;position:relative;z-index:2}
 .landing-nav .landing-links{display:flex;align-items:center;gap:26px;color:var(--text-2);font-size:13px}
-.landing-links a{transition:color .2s ease}.landing-links a:hover{color:var(--text)}
+.landing-links a{transition:color .2s var(--ease)}.landing-links a:hover{color:var(--text)}
 .landing-brand{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:800;letter-spacing:-.02em}
-.landing-brand-mark{width:31px;height:31px;display:grid;place-items:center;border-radius:9px;background:var(--accent);color:#fff;box-shadow:0 8px 20px rgba(200,85,43,.22)}
+.landing-brand-mark{width:31px;height:31px;display:grid;place-items:center;border-radius:9px;background:var(--accent);color:#fff;box-shadow:0 8px 20px var(--accent-glow);transition:transform .3s var(--ease-spring)}
+.landing-brand:hover .landing-brand-mark{transform:scale(1.1) rotate(-4deg)}
 .landing-hero{max-width:1240px;margin:auto;padding:82px 32px 88px;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(390px,.92fr);gap:64px;align-items:center;position:relative}
-.landing-hero:before{content:'';position:absolute;width:560px;height:560px;right:-180px;top:-120px;border-radius:50%;background:radial-gradient(circle,rgba(200,85,43,.14),transparent 68%);filter:blur(5px);pointer-events:none}
+.landing-hero:before{content:'';position:absolute;width:560px;height:560px;right:-180px;top:-120px;border-radius:50%;background:radial-gradient(circle,rgba(200,85,43,.12),transparent 68%);filter:blur(5px);pointer-events:none;animation:heroGlow 8s ease-in-out infinite}
 .landing-kicker{display:inline-flex;align-items:center;gap:9px;padding:7px 11px;border:1px solid var(--border-2);border-radius:99px;background:color-mix(in srgb,var(--surface) 72%,transparent);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-text);animation:landingRise .7s both}
-.landing-kicker i{display:block;width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px var(--accent-soft)}
+.landing-kicker i{display:block;width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px var(--accent-soft);animation:badgePulse 2s infinite}
 .landing-hero h1{font-size:clamp(48px,6.2vw,88px);line-height:.98;letter-spacing:-.075em;max-width:760px;margin:24px 0 23px;font-weight:800;animation:landingRise .7s .08s both}
-.landing-hero h1 em{font-style:normal;color:var(--accent)}
+.landing-hero h1 em{font-style:normal;color:var(--accent);position:relative}
+.landing-hero h1 em:after{content:'';position:absolute;left:0;right:0;bottom:4px;height:8px;background:var(--accent-soft);border-radius:4px;z-index:-1;animation:emUnderline 1s .6s both}
 .landing-lede{max-width:570px;font-size:18px;line-height:1.65;color:var(--text-2);margin:0 0 32px;animation:landingRise .7s .16s both}
 .landing-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;animation:landingRise .7s .24s both}
 .landing-actions .btn{min-height:46px;padding:0 19px}.landing-actions .btn-primary{font-weight:700}
+.landing-actions .btn:hover{transform:translateY(-2px)}
 .landing-note{display:flex;align-items:center;gap:9px;color:var(--text-3);font-size:12px;margin-top:18px;animation:landingRise .7s .3s both}
 .landing-note span{color:var(--ok);font-size:16px}
 .landing-window{position:relative;z-index:1;border:1px solid var(--border-2);border-radius:18px;background:color-mix(in srgb,var(--surface) 92%,transparent);box-shadow:0 30px 80px rgba(20,20,20,.14),0 3px 10px rgba(20,20,20,.05);overflow:hidden;transform:rotate(1.2deg);animation:landingFloat 6s ease-in-out infinite,landingRise .9s .18s both}
-.landing-window-bar{height:43px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:6px;padding:0 15px}.landing-dot{width:8px;height:8px;border-radius:50%;background:var(--border-2)}
+.landing-window-bar{height:43px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:6px;padding:0 15px}.landing-dot{width:8px;height:8px;border-radius:50%;background:var(--border-2);transition:background .2s}
+.landing-window:hover .landing-dot:nth-child(1){background:#e8534f}
+.landing-window:hover .landing-dot:nth-child(2){background:#f0a93b}
+.landing-window:hover .landing-dot:nth-child(3){background:#3cb668}
 .landing-window-body{padding:20px}.landing-window-label{font-size:10px;color:var(--text-3);font-weight:700;text-transform:uppercase;letter-spacing:.1em}.landing-window-title{font-size:21px;font-weight:800;letter-spacing:-.04em;margin:6px 0 18px}
-.landing-window-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.landing-stat{border:1px solid var(--border);border-radius:10px;padding:11px;background:var(--surface-2)}.landing-stat strong{display:block;font-size:20px;letter-spacing:-.04em}.landing-stat small{display:block;color:var(--text-3);font-size:10px;margin-top:4px}
-.landing-chart{height:125px;margin-top:12px;border:1px solid var(--border);border-radius:10px;padding:16px;display:flex;align-items:end;gap:8px;background:linear-gradient(180deg,var(--surface),var(--surface-2))}.landing-chart i{display:block;flex:1;border-radius:4px 4px 2px 2px;background:linear-gradient(180deg,var(--accent),color-mix(in srgb,var(--accent) 38%,var(--surface)));animation:landingBars 1s both}.landing-chart i:nth-child(1){height:35%;animation-delay:.25s}.landing-chart i:nth-child(2){height:53%;animation-delay:.35s}.landing-chart i:nth-child(3){height:45%;animation-delay:.45s}.landing-chart i:nth-child(4){height:75%;animation-delay:.55s}.landing-chart i:nth-child(5){height:62%;animation-delay:.65s}.landing-chart i:nth-child(6){height:92%;animation-delay:.75s}
-.landing-strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--surface);padding:20px 32px}.landing-strip-inner{max-width:1176px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.landing-strip-item{display:flex;align-items:center;gap:11px;color:var(--text-2);font-size:12px}.landing-strip-item b{display:block;font-size:19px;color:var(--text);letter-spacing:-.04em}.landing-strip-item span{color:var(--accent);font-size:17px}
+.landing-window-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.landing-stat{border:1px solid var(--border);border-radius:10px;padding:11px;background:var(--surface-2);transition:transform .2s var(--ease-out),border-color .2s}
+.landing-stat:hover{transform:translateY(-2px);border-color:var(--border-2)}
+.landing-stat strong{display:block;font-size:20px;letter-spacing:-.04em}.landing-stat small{display:block;color:var(--text-3);font-size:10px;margin-top:4px}
+.landing-chart{height:125px;margin-top:12px;border:1px solid var(--border);border-radius:10px;padding:16px;display:flex;align-items:end;gap:8px;background:linear-gradient(180deg,var(--surface),var(--surface-2))}
+.landing-chart i{display:block;flex:1;border-radius:4px 4px 2px 2px;background:linear-gradient(180deg,var(--accent),color-mix(in srgb,var(--accent) 38%,var(--surface)));animation:landingBars 1s both;transition:filter .2s}
+.landing-chart:hover i{filter:saturate(1.2)}
+.landing-chart i:nth-child(1){height:35%;animation-delay:.25s}.landing-chart i:nth-child(2){height:53%;animation-delay:.35s}.landing-chart i:nth-child(3){height:45%;animation-delay:.45s}.landing-chart i:nth-child(4){height:75%;animation-delay:.55s}.landing-chart i:nth-child(5){height:62%;animation-delay:.65s}.landing-chart i:nth-child(6){height:92%;animation-delay:.75s}
+.landing-strip{border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--surface);padding:20px 32px}.landing-strip-inner{max-width:1176px;margin:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:20px}.landing-strip-item{display:flex;align-items:center;gap:11px;color:var(--text-2);font-size:12px;transition:transform .2s var(--ease-out)}
+.landing-strip-item:hover{transform:translateX(4px)}
+.landing-strip-item b{display:block;font-size:19px;color:var(--text);letter-spacing:-.04em}.landing-strip-item span{color:var(--accent);font-size:17px}
 .landing-section{max-width:1176px;margin:auto;padding:106px 32px}.landing-eyebrow{color:var(--accent-text);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.14em}.landing-section h2{font-size:clamp(32px,4vw,55px);line-height:1.02;letter-spacing:-.065em;max-width:650px;margin:15px 0 18px}.landing-section-intro{color:var(--text-2);font-size:16px;line-height:1.7;max-width:590px}
-.landing-features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px}.landing-feature{padding:25px;border:1px solid var(--border);border-radius:14px;background:var(--surface);transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}.landing-feature:hover{transform:translateY(-5px);border-color:var(--accent);box-shadow:0 16px 32px rgba(20,20,20,.08)}.landing-feature-mark{width:38px;height:38px;display:grid;place-items:center;border-radius:10px;background:var(--accent-soft);color:var(--accent);margin-bottom:32px}.landing-feature h3{font-size:16px;margin:0 0 8px}.landing-feature p{font-size:13px;line-height:1.65;color:var(--text-2);margin:0}
-.landing-workflow{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}.landing-workflow .landing-section{display:grid;grid-template-columns:.82fr 1.18fr;gap:80px;align-items:start}.landing-steps{display:grid;gap:0;border-top:1px solid var(--border);margin-top:5px}.landing-step{display:grid;grid-template-columns:36px 1fr;gap:15px;padding:22px 0;border-bottom:1px solid var(--border)}.landing-step-num{width:28px;height:28px;display:grid;place-items:center;border-radius:50%;border:1px solid var(--border-2);font-family:var(--mono);font-size:11px;color:var(--accent)}.landing-step h3{font-size:14px;margin:2px 0 5px}.landing-step p{font-size:12px;color:var(--text-2);line-height:1.6;margin:0}
-.landing-cta{max-width:1176px;margin:0 auto;padding:0 32px 105px}.landing-cta-inner{border-radius:18px;background:var(--text);color:var(--surface);padding:55px 58px;display:flex;justify-content:space-between;align-items:center;gap:30px;overflow:hidden;position:relative}.landing-cta-inner:after{content:'';position:absolute;width:300px;height:300px;right:4%;top:-140px;border-radius:50%;border:1px solid rgba(255,255,255,.15);box-shadow:0 0 0 28px rgba(255,255,255,.035),0 0 0 57px rgba(255,255,255,.025)}.landing-cta h2{font-size:clamp(28px,4vw,48px);letter-spacing:-.06em;line-height:1;margin:0 0 10px;max-width:590px}.landing-cta p{color:rgba(255,255,255,.62);margin:0;font-size:14px}.landing-cta .btn{position:relative;z-index:1;background:var(--accent);border-color:var(--accent);white-space:nowrap;padding:0 22px;min-height:48px}
+.landing-features{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:48px}.landing-feature{padding:25px;border:1px solid var(--border);border-radius:14px;background:var(--surface);transition:transform .25s var(--ease-out),box-shadow .25s var(--ease-out),border-color .25s var(--ease)}.landing-feature:hover{transform:translateY(-6px);border-color:var(--accent);box-shadow:0 16px 40px rgba(20,20,20,.1)}.landing-feature-mark{width:38px;height:38px;display:grid;place-items:center;border-radius:10px;background:var(--accent-soft);color:var(--accent);margin-bottom:32px;transition:transform .3s var(--ease-spring)}.landing-feature:hover .landing-feature-mark{transform:scale(1.12) rotate(-5deg)}.landing-feature h3{font-size:16px;margin:0 0 8px}.landing-feature p{font-size:13px;line-height:1.65;color:var(--text-2);margin:0}
+.landing-workflow{background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}.landing-workflow .landing-section{display:grid;grid-template-columns:.82fr 1.18fr;gap:80px;align-items:start}.landing-steps{display:grid;gap:0;border-top:1px solid var(--border);margin-top:5px}.landing-step{display:grid;grid-template-columns:36px 1fr;gap:15px;padding:22px 0;border-bottom:1px solid var(--border);transition:padding-left .2s var(--ease)}.landing-step:hover{padding-left:8px}.landing-step-num{width:28px;height:28px;display:grid;place-items:center;border-radius:50%;border:1px solid var(--border-2);font-family:var(--mono);font-size:11px;color:var(--accent);transition:background .2s var(--ease),color .2s}.landing-step:hover .landing-step-num{background:var(--accent);color:#fff;border-color:var(--accent)}.landing-step h3{font-size:14px;margin:2px 0 5px}.landing-step p{font-size:12px;color:var(--text-2);line-height:1.6;margin:0}
+.landing-cta{max-width:1176px;margin:0 auto;padding:0 32px 105px}.landing-cta-inner{border-radius:18px;background:var(--text);color:var(--surface);padding:55px 58px;display:flex;justify-content:space-between;align-items:center;gap:30px;overflow:hidden;position:relative;transition:transform .3s var(--ease-out)}.landing-cta-inner:hover{transform:scale(1.01)}.landing-cta-inner:after{content:'';position:absolute;width:300px;height:300px;right:4%;top:-140px;border-radius:50%;border:1px solid rgba(255,255,255,.15);box-shadow:0 0 0 28px rgba(255,255,255,.035),0 0 0 57px rgba(255,255,255,.025)}.landing-cta h2{font-size:clamp(28px,4vw,48px);letter-spacing:-.06em;line-height:1;margin:0 0 10px;max-width:590px}.landing-cta p{color:rgba(255,255,255,.62);margin:0;font-size:14px}.landing-cta .btn{position:relative;z-index:1;background:var(--accent);border-color:var(--accent);white-space:nowrap;padding:0 22px;min-height:48px}.landing-cta .btn:hover{background:var(--accent-text);transform:translateY(-2px)}
 .landing-footer{max-width:1176px;margin:auto;padding:26px 32px 34px;border-top:1px solid var(--border);display:flex;justify-content:space-between;color:var(--text-3);font-size:11px}.landing-footer strong{color:var(--text-2)}
-@keyframes landingRise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}@keyframes landingFloat{0%,100%{transform:rotate(1.2deg) translateY(0)}50%{transform:rotate(0deg) translateY(-8px)}}@keyframes landingBars{from{transform:scaleY(0);transform-origin:bottom}to{transform:scaleY(1)}}
+@keyframes landingRise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes landingFloat{0%,100%{transform:rotate(1.2deg) translateY(0)}50%{transform:rotate(0deg) translateY(-10px)}}
+@keyframes landingBars{from{transform:scaleY(0);transform-origin:bottom}to{transform:scaleY(1)}}
+@keyframes heroGlow{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.7;transform:scale(1.1)}}
+@keyframes emUnderline{from{width:0}to{width:100%}}
 @media(max-width:850px){.landing-hero{grid-template-columns:1fr;gap:52px;padding-top:54px}.landing-window{max-width:600px;width:100%;margin:auto}.landing-strip-inner{grid-template-columns:repeat(2,1fr)}.landing-features{grid-template-columns:1fr}.landing-workflow .landing-section{grid-template-columns:1fr;gap:36px}.landing-cta-inner{align-items:flex-start;flex-direction:column;padding:40px 30px}.landing-nav .landing-links{display:none}}
 @media(max-width:520px){.landing-nav,.landing-hero,.landing-section,.landing-cta,.landing-strip{padding-left:20px;padding-right:20px}.landing-hero h1{font-size:48px}.landing-strip-inner{gap:16px}.landing-window-grid{gap:5px}.landing-stat{padding:8px}.landing-stat strong{font-size:17px}.landing-footer{padding-left:20px;padding-right:20px;gap:10px;flex-direction:column}}
 </style>
+
 </head>
 <body>
-<div class="offline-pill">Offline mode — changes saved locally and will sync when you reconnect</div>
+<div class="offline-pill">Offline mode - changes saved locally and will sync when you reconnect</div>
 <div id="app"></div>
 <div class="toasts" id="toasts" aria-live="polite"></div>
 <script>
 /* ============================================================
-   ARQORA — Architecture Project Operating System
+   ARQORA - Architecture Project Operating System
    Single-file offline-first PWA (MVP)
    ============================================================ */
 'use strict';
@@ -301,12 +351,12 @@ const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&
 const nowISO=()=>new Date().toISOString();
 const now=()=>Date.now();
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
-const fmtDate=(iso,opt)=>{ if(!iso) return '—'; const d=new Date(iso); if(isNaN(d)) return '—'; return d.toLocaleDateString(undefined,opt||{month:'short',day:'numeric',year:'numeric'}); };
-const fmtDateNum=iso=>{ if(!iso) return '—'; const d=new Date(iso); if(isNaN(d)) return '—'; return d.toLocaleDateString(undefined,{year:'numeric',month:'2-digit',day:'2-digit'}); };
-const fmtDateTime=iso=>{ if(!iso) return '—'; const d=new Date(iso); return d.toLocaleDateString(undefined,{month:'short',day:'numeric'})+' '+d.toLocaleTimeString(undefined,{hour:'2-digit',minute:'2-digit'}); };
+const fmtDate=(iso,opt)=>{ if(!iso) return '-'; const d=new Date(iso); if(isNaN(d)) return '-'; return d.toLocaleDateString(undefined,opt||{month:'short',day:'numeric',year:'numeric'}); };
+const fmtDateNum=iso=>{ if(!iso) return '-'; const d=new Date(iso); if(isNaN(d)) return '-'; return d.toLocaleDateString(undefined,{year:'numeric',month:'2-digit',day:'2-digit'}); };
+const fmtDateTime=iso=>{ if(!iso) return '-'; const d=new Date(iso); return d.toLocaleDateString(undefined,{month:'short',day:'numeric'})+' '+d.toLocaleTimeString(undefined,{hour:'2-digit',minute:'2-digit'}); };
 const timeAgo=iso=>{ if(!iso) return ''; const s=(now()-new Date(iso).getTime())/1000; if(s<60) return 'just now'; if(s<3600) return Math.floor(s/60)+'m ago'; if(s<86400) return Math.floor(s/3600)+'h ago'; if(s<86400*30) return Math.floor(s/86400)+'d ago'; return fmtDate(iso); };
 const relDays=iso=>{ if(!iso) return null; return Math.ceil((new Date(iso).getTime()-now())/(86400000)); };
-const fmtMoney=(n,cur)=>{ if(n==null||isNaN(n)) return '—'; const c=cur||'USD'; try{ return new Intl.NumberFormat(undefined,{style:'currency',currency:c,maximumFractionDigits:0}).format(n);}catch(e){ return c+' '+Math.round(n).toLocaleString(); } };
+const fmtMoney=(n,cur)=>{ if(n==null||isNaN(n)) return '-'; const c=cur||'USD'; try{ return new Intl.NumberFormat(undefined,{style:'currency',currency:c,maximumFractionDigits:0}).format(n);}catch(e){ return c+' '+Math.round(n).toLocaleString(); } };
 const pct=(a,b)=> b? Math.round((a/b)*100) : 0;
 const initials=name=> (name||'?').split(/\s+/).map(w=>w[0]).join('').slice(0,2).toUpperCase();
 const stripHash=h=> h.replace(/^#/,'');
@@ -413,7 +463,7 @@ async function hashPW(str){ const data=new TextEncoder().encode(str); const buf=
 /* ---------- Sync engine ---------- */
 async function enqueue(entityType,action,payload,entityId){ const rec={id:uid(),entityType,entityId:entityId||payload?.id||null,action,payload,createdAt:nowISO(),retryCount:0,status:'pending'}; await dbPut('sync_queue',rec); updatePending(); }
 async function updatePending(){ const q=await dbAll('sync_queue'); const n=q.filter(r=>r.status==='pending'||r.status==='failed').length; if(state.pendingSync!==n){ state.pendingSync=n; notify(); } }
-async function flushSync(){ if(!state.online || state.syncStatus==='syncing') return; const q=await dbAll('sync_queue'); const pending=q.filter(r=>r.status!=='synced'&&r.status!=='conflict'); if(!pending.length){ setState({syncStatus:'idle'}); return; } setState({syncStatus:'syncing'}); notify(); try{ for(const rec of pending){ rec.status='syncing'; await dbPut('sync_queue',rec); /* In a real deployment this would POST to the cloud API. Local adapter: mark synced after simulated network round-trip. */ await sleep(120); rec.status='synced'; rec.syncedAt=nowISO(); await dbPut('sync_queue',rec); await logAudit('sync',rec.action,rec.entityType,null,null); } await saveKV('lastSync',nowISO()); setState({syncStatus:'idle'}); toast('All changes synced to the cloud','ok'); }catch(e){ setState({syncStatus:'error'}); toast('Sync failed — '+(e.message||'network error'),'err'); } updatePendingTree(); }
+async function flushSync(){ if(!state.online || state.syncStatus==='syncing') return; const q=await dbAll('sync_queue'); const pending=q.filter(r=>r.status!=='synced'&&r.status!=='conflict'); if(!pending.length){ setState({syncStatus:'idle'}); return; } setState({syncStatus:'syncing'}); notify(); try{ for(const rec of pending){ rec.status='syncing'; await dbPut('sync_queue',rec); /* In a real deployment this would POST to the cloud API. Local adapter: mark synced after simulated network round-trip. */ await sleep(120); rec.status='synced'; rec.syncedAt=nowISO(); await dbPut('sync_queue',rec); await logAudit('sync',rec.action,rec.entityType,null,null); } await saveKV('lastSync',nowISO()); setState({syncStatus:'idle'}); toast('All changes synced to the cloud','ok'); }catch(e){ setState({syncStatus:'error'}); toast('Sync failed - '+(e.message||'network error'),'err'); } updatePendingTree(); }
 async function saveKV(k,v){ await dbPut('kv',{id:k,value:v}); }
 async function getKV(k){ const r=await dbGet('kv',k); return r?r.value:null; }
 
@@ -530,7 +580,7 @@ async function seedDemo(workspaceId,ownerId,ownerName){ const t=nowISO(); const 
   await dbBulk('tasks',[
     {id:'t-1',projectId,title:'Review facade material samples',description:'Confirm final facade cladding material with client.',phase:'Construction',assigneeId:'u-arch',priority:'High',status:'In Progress',dueDate:addDays(t,2),estimatedHours:8,actualHours:3,checklist:[{id:'c1',label:'Collect samples',done:true},{id:'c2',label:'Client review',done:false}],createdAt:t,createdBy:'u-arch',createdByName:'Olivia Bennett'},
     {id:'t-2',projectId,title:'MEP coordination meeting',description:'Coordinate duct routing with structural beams.',phase:'Construction',assigneeId:'u-consult',priority:'Critical',status:'To Do',dueDate:addDays(t,0),estimatedHours:4,actualHours:0,createdAt:t},
-    {id:'t-3',projectId,title:'Punch list — living room walls',description:'Fix hairline cracks in living room wall finishes.',phase:'Construction',assigneeId:'u-contractor',priority:'High',status:'In Progress',dueDate:addDays(t,4),estimatedHours:12,actualHours:5,createdAt:t},
+    {id:'t-3',projectId,title:'Punch list - living room walls',description:'Fix hairline cracks in living room wall finishes.',phase:'Construction',assigneeId:'u-contractor',priority:'High',status:'In Progress',dueDate:addDays(t,4),estimatedHours:12,actualHours:5,createdAt:t},
     {id:'t-4',projectId,title:'Submit revised window schedule',description:'Update window schedule to Rev 04.',phase:'Construction Documentation',assigneeId:'u-designer',priority:'Medium',status:'Review',dueDate:addDays(t,-1),estimatedHours:6,actualHours:6,createdAt:t},
     {id:'t-5',projectId,title:'Kitchen joinery shop drawings',description:'Prepare shop drawings for millwork.',phase:'Construction',assigneeId:'u-designer',priority:'Medium',status:'Backlog',dueDate:addDays(t,8),estimatedHours:20,actualHours:0,createdAt:t},
   ]);
@@ -545,13 +595,13 @@ async function seedDemo(workspaceId,ownerId,ownerName){ const t=nowISO(); const 
   ];
   await dbBulk('drawings',drawings);
   const revs=[];
-  drawings.forEach(d=>{ for(let i=1;i<=parseInt(d.revision.slice(-1));i++){ revs.push({id:'dr-'+d.id+'-'+i,drawingId:d.id,revisionNumber:'Rev '+String(i).padStart(2,'0'),date:addDays(d.date,(i-1)*60),author:d.author,description:'Revision '+i+' — '+(i<parseInt(d.revision.slice(-1))?'Update drawings':'Current issue'),status:i===parseInt(d.revision.slice(-1))? d.status:'Superseded',createdAt:t}); }});
+  drawings.forEach(d=>{ for(let i=1;i<=parseInt(d.revision.slice(-1));i++){ revs.push({id:'dr-'+d.id+'-'+i,drawingId:d.id,revisionNumber:'Rev '+String(i).padStart(2,'0'),date:addDays(d.date,(i-1)*60),author:d.author,description:'Revision '+i+' - '+(i<parseInt(d.revision.slice(-1))?'Update drawings':'Current issue'),status:i===parseInt(d.revision.slice(-1))? d.status:'Superseded',createdAt:t}); }});
   await dbBulk('drawing_revisions',revs);
   await dbBulk('documents',[
     {id:'doc-1',projectId,name:'Architectural Specifications.pdf',category:'Specifications',version:1,size:'4.2 MB',uploadedBy:'Mateo Silva',tags:['spec','final'],createdAt:t},
     {id:'doc-2',projectId,name:'IMB Permit.pdf',category:'Permits',version:1,size:'1.8 MB',uploadedBy:'Olivia Bennett',tags:['permit'],createdAt:t},
     {id:'doc-3',projectId,name:'Construction Contract.docx',category:'Contracts',version:2,size:'620 KB',uploadedBy:'Olivia Bennett',tags:['contract'],createdAt:t},
-    {id:'doc-4',projectId,name:'Meeting Minutes — Week 32.pdf',category:'Meeting Minutes',version:1,size:'310 KB',uploadedBy:'Olivia Bennett',tags:['meeting'],createdAt:t},
+    {id:'doc-4',projectId,name:'Meeting Minutes - Week 32.pdf',category:'Meeting Minutes',version:1,size:'310 KB',uploadedBy:'Olivia Bennett',tags:['meeting'],createdAt:t},
   ]);
   await dbBulk('budget_items',[
     {id:'b-1',projectId,category:'Design',name:'Design fees',estimated:180000000,committed:180000000,actual:175000000,createdAt:t},
@@ -579,7 +629,7 @@ async function seedDemo(workspaceId,ownerId,ownerName){ const t=nowISO(); const 
   ]);
   await dbBulk('issues',[
     {id:'iss-1',projectId,title:'Water seepage at terrace junction',description:'Water pooling at the terrace to living room junction after rain.',location:'Ground floor terrace',category:'Quality',priority:'High',status:'Open',assignedId:'u-contractor',dueDate:addDays(t,3),createdAt:t,createdByName:'Jordan Lee'},
-    {id:'iss-2',projectId,title:'Delayed window delivery',description:'Aluminium frames delayed by 2 weeks from vendor.',location:'—',category:'Schedule',priority:'Critical',status:'In Progress',assignedId:'u-arch',dueDate:addDays(t,1),createdAt:t,createdByName:'Olivia Bennett'},
+    {id:'iss-2',projectId,title:'Delayed window delivery',description:'Aluminium frames delayed by 2 weeks from vendor.',location:'-',category:'Schedule',priority:'Critical',status:'In Progress',assignedId:'u-arch',dueDate:addDays(t,1),createdAt:t,createdByName:'Olivia Bennett'},
     {id:'iss-3',projectId,title:'Hairline cracks in plaster',description:'Fine cracks observed on living room wall.',location:'Living room',category:'Quality',priority:'Medium',status:'Resolved',assignedId:'u-contractor',dueDate:addDays(t,-2),createdAt:t,createdByName:'Jordan Lee'},
   ]);
   await dbBulk('rfis',[
@@ -600,17 +650,17 @@ async function seedDemo(workspaceId,ownerId,ownerName){ const t=nowISO(); const 
     {id:'co-2',number:'CO-001',projectId,title:'Additional pendant lighting outlets',description:'Add 4 lighting outlets in living and dining.',reason:'Client request',requestedBy:'Sophia Laurent',costImpact:12500000,scheduleImpact:2,status:'Approved',createdAt:t,scope:'Design'},
   ]);
   await dbBulk('approvals',[
-    {id:'ap-1',entityType:'Drawing',entityId:'d-101',projectId,title:'A-101 Ground Floor Plan — Rev 04',requestedBy:'Mateo Silva',reviewer:'Olivia Bennett',status:'Approved',comment:'Approved for construction.',version:'Rev 04',date:'2025-09-15',createdAt:t},
+    {id:'ap-1',entityType:'Drawing',entityId:'d-101',projectId,title:'A-101 Ground Floor Plan - Rev 04',requestedBy:'Mateo Silva',reviewer:'Olivia Bennett',status:'Approved',comment:'Approved for construction.',version:'Rev 04',date:'2025-09-15',createdAt:t},
     {id:'ap-2',entityType:'Change Order',entityId:'co-2',projectId,title:'CO-001 Additional lighting outlets',requestedBy:'Olivia Bennett',reviewer:'Sophia Laurent',status:'Approved',comment:'Client approved.',createdAt:t},
     {id:'ap-3',entityType:'Design',entityId:'do-2',projectId,title:'Kitchen island revision',requestedBy:'Mateo Silva',reviewer:'Sophia Laurent',status:'Pending',createdAt:t},
     {id:'ap-4',entityType:'Material',entityId:'m-2',projectId,title:'Aluminium window frames sample',requestedBy:'PT Alumindo',reviewer:'Olivia Bennett',status:'Pending',createdAt:t},
   ]);
   await dbBulk('design_options',[
-    {id:'do-1',projectId,name:'Option A — Courtyard focus',description:'Open plan with central courtyard.',status:'Superseded',revision:2,images:[],createdAt:t},
-    {id:'do-2',projectId,name:'Option B — Linear living',description:'Primary concept. Linear living with north-facing glazing.',status:'Client Review',revision:3,images:[],createdAt:t},
+    {id:'do-1',projectId,name:'Option A - Courtyard focus',description:'Open plan with central courtyard.',status:'Superseded',revision:2,images:[],createdAt:t},
+    {id:'do-2',projectId,name:'Option B - Linear living',description:'Primary concept. Linear living with north-facing glazing.',status:'Client Review',revision:3,images:[],createdAt:t},
   ]);
   await dbBulk('discussions',[
-    {id:'disc-1',projectId,attachedType:'Drawing',attachedId:'d-102',title:'A-102 First Floor Plan — Rev 03',createdAt:t},
+    {id:'disc-1',projectId,attachedType:'Drawing',attachedId:'d-102',title:'A-102 First Floor Plan - Rev 03',createdAt:t},
   ]);
   await dbBulk('discussion_messages',[
     {id:'dm-1',discussionId:'disc-1',userId:'u-client',userName:'Sophia Laurent',text:'Please move the kitchen island 400mm toward the window.',createdAt:addDays(t,-2)+'T10:30:00.000Z',attachment:null},
@@ -649,15 +699,15 @@ function addDays(base,days){ const d=base instanceof Date?base:new Date(base); i
    AUTH / ONBOARDING UI
    ============================================================ */
 function renderAuth(mode){ const app=$('#app'); const isLogin=mode==='login'; const isReset=mode==='reset'; const isForgot=mode==='forgot';
-  app.innerHTML=`<div style="min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:24px;background:var(--bg)">
-    <div style="width:100%;max-width:400px">
+  app.innerHTML=`<div style="min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:24px;background:radial-gradient(circle at 80% 10%,rgba(200,85,43,.08),transparent 40%),radial-gradient(circle at 20% 90%,rgba(43,98,160,.05),transparent 35%),var(--bg)">
+    <div style="width:100%;max-width:410px">
       <div style="text-align:center;margin-bottom:32px">
-        <div style="width:52px;height:52px;margin:0 auto 14px;border-radius:12px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center">${icon('logo',28)}</div>
-        <h1 style="font-size:22px;font-weight:800;letter-spacing:-.02em;margin:0">ARQORA</h1>
-        <p style="color:var(--text-3);font-size:13px;margin:4px 0 0">Architecture Project Operating System</p>
+        <div style="width:56px;height:56px;margin:0 auto 14px;border-radius:14px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 32px var(--accent-glow);animation:landingRise .6s both">${icon('logo',30)}</div>
+        <h1 style="font-size:23px;font-weight:800;letter-spacing:-.02em;margin:0;animation:landingRise .6s .08s both">ARQORA</h1>
+        <p style="color:var(--text-3);font-size:13px;margin:4px 0 0;animation:landingRise .6s .12s both">Architecture Project Operating System</p>
       </div>
-      <div class="card" style="border-radius:var(--radius-lg)">
-        <div class="card-body" style="padding:26px">
+      <div class="card" style="border-radius:var(--radius-lg);animation:landingRise .6s .16s both;box-shadow:var(--shadow-lg)">
+        <div class="card-body" style="padding:28px">
           ${isLogin?`<h2 style="margin:0 0 4px;font-size:17px">Welcome back</h2><p style="color:var(--text-3);margin:0 0 20px;font-size:13px">Sign in to your workspace.</p>`
           :isForgot?`<h2 style="margin:0 0 4px;font-size:17px">Reset password</h2><p style="color:var(--text-3);margin:0 0 20px;font-size:13px">Enter your email to receive a reset link.</p>`
           :isReset?`<h2 style="margin:0 0 4px;font-size:17px">Set new password</h2><p style="color:var(--text-3);margin:0 0 20px;font-size:13px">Choose a new password for your account.</p>`
@@ -713,16 +763,17 @@ function renderOnboarding(){ const app=$('#app');
 }
 
 function renderLanding(){ const app=$('#app'); app.innerHTML=`<div class="landing">
-  <nav class="landing-nav"><a class="landing-brand" href="#" onclick="event.preventDefault();renderLanding()"><span class="landing-brand-mark">${icon('logo',17)}</span>ARQORA</a><div class="landing-links"><a href="#capabilities">Capabilities</a><a href="#workflow">How it works</a><a href="#/dashboard" onclick="enterApp(event)">Sign in</a><button class="btn btn-primary btn-sm" onclick="enterApp(event)">Open workspace ${icon('arrow',14)}</button></div><button class="btn btn-primary btn-sm" onclick="enterApp(event)">Open workspace</button></nav>
+  <nav class="landing-nav"><a class="landing-brand" href="#" onclick="event.preventDefault();renderLanding()"><span class="landing-brand-mark">${icon('logo',17)}</span>ARQORA</a><div class="landing-links"><a href="#capabilities">Capabilities</a><a href="#workflow">How it works</a><a href="#/dashboard" onclick="enterApp(event)">Sign in</a><button class="btn btn-primary btn-sm" onclick="enterApp(event)">Open workspace ${icon('arrowR',14)}</button></div></nav>
   <main>
-    <section class="landing-hero"><div><div class="landing-kicker"><i></i>Architecture operations, reimagined</div><h1>Move every project <em>forward.</em></h1><p class="landing-lede">ARQORA connects design, documentation, construction, and delivery in one calm command center built for ambitious studios.</p><div class="landing-actions"><button class="btn btn-primary btn-lg" onclick="enterApp(event)">Explore the workspace ${icon('arrow',16)}</button><a class="btn btn-lg" href="#capabilities">See what’s inside</a></div><div class="landing-note"><span>✓</span> No setup required · Explore the demo workspace</div></div><div class="landing-window"><div class="landing-window-bar"><i class="landing-dot"></i><i class="landing-dot"></i><i class="landing-dot"></i><span style="margin-left:auto;font-size:10px;color:var(--text-3)">NORTHSTAR STUDIO / OVERVIEW</span></div><div class="landing-window-body"><div class="landing-window-label">Portfolio pulse</div><div class="landing-window-title">Good morning, studio.</div><div class="landing-window-grid"><div class="landing-stat"><strong>03</strong><small>Active projects</small></div><div class="landing-stat"><strong>68%</strong><small>On track</small></div><div class="landing-stat"><strong>12</strong><small>Open actions</small></div></div><div class="landing-chart"><i></i><i></i><i></i><i></i><i></i><i></i></div><div style="display:flex;justify-content:space-between;margin-top:14px;font-size:11px;color:var(--text-3)"><span>Project momentum</span><strong style="color:var(--ok)">↑ 24.8%</strong></div></div></div></section>
+    <section class="landing-hero"><div><div class="landing-kicker"><i></i>Architecture operations, reimagined</div><h1>Move every project <em>forward.</em></h1><p class="landing-lede">ARQORA connects design, documentation, construction, and delivery in one calm command center built for ambitious studios.</p><div class="landing-actions"><button class="btn btn-primary btn-lg" onclick="enterApp(event)">Explore the workspace ${icon('arrowR',16)}</button><a class="btn btn-lg" href="#capabilities">See what’s inside</a></div><div class="landing-note"><span>✓</span> No setup required · Explore the demo workspace</div></div><div class="landing-window"><div class="landing-window-bar"><i class="landing-dot"></i><i class="landing-dot"></i><i class="landing-dot"></i><span style="margin-left:auto;font-size:10px;color:var(--text-3)">NORTHSTAR STUDIO / OVERVIEW</span></div><div class="landing-window-body"><div style="display:flex;align-items:center;justify-content:space-between"><div><div class="landing-window-label">Portfolio pulse</div><div class="landing-window-title">Good morning, studio.</div></div><span class="badge b-ok" style="font-size:10px"><span class="dot"></span>Live</span></div><div class="landing-window-grid"><div class="landing-stat"><strong>03</strong><small>Active projects</small></div><div class="landing-stat"><strong>68%</strong><small>On track</small></div><div class="landing-stat"><strong>12</strong><small>Open actions</small></div></div><div class="landing-chart"><i></i><i></i><i></i><i></i><i></i><i></i></div><div style="display:flex;justify-content:space-between;margin-top:14px;font-size:11px;color:var(--text-3)"><span>Project momentum</span><strong style="color:var(--ok)">↑ 24.8%</strong></div></div></div></section>
     <div class="landing-strip"><div class="landing-strip-inner"><div class="landing-strip-item"><span>${icon('grid',18)}</span><div><b>One source</b>for every project</div></div><div class="landing-strip-item"><span>${icon('timeline',18)}</span><div><b>Every phase</b>connected</div></div><div class="landing-strip-item"><span>${icon('users',18)}</span><div><b>Every voice</b>aligned</div></div><div class="landing-strip-item"><span>${icon('check',18)}</span><div><b>Nothing</b>falls through</div></div></div></div>
     <section class="landing-section" id="capabilities"><div class="landing-eyebrow">The operating layer</div><h2>Clarity for the work that matters.</h2><p class="landing-section-intro">From the first brief to the final handover, ARQORA gives your team one shared view of what is happening, what needs attention, and what comes next.</p><div class="landing-features"><article class="landing-feature"><div class="landing-feature-mark">${icon('grid',19)}</div><h3>See the whole picture</h3><p>Portfolio-level visibility with the detail to move from a strategic decision to the exact task behind it.</p></article><article class="landing-feature"><div class="landing-feature-mark">${icon('draw',19)}</div><h3>Keep design connected</h3><p>Drawings, options, approvals, and conversations stay close to the decisions they support.</p></article><article class="landing-feature"><div class="landing-feature-mark">${icon('crane',19)}</div><h3>Deliver with confidence</h3><p>Turn site updates, issues, RFIs, and handover checklists into a reliable project rhythm.</p></article></div></section>
     <section class="landing-workflow" id="workflow"><div class="landing-section"><div><div class="landing-eyebrow">One connected rhythm</div><h2>Less chasing. More building.</h2><p class="landing-section-intro">A considered workflow for studios that want their tools to feel as thoughtful as their work.</p></div><div class="landing-steps"><div class="landing-step"><span class="landing-step-num">01</span><div><h3>Frame the brief</h3><p>Give every project a clear starting point, shared context, and accountable team.</p></div></div><div class="landing-step"><span class="landing-step-num">02</span><div><h3>Coordinate the work</h3><p>Bring decisions, deliverables, dependencies, and timelines into one living view.</p></div></div><div class="landing-step"><span class="landing-step-num">03</span><div><h3>Close the loop</h3><p>Capture what happened on site and carry momentum all the way through handover.</p></div></div></div></div></section>
-    <section class="landing-cta"><div class="landing-cta-inner"><div><h2>Your next project starts with a clearer view.</h2><p>Step into the ARQORA demo workspace and explore the full operating system.</p></div><button class="btn" onclick="enterApp(event)">Enter ARQORA ${icon('arrow',16)}</button></div></section>
+    <section class="landing-cta"><div class="landing-cta-inner"><div><h2>Your next project starts with a clearer view.</h2><p>Step into the ARQORA demo workspace and explore the full operating system.</p></div><button class="btn" onclick="enterApp(event)">Enter ARQORA ${icon('arrowR',16)}</button></div></section>
   </main><footer class="landing-footer"><span><strong>ARQORA</strong> · Architecture Project Operating System</span><span>From concept to construction.</span></footer>
-</div>`; window.scrollTo(0,0); }
+</div>`; window.scrollTo(0,0); setTimeout(initScrollReveal,50); }
 window.enterApp=function(e){ if(e) e.preventDefault(); location.hash='#/dashboard'; renderFull(); window.scrollTo(0,0); };
+function initScrollReveal(){ const els=document.querySelectorAll('.landing-section,.landing-feature,.landing-step,.landing-strip-item,.landing-cta-inner'); const io=new IntersectionObserver((entries)=>{ entries.forEach(en=>{ if(en.isIntersecting){ en.target.style.opacity='1'; en.target.style.transform='translateY(0)'; io.unobserve(en.target); } }); },{threshold:.12,rootMargin:'0px 0px -40px 0px'}); els.forEach((el,i)=>{ el.style.opacity='0'; el.style.transform='translateY(24px)'; el.style.transition='opacity .6s var(--ease-out),transform .6s var(--ease-out)'; el.style.transitionDelay=(i%4)*80+'ms'; io.observe(el); }); }
 
 /* ============================================================
    APP SHELL
@@ -850,7 +901,7 @@ function openUserMenu(){ const menu=document.createElement('div'); menu.style.cs
   <button class="menu-item" onclick="closeAllModals();openSyncPanel()">${icon('wifi')} Sync status</button>
   <button class="menu-item danger" onclick="signOut()">${icon('logout')} Sign out</button></div>`; menu.addEventListener('click',e=>{ if(e.target===menu) menu.remove(); }); document.body.appendChild(menu); }
 window.gotoProfile=()=>{ closeAllModals(); location.hash='#/settings'; navigate(); };
-function toggleSiteMode(){ setState({siteMode:!state.siteMode}); closeAllModals(); if(state.siteMode){ const pid=state.project?.id; if(pid){ location.hash='#/projects/'+pid+'/site-diary'; navigate(); } else { navigate(); } toast('Site mode activated — optimized for field use','ok'); } else { toast('Site mode disabled','warn'); navigate(); } }
+function toggleSiteMode(){ setState({siteMode:!state.siteMode}); closeAllModals(); if(state.siteMode){ const pid=state.project?.id; if(pid){ location.hash='#/projects/'+pid+'/site-diary'; navigate(); } else { navigate(); } toast('Site mode activated - optimized for field use','ok'); } else { toast('Site mode disabled','warn'); navigate(); } }
 
 function openMobileMenu(){ openModal(`<div class="modal-head"><h3 style="margin:0">Navigation</h3><button class="iconbtn" onclick="closeAllModals()">${icon('close')}</button></div><div class="modal-body" style="padding:10px">${NAV.map(n=>`<button class="menu-item" onclick="closeAllModals();location.hash='#${n.r}';navigate()">${icon(n.i)} ${n.l}</button>`).join('')}<div class="divider"></div><button class="menu-item" onclick="closeAllModals();location.hash='#/settings';navigate()">${icon('gear')} Settings</button><button class="menu-item danger" onclick="signOut()">${icon('logout')} Sign out</button></div>`); }
 
@@ -874,10 +925,10 @@ async function openCommandPalette(){ closeAllModals(); setState({cmdOpen:true});
   const [projects,tasks,drawings,docs,issues,rfis]=await Promise.all([dbAll('projects'),dbAll('tasks'),dbAll('drawings'),dbAll('documents'),dbAll('issues'),dbAll('rfis')]);
   projects.forEach(p=>all.push({type:'Project',icon:'folder',title:p.name,sub:p.code+' · '+p.status,action:()=>{location.hash='#/projects/'+p.id;navigate();}}));
   tasks.forEach(t=>all.push({type:'Task',icon:'check',title:t.title,sub:((projects.find(p=>p.id===t.projectId)||{}).name||'')+' · '+t.status,action:()=>{if(t.projectId){location.hash='#/projects/'+t.projectId+'/tasks';navigate();}}}));
-  drawings.forEach(d=>all.push({type:'Drawing',icon:'draw',title:d.number+' — '+d.title,sub:d.revision+' · '+d.status,action:()=>{location.hash='#/projects/'+d.projectId+'/drawings';navigate();}}));
+  drawings.forEach(d=>all.push({type:'Drawing',icon:'draw',title:d.number+' - '+d.title,sub:d.revision+' · '+d.status,action:()=>{location.hash='#/projects/'+d.projectId+'/drawings';navigate();}}));
   docs.forEach(d=>all.push({type:'Document',icon:'doc',title:d.name,sub:d.category,action:()=>{location.hash='#/projects/'+d.projectId+'/documents';navigate();}}));
   issues.forEach(ii=>all.push({type:'Issue',icon:'warn',title:ii.title,sub:ii.status,action:()=>{location.hash='#/projects/'+ii.projectId+'/issues';navigate();}}));
-  rfis.forEach(r=>all.push({type:'RFI',icon:'q',title:r.number+' — '+r.subject,sub:r.status,action:()=>{location.hash='#/projects/'+r.projectId+'/rfis';navigate();}}));
+  rfis.forEach(r=>all.push({type:'RFI',icon:'q',title:r.number+' - '+r.subject,sub:r.status,action:()=>{location.hash='#/projects/'+r.projectId+'/rfis';navigate();}}));
   // quick actions
   const qa=[{type:'Action',icon:'plus',title:'Create Task',action:()=>{back.remove();openTaskForm()}},{type:'Action',icon:'warn',title:'Create Issue',action:()=>{back.remove();openIssueForm()}},{type:'Action',icon:'book',title:'Add Site Diary',action:()=>{back.remove();openDiaryForm()}}];
   function render(list){ res.innerHTML=list.length? list.map((r,i)=>`<button class="cmd-item ${i===0?'sel':''}" data-i="${i}"><span style="color:var(--accent)">${icon(r.icon)}</span><span>${esc(r.title)}</span><span class="muted" style="font-size:11px">${esc(r.type)} · ${esc(r.sub||'')}</span><span class="kbd">↵</span></button>`).join('') : '<div class="empty" style="padding:30px">No results.</div>'; $$('.cmd-item',res).forEach(b=>b.onclick=()=>{ const r=list[+b.getAttribute('data-i')]; back.remove(); if(r.action) r.action(); }); }
@@ -896,7 +947,7 @@ function openQuickAdd(){ const p=state.project; if(!p && stripHash(location.hash
     {icon:'check',l:'Task',fn:()=>openTaskForm(p)},{icon:'crane',l:'Update Progress',fn:()=>openProgressForm(p)},{icon:'q',l:'RFI',fn:()=>openRFIForm(p)},
     {icon:'clipboard',l:'Inspection',fn:()=>openInspectionForm(p)},{icon:'box',l:'Material',fn:()=>openMaterialForm(p)},
   ];
-  openModal(`<div class="modal-head"><h3 style="margin:0;font-size:15px">Quick add${p?' — '+esc(p.name):''}</h3><button class="iconbtn" onclick="closeAllModals()">${icon('close')}</button></div>
+  openModal(`<div class="modal-head"><h3 style="margin:0;font-size:15px">Quick add${p?' - '+esc(p.name):''}</h3><button class="iconbtn" onclick="closeAllModals()">${icon('close')}</button></div>
   <div class="modal-body" style="padding:12px;display:grid;grid-template-columns:repeat(2,1fr);gap:8px">
   ${actions.map(a=>`<button class="menu-item" style="border:1px solid var(--border);border-radius:var(--radius);padding:16px;flex-direction:column;align-items:center;gap:8px;justify-content:center" data-qa="${a.l}"><span style="width:40px;height:40px;border-radius:10px;background:var(--surface-2);display:flex;align-items:center;justify-content:center;color:var(--accent)">${icon(a.icon,20)}</span><span style="font-size:13px;font-weight:600">${a.l}</span></button>`).join('')}
   </div>`);
@@ -914,7 +965,7 @@ function progressBar(p,cls){ const c=cls||(p>=70?'p-ok':p>=40?'p-warn':'p-danger
 </script>
 <script>
 /* ============================================================
-   ROUTES — GLOBAL
+   ROUTES - GLOBAL
    ============================================================ */
 async function routeGlobal(h){ const app=$('#app'); const c=$('#maincontent'); if(!c) return; loadGlobalSidebar();
   const seg=h.split('/').filter(Boolean);
@@ -947,10 +998,10 @@ async function renderDashboard(c){ const ws=state.workspace; const projects=(awa
   recentAct.sort((a,b)=>b.timestamp.localeCompare(a.timestamp));
   const recentDocs=await dbFilter('documents',d=>projects.some(p=>p.id===d.projectId)); recentDocs.sort((a,b)=>b.createdAt.localeCompare(a.createdAt));
 
-  const stat=(n,v,iconName,sub,cls)=>`<div class="card" data-nav-to="/projects" style="cursor:pointer"><div class="card-body"><div style="display:flex;justify-content:space-between;align-items:flex-start"><div><div class="mini">${esc(v)}</div><div style="font-size:24px;font-weight:800;letter-spacing:-.02em">${n}</div>${sub?`<div class="muted" style="margin-top:4px">${sub}</div>`:''}</div><div style="color:${cls||'var(--accent)'}">${icon(iconName,22)}</div></div></div></div>`;
+  const stat=(n,v,iconName,sub,cls)=>`<div class="card" data-nav-to="/projects" style="cursor:pointer;overflow:hidden;position:relative"><div class="card-body" style="position:relative;z-index:1"><div style="display:flex;justify-content:space-between;align-items:flex-start"><div><div class="mini">${esc(v)}</div><div style="font-size:26px;font-weight:800;letter-spacing:-.03em;line-height:1.1">${n}</div>${sub?`<div class="muted" style="margin-top:5px;font-size:11px">${sub}</div>`:''}</div><div style="width:40px;height:40px;border-radius:10px;display:flex;align-items:center;justify-content:center;background:color-mix(in srgb,${cls||'var(--accent)'} 12%,transparent);color:${cls||'var(--accent)'}">${icon(iconName,20)}</div></div></div></div>`;
 
   c.innerHTML = `
-  <div style="margin-bottom:20px"><h1 style="font-size:24px;font-weight:800;letter-spacing:-.02em;margin:0">Good ${greeting()}, ${esc(firstName(state.user.name))}</h1><p class="muted" style="margin:4px 0 0">Here's what needs your attention across ${esc(ws.name)}.</p></div>
+  <div style="margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px"><div><h1 style="font-size:26px;font-weight:800;letter-spacing:-.03em;margin:0;line-height:1.1">Good ${greeting()}, ${esc(firstName(state.user.name))}</h1><p class="muted" style="margin:5px 0 0;font-size:13px">Here's what needs your attention across ${esc(ws.name)}.</p></div><div style="display:flex;gap:8px"><button class="btn btn-ghost btn-sm" onclick="openCmd()">${icon('search',15)} Search</button><button class="btn btn-primary btn-sm" onclick="openProjectWizard()">${icon('plus',15)} New Project</button></div></div>
   ${!state.online?'<div class="banner offline">'+icon('wifiOff')+' You are offline. Your work is saved locally and will sync when you reconnect.</div>':''}
   <div class="grid g4" style="margin-bottom:18px">
     ${stat(projects.length,'Active projects','folder')}
@@ -993,7 +1044,7 @@ async function renderProjects(c){ const ps=(await dbFilter('projects',p=>p.works
   + (archived.length? `<div class="section-title">Archived</div><div class="hgrid">${archived.map(p=>projectCard(p)).join('')}</div>`:'');
   $$('#app .projcard').forEach(el=>el.onclick=()=>{ location.hash='#/projects/'+el.getAttribute('data-id'); renderFull(); });
 }
-function projectCard(p){ const prog=p.progress||0; return `<div class="card projcard" data-id="${p.id}" style="cursor:pointer;transition:.15s"><div class="card-body">
+function projectCard(p){ const prog=p.progress||0; const healthColor=p.health==='at_risk'?'var(--danger)':p.health==='attention'?'var(--warn)':'var(--ok)'; return `<div class="card projcard" data-id="${p.id}" style="cursor:pointer;overflow:hidden;position:relative"><div style="position:absolute;top:0;left:0;right:0;height:3px;background:${healthColor};opacity:.8"></div><div class="card-body">
   <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px"><div style="min-width:0;flex:1"><div class="truncate" style="font-weight:700;font-size:15px">${esc(p.name)}</div><div class="muted" style="font-size:12px">${esc(p.code)} · ${esc(p.type)}</div></div>${healthBadge(p.health)}</div>
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px"><span class="mini">${esc(p.status)}</span><span style="font-weight:700;font-size:18px">${prog}%</span></div>
   ${progressBar(prog)}
@@ -1004,7 +1055,7 @@ function projectCard(p){ const prog=p.progress||0; return `<div class="card proj
 /* ---------- Project creation wizard ---------- */
 function openProjectWizard(){ let step=1; const data={};
   function render(){ const title=['Project','Client','Site','Schedule','Budget','Team','Brief','Review'];
-    openModal(`<div class="modal-head"><div><h3 style="margin:0;font-size:15px">New Project</h3><div class="muted" style="font-size:11px">Step ${step} of 8 — ${title[step-1]}</div></div><button class="iconbtn" onclick="closeAllModals()">${icon('close')}</button></div>
+    openModal(`<div class="modal-head"><div><h3 style="margin:0;font-size:15px">New Project</h3><div class="muted" style="font-size:11px">Step ${step} of 8 - ${title[step-1]}</div></div><button class="iconbtn" onclick="closeAllModals()">${icon('close')}</button></div>
     <div class="modal-body" id="wizbody">${stepBody()}</div>
     <div class="modal-foot"><button class="btn" id="wizback" ${step===1?'disabled':''}>Back</button><button class="btn btn-primary" id="wiznext">${step===8?'Finish':step===7?'Create Project':'Next'}</button></div>`,{w:620});
     $('#wizback').onclick=()=>{ if(step>1){ step--; render(); } };
@@ -1021,7 +1072,7 @@ function openProjectWizard(){ let step=1; const data={};
     if(step===5) return `<div class="row"><div class="field"><label>Estimated budget</label><input id="estimatedBudget" type="number" placeholder="4250000000"/></div><div class="field"><label>Currency</label><select id="currency"><option>USD</option><option>USD</option><option>EUR</option><option>SGD</option><option>MYR</option><option>GBP</option></select></div></div>`;
     if(step===6) return `<div class="field"><label>Project manager</label><select id="pmId">${teamOptions()}</select></div><div class="field"><label>Team members</label><div id="memberchips" class="pillfield"></div></div>`;
     if(step===7) return `<div class="field"><label>Project objectives</label><textarea id="objectives"></textarea></div><div class="field"><label>Requirements</label><textarea id="requirements"></textarea></div><div class="field"><label>Constraints</label><textarea id="constraints"></textarea></div>`;
-    if(step===8) return `<div style="font-size:13px">${reviewRow('Name',data.name||'—')}${reviewRow('Code',data.code||'—')}${reviewRow('Type',data.type||'—')}${reviewRow('Status',data.status||'Planning')}${reviewRow('Client',(data.clientName||'—')+' '+(data.clientCompany?'· '+data.clientCompany:''))}${reviewRow('Location',[data.city,data.country].filter(Boolean).join(', ')||'—')}${reviewRow('Schedule',(data.startDate||'—')+' → '+(data.targetDate||'—'))}${reviewRow('Budget',(data.estimatedBudget?fmtMoney(+data.estimatedBudget,data.currency||'USD'):'—'))}${reviewRow('Team',data.pm? 'PM: '+data.pm : '—')}</div>`;
+    if(step===8) return `<div style="font-size:13px">${reviewRow('Name',data.name||'-')}${reviewRow('Code',data.code||'-')}${reviewRow('Type',data.type||'-')}${reviewRow('Status',data.status||'Planning')}${reviewRow('Client',(data.clientName||'-')+' '+(data.clientCompany?'· '+data.clientCompany:''))}${reviewRow('Location',[data.city,data.country].filter(Boolean).join(', ')||'-')}${reviewRow('Schedule',(data.startDate||'-')+' → '+(data.targetDate||'-'))}${reviewRow('Budget',(data.estimatedBudget?fmtMoney(+data.estimatedBudget,data.currency||'USD'):'-'))}${reviewRow('Team',data.pm? 'PM: '+data.pm : '-')}</div>`;
   }
   function reviewRow(k,v){ return `<div style="display:flex;padding:9px 0;border-bottom:1px solid var(--border)"><span class="muted" style="width:130px;flex-shrink:0">${esc(k)}</span><span style="font-weight:500">${esc(v)}</span></div>`; }
   function teamOptions(){ return ['Olivia Bennett','Mateo Silva','Jordan Lee','Meridian Build Co.','Sophia Laurent','Daniel Okafor'].map(n=>`<option value="${n}">${n}</option>`).join(''); }
@@ -1179,7 +1230,7 @@ function wrapProjectContext(p, html, sec){ const seg=stripHash(location.hash).sp
   const tabs = PROJNAV.map(n=>`<button class="tab ${mySec===n.r?'active':''}" data-pnav="${n.r}">${esc(n.l)}</button>`).join('');
   const inDesktop = window.innerWidth>900;
   return `<div>
-    ${state.siteMode?'<div class="banner" style="background:var(--accent-soft);color:var(--accent-text)">'+icon('hardhat')+' <b>Site Mode</b> — optimized for field use, works offline</div>':''}
+    ${state.siteMode?'<div class="banner" style="background:var(--accent-soft);color:var(--accent-text)">'+icon('hardhat')+' <b>Site Mode</b> - optimized for field use, works offline</div>':''}
     <div style="margin-bottom:14px;${inDesktop?'':'overflow-x:auto'}">
       ${inDesktop?`<div class="tabs" style="flex-wrap:wrap">${tabs}</div>`:`<div class="tabs" style="white-space:nowrap">${tabs}</div>`}
     </div>
@@ -1236,7 +1287,7 @@ async function renderProjectOverview(p){ const tasks=await dbFilter('tasks',t=>t
   + (recentAct.length? `<div class="section-title">Recent activity</div><div class="card"><div class="card-body" style="padding:6px 16px">${recentAct.slice(0,6).map(a=>`<div style="display:flex;gap:12px;padding:9px 0;border-bottom:1px solid var(--border)"><span class="avatar" style="background:${pickColor(a.userName||'')}">${initials(a.userName)}</span><div style="flex:1"><span style="font-weight:500">${esc(a.userName)}</span> <span class="muted">${esc(a.action)} <b style="color:var(--text)">${esc(a.entity)}</b></span><div class="muted" style="font-size:11px">${timeAgo(a.timestamp)}</div></div></div>`).join('')}</div></div>`:'');
 }
 function miniStat(label,val,color){ return `<div class="card"><div class="card-body"><div class="mini">${esc(label)}</div><div style="font-size:24px;font-weight:800;letter-spacing:-.02em;color:${color||'var(--text)'}">${val}</div></div></div>`; }
-function infoItem(label,val){ return `<div><div class="mini">${esc(label)}</div><div style="font-size:14px;font-weight:600;margin-top:4px">${esc(val||'—')}</div></div>`; }
+function infoItem(label,val){ return `<div><div class="mini">${esc(label)}</div><div style="font-size:14px;font-weight:600;margin-top:4px">${esc(val||'-')}</div></div>`; }
 window.openHealthOverride=async id=>{ const p=await dbGet('projects',id); openModal(`<div class="modal-head"><h3 style="margin:0">Override project health</h3><button class="iconbtn" onclick="closeAllModals()">${icon('close')}</button></div><div class="modal-body"><div class="field"><label>Health status</label><select id="hohealth"><option value="healthy" ${p.health==='healthy'?'selected':''}>Healthy</option><option value="attention" ${p.health==='attention'?'selected':''}>Attention</option><option value="at_risk" ${p.health==='at_risk'?'selected':''}>At Risk</option></select></div><div class="field"><label>Reason</label><textarea id="horeason">${esc(p.healthReason||'')}</textarea></div></div><div class="modal-foot"><button class="btn" onclick="closeAllModals()">Cancel</button><button class="btn btn-primary" id="hosave">Save</button></div>`); $('#hosave').onclick=async()=>{ await updateRecord('projects',id,{health:$('#hohealth').value,healthReason:$('#horeason').value},'Project health'); toast('Health updated','ok'); closeAllModals(); routeProject(id,'overview'); }; };
 window.openEditProject=async id=>{ const p=await dbGet('projects',id); openModal(`<div class="modal-head"><h3 style="margin:0">Edit project</h3><button class="iconbtn" onclick="closeAllModals()">${icon('close')}</button></div><div class="modal-body"><div class="field"><label>Name</label><input id="ep-name" value="${esc(p.name)}"/></div><div class="field"><label>Code</label><input id="ep-code" value="${esc(p.code)}"/></div><div class="row"><div class="field"><label>Type</label><select id="ep-type">${PROJECT_TYPES.map(t=>`<option ${p.type===t?'selected':''}>${t}</option>`).join('')}</select></div><div class="field"><label>Status</label><select id="ep-status">${PROJECT_STATUS.map(t=>`<option ${p.status===t?'selected':''}>${t}</option>`).join('')}</select></div></div><div class="field"><label>Description</label><textarea id="ep-desc">${esc(p.description||'')}</textarea></div><div class="row"><div class="field"><label>Start date</label><input id="ep-start" type="date" value="${p.startDate||''}"/></div><div class="field"><label>Target date</label><input id="ep-target" type="date" value="${p.targetDate||''}"/></div></div></div><div class="modal-foot"><button class="btn btn-danger" onclick="closeAllModals();archiveProject('${id}')">Archive</button><button class="btn btn-primary" id="ep-save">Save</button></div>`,{w:600}); $('#ep-save').onclick=async()=>{ await updateRecord('projects',id,{name:$('#ep-name').value,code:$('#ep-code').value,type:$('#ep-type').value,status:$('#ep-status').value,description:$('#ep-desc').value,startDate:$('#ep-start').value,targetDate:$('#ep-target').value},'Project'); toast('Project updated','ok'); closeAllModals(); routeProject(id,'overview'); }; };
 async function archiveProject(id){ await updateRecord('projects',id,{status:'Archived'},'Project'); toast('Project archived','ok'); location.hash='#/projects'; navigate(); }
@@ -1260,7 +1311,7 @@ async function renderDesign(p){ const opts=await dbFilter('design_options',o=>o.
   return header('Design','Concepts, options, materials and decisions','<button class="btn btn-primary" onclick="openDesignOptionForm(\''+p.id+'\')">'+icon('plus',15)+' Design option</button>')
   + `<div class="hgrid">${opts.map(o=>`<div class="card"><div class="card-body"><div style="display:flex;justify-content:space-between;align-items:flex-start"><div style="min-width:0"><div style="font-weight:700" class="truncate">${esc(o.name)}</div><div class="muted" style="font-size:12px">Rev ${o.revision||1}</div></div>${statusBadge(o.status)}</div><p style="font-size:13px;color:var(--text-2);margin:10px 0;line-height:1.6">${esc(o.description||'')}</p><div class="row" style="gap:8px"><button class="btn btn-sm" onclick="openDesignComments('${o.id}')">${icon('chat',13)} Discuss</button>${can('internal',p)?`<button class="btn btn-sm btn-primary" onclick="requestApproval('Design','${o.id}','${(o.name||'').replace(/'/g,'')}')">${icon('stamp',13)} Request approval</button>`:''}</div></div></div>`).join('')||emptyState('draw','No design options','Create your first design option to explore concepts.','Add option','openDesignOptionForm(\''+p.id+'\')')}</div>`;
 }
-async function openDesignOptionForm(projectId){ openModal(`<div class="modal-head"><h3 style="margin:0">Design option</h3><button class="iconbtn" onclick="closeAllModals()">${icon('close')}</button></div><div class="modal-body"><div class="field"><label>Name *</label><input id="do-name" placeholder="Option C — Alternative massing"/></div><div class="field"><label>Description</label><textarea id="do-desc"></textarea></div><div class="field"><label>Revision</label><input id="do-rev" type="number" value="1" min="1"/></div><div class="field"><label>Status</label><select id="do-status">${DESIGN_STATUS.map(s=>`<option>${s}</option>`).join('')}</select></div></div><div class="modal-foot"><button class="btn" onclick="closeAllModals()">Cancel</button><button class="btn btn-primary" id="do-save">Save</button></div>`); $('#do-save').onclick=async()=>{ const n=$('#do-name').value.trim(); if(!n){ toast('Name required','err'); return; } await createRecord('design_options',{projectId,name:n,description:$('#do-desc').value,revision:+$('#do-rev').value||1,status:$('#do-status').value,images:[]},'Design option'); toast('Design option created','ok'); closeAllModals(); routeProject(projectId,'design'); }; }
+async function openDesignOptionForm(projectId){ openModal(`<div class="modal-head"><h3 style="margin:0">Design option</h3><button class="iconbtn" onclick="closeAllModals()">${icon('close')}</button></div><div class="modal-body"><div class="field"><label>Name *</label><input id="do-name" placeholder="Option C - Alternative massing"/></div><div class="field"><label>Description</label><textarea id="do-desc"></textarea></div><div class="field"><label>Revision</label><input id="do-rev" type="number" value="1" min="1"/></div><div class="field"><label>Status</label><select id="do-status">${DESIGN_STATUS.map(s=>`<option>${s}</option>`).join('')}</select></div></div><div class="modal-foot"><button class="btn" onclick="closeAllModals()">Cancel</button><button class="btn btn-primary" id="do-save">Save</button></div>`); $('#do-save').onclick=async()=>{ const n=$('#do-name').value.trim(); if(!n){ toast('Name required','err'); return; } await createRecord('design_options',{projectId,name:n,description:$('#do-desc').value,revision:+$('#do-rev').value||1,status:$('#do-status').value,images:[]},'Design option'); toast('Design option created','ok'); closeAllModals(); routeProject(projectId,'design'); }; }
 function openDesignComments(id){ location.hash='#/projects/'+state.project.id+'/discussions'; navigate(); toast('Discuss in the project discussions','ok'); }
 
 /* ---------- Drawings ---------- */
@@ -1270,7 +1321,7 @@ async function renderDrawings(p){ const dr=await dbFilter('drawings',d=>d.projec
 }
 async function openDrawingForm(projectId){ openModal(`<div class="modal-head"><h3 style="margin:0">Add drawing</h3><button class="iconbtn" onclick="closeAllModals()">${icon('close')}</button></div><div class="modal-body"><div class="row"><div class="field"><label>Drawing number *</label><input id="dw-num" placeholder="A-103"/></div><div class="field"><label>Title</label><input id="dw-title" placeholder="Second Floor Plan"/></div></div><div class="row"><div class="field"><label>Discipline</label><select id="dw-disc">${DISCIPLINES.map(x=>`<option>${x}</option>`).join('')}</select></div><div class="field"><label>Type</label><select id="dw-type">${DRAWING_TYPES.map(x=>`<option>${x}</option>`).join('')}</select></div></div><div class="row"><div class="field"><label>Author</label><input id="dw-author" value="${esc(state.user.name)}"/></div><div class="field"><label>Reviewer</label><input id="dw-reviewer"/></div></div><div class="field"><label>Notes</label><textarea id="dw-notes"></textarea></div></div><div class="modal-foot"><button class="btn" onclick="closeAllModals()">Cancel</button><button class="btn btn-primary" id="dw-save">Add drawing</button></div>`); $('#dw-save').onclick=async()=>{ const n=$('#dw-num').value.trim(); if(!n){ toast('Number required','err'); return; } const d=await createRecord('drawings',{projectId,number:n,title:$('#dw-title').value||'Untitled',discipline:$('#dw-disc').value,type:$('#dw-type').value,revision:'Rev 01',status:'Draft',author:$('#dw-author').value,reviewer:$('#dw-reviewer').value,date:new Date().toISOString().slice(0,10),notes:$('#dw-notes').value},'Drawing'); await createRecord('drawing_revisions',{drawingId:d.id,revisionNumber:'Rev 01',date:new Date().toISOString().slice(0,10),author:d.author,description:'Initial issue',status:'Draft'},'Drawing revision'); toast('Drawing added','ok'); closeAllModals(); routeProject(projectId,'drawings'); }; }
 async function openDrawingDetail(id){ const d=await dbGet('drawings',id); const revs=await dbFilter('drawing_revisions',r=>r.drawingId===id); revs.sort((a,b)=>b.revisionNumber.localeCompare(a.revisionNumber));
-  openModal(`<div class="modal-head"><div><h3 style="margin:0;font-size:15px">${esc(d.number)} — ${esc(d.title)}</h3><div class="muted" style="font-size:11px">${esc(d.discipline)} · ${esc(d.type)}</div></div><button class="iconbtn" onclick="closeAllModals()">${icon('close')}</button></div>
+  openModal(`<div class="modal-head"><div><h3 style="margin:0;font-size:15px">${esc(d.number)} - ${esc(d.title)}</h3><div class="muted" style="font-size:11px">${esc(d.discipline)} · ${esc(d.type)}</div></div><button class="iconbtn" onclick="closeAllModals()">${icon('close')}</button></div>
   <div class="modal-body">
     <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px">${statusBadge(d.status)} <span class="badge b-neutral">${esc(d.revision)}</span> <span class="badge b-neutral">${esc(d.author)}</span> <span class="badge b-neutral">${fmtDate(d.date)}</span></div>
     <div class="mini" style="margin-bottom:8px">Revision history</div>
@@ -1297,11 +1348,11 @@ async function renderProjectDocs(p){ const docs=await dbFilter('documents',d=>d.
   + (docs.length? `<div class="pillfield" style="margin-bottom:14px">${cats.map(c=>`<span class="chip clickable docfilter" data-cat="${c}">${esc(c)}</span>`).join('')}<span class="chip clickable docfilter active" data-cat="">All</span></div><div id="doctable">${docTable(docs)}</div>` : emptyState('doc','No documents','Upload specifications, contracts, and reports.','Upload document','openUploadForm(\''+p.id+'\')'));
   $$('.docfilter').forEach(ch=>ch.onclick=()=>{ $$('.docfilter').forEach(x=>x.classList.remove('active')); ch.classList.add('active'); const cat=ch.getAttribute('data-cat'); $('#doctable').innerHTML=docTable(cat? docs.filter(d=>d.category===cat):docs); bindDocTable(); });
 }
-function docTable(docs){ return `<div class="tbl-wrap"><table class="tbl"><thead><tr><th>Name</th><th>Category</th><th>Version</th><th>Size</th><th>Uploaded by</th><th>Date</th></tr></thead><tbody>${docs.map(d=>`<tr><td><div style="display:flex;align-items:center;gap:10px"><span style="color:var(--accent)">${icon('doc',18)}</span><a href="javascript:void(0)" class="rlink docopen" data-id="${d.id}">${esc(d.name)}</a></div></td><td>${esc(d.category)}</td><td class="mono">v${d.version||1}</td><td class="muted">${esc(d.size||'—')}</td><td>${esc(d.uploadedBy||'')}</td><td class="muted">${fmtDate(d.createdAt)}</td></tr>`).join('')}</tbody></table></div>`; }
+function docTable(docs){ return `<div class="tbl-wrap"><table class="tbl"><thead><tr><th>Name</th><th>Category</th><th>Version</th><th>Size</th><th>Uploaded by</th><th>Date</th></tr></thead><tbody>${docs.map(d=>`<tr><td><div style="display:flex;align-items:center;gap:10px"><span style="color:var(--accent)">${icon('doc',18)}</span><a href="javascript:void(0)" class="rlink docopen" data-id="${d.id}">${esc(d.name)}</a></div></td><td>${esc(d.category)}</td><td class="mono">v${d.version||1}</td><td class="muted">${esc(d.size||'-')}</td><td>${esc(d.uploadedBy||'')}</td><td class="muted">${fmtDate(d.createdAt)}</td></tr>`).join('')}</tbody></table></div>`; }
 function bindDocTable(){ $$('.docopen').forEach(a=>a.onclick=()=>openDocDetail(a.getAttribute('data-id'))); }
-async function openDocDetail(id){ const d=await dbGet('documents',id); openModal(`<div class="modal-head"><h3 style="margin:0;font-size:15px" class="truncate">${esc(d.name)}</h3><button class="iconbtn" onclick="closeAllModals()">${icon('close')}</button></div><div class="modal-body"><div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px">${statusBadge(d.category)} <span class="badge b-neutral">v${d.version||1}</span> <span class="badge b-neutral">${esc(d.size||'—')}</span></div><div class="muted" style="margin-bottom:14px">Uploaded by ${esc(d.uploadedBy||'Unknown')} · ${fmtDate(d.createdAt)}</div><div class="row"><button class="btn" onclick="downloadDoc('${id}')">${icon('download',15)} Download</button><button class="btn" onclick="renameDoc('${id}')">${icon('pencil',15)} Rename</button>${can('internal',state.project)?`<button class="btn btn-danger" onclick="closeAllModals();confirmDialog('Delete document','This will permanently remove "${esc(d.name)}".','Delete','1',()=>delDoc('${id}'))">${icon('trash',15)} Delete</button>`:''}</div></div>`); }
+async function openDocDetail(id){ const d=await dbGet('documents',id); openModal(`<div class="modal-head"><h3 style="margin:0;font-size:15px" class="truncate">${esc(d.name)}</h3><button class="iconbtn" onclick="closeAllModals()">${icon('close')}</button></div><div class="modal-body"><div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px">${statusBadge(d.category)} <span class="badge b-neutral">v${d.version||1}</span> <span class="badge b-neutral">${esc(d.size||'-')}</span></div><div class="muted" style="margin-bottom:14px">Uploaded by ${esc(d.uploadedBy||'Unknown')} · ${fmtDate(d.createdAt)}</div><div class="row"><button class="btn" onclick="downloadDoc('${id}')">${icon('download',15)} Download</button><button class="btn" onclick="renameDoc('${id}')">${icon('pencil',15)} Rename</button>${can('internal',state.project)?`<button class="btn btn-danger" onclick="closeAllModals();confirmDialog('Delete document','This will permanently remove "${esc(d.name)}".','Delete','1',()=>delDoc('${id}'))">${icon('trash',15)} Delete</button>`:''}</div></div>`); }
 window.downloadDoc=id=>{ toast('Document downloaded (demo)','ok'); }; window.renameDoc=id=>{ openModal(`<div class="modal-head"><h3 style="margin:0">Rename</h3><button class="iconbtn" onclick="closeAllModals()">${icon('close')}</button></div><div class="modal-body"><input id="rn-name"/></div><div class="modal-foot"><button class="btn btn-primary" id="rn-save">Save</button></div>`); $('#rn-save').onclick=async()=>{ await updateRecord('documents',id,{name:$('#rn-name').value},'Document'); toast('Renamed','ok'); closeAllModals(); routeProject(state.project.id,'documents'); }; }; window.delDoc=async id=>{ await deleteRecord('documents',id,'Document'); toast('Document deleted','ok'); routeProject(state.project.id,'documents'); };
-async function openUploadForm(projectId){ projectId=projectId||state.project?.id; openModal(`<div class="modal-head"><h3 style="margin:0">Upload document</h3><button class="iconbtn" onclick="closeAllModals()">${icon('close')}</button></div><div class="modal-body"><label class="card" style="display:block;padding:26px;text-align:center;cursor:pointer;border-style:dashed">${icon('upload',26)}<div style="font-weight:600;margin-top:8px">Choose file</div><div class="muted">PDF, DOCX, XLSX, JPG, PNG, or CSV</div><input type="file" id="up-file" style="display:none"/></label><div id="up-name" class="muted" style="margin:10px 0"></div><div class="field"><label>Category</label><select id="up-cat">${DOC_CATEGORIES.map(c=>`<option>${c}</option>`).join('')}</select></div><div class="field"><label>Tags (comma separated)</label><input id="up-tags" placeholder="spec, final"/></div></div><div class="modal-foot"><button class="btn" onclick="closeAllModals()">Cancel</button><button class="btn btn-primary" id="up-save">Upload</button></div>`); $('#up-file').onchange=e=>{ const f=e.target.files[0]; if(f) $('#up-name').textContent=f.name+' ('+Math.round(f.size/1024)+' KB)'; }; $('#up-save').onclick=async()=>{ const f=$('#up-file').files[0]; const name=f?f.name:'Untitled document'; const size=f?Math.round(f.size/1024)+' KB':'—'; if(!projectId){ toast('Select a project first','err'); return; } await createRecord('documents',{projectId,name,category:$('#up-cat').value,version:1,size,uploadedBy:state.user.name,tags:($('#up-tags').value||'').split(',').map(t=>t.trim()).filter(Boolean)},'Document entry'); toast('Document uploaded','ok'); closeAllModals(); routeProject(projectId,'documents'); }; }
+async function openUploadForm(projectId){ projectId=projectId||state.project?.id; openModal(`<div class="modal-head"><h3 style="margin:0">Upload document</h3><button class="iconbtn" onclick="closeAllModals()">${icon('close')}</button></div><div class="modal-body"><label class="card" style="display:block;padding:26px;text-align:center;cursor:pointer;border-style:dashed">${icon('upload',26)}<div style="font-weight:600;margin-top:8px">Choose file</div><div class="muted">PDF, DOCX, XLSX, JPG, PNG, or CSV</div><input type="file" id="up-file" style="display:none"/></label><div id="up-name" class="muted" style="margin:10px 0"></div><div class="field"><label>Category</label><select id="up-cat">${DOC_CATEGORIES.map(c=>`<option>${c}</option>`).join('')}</select></div><div class="field"><label>Tags (comma separated)</label><input id="up-tags" placeholder="spec, final"/></div></div><div class="modal-foot"><button class="btn" onclick="closeAllModals()">Cancel</button><button class="btn btn-primary" id="up-save">Upload</button></div>`); $('#up-file').onchange=e=>{ const f=e.target.files[0]; if(f) $('#up-name').textContent=f.name+' ('+Math.round(f.size/1024)+' KB)'; }; $('#up-save').onclick=async()=>{ const f=$('#up-file').files[0]; const name=f?f.name:'Untitled document'; const size=f?Math.round(f.size/1024)+' KB':'-'; if(!projectId){ toast('Select a project first','err'); return; } await createRecord('documents',{projectId,name,category:$('#up-cat').value,version:1,size,uploadedBy:state.user.name,tags:($('#up-tags').value||'').split(',').map(t=>t.trim()).filter(Boolean)},'Document entry'); toast('Document uploaded','ok'); closeAllModals(); routeProject(projectId,'documents'); }; }
 
 /* ---------- Project tasks ---------- */
 async function renderProjectTasks(p){ const tasks=await dbFilter('tasks',t=>t.projectId===p.id); const view=state.taskView||'list';
@@ -1309,7 +1360,7 @@ async function renderProjectTasks(p){ const tasks=await dbFilter('tasks',t=>t.pr
   + taskTable(tasks,await dbAll('projects'));
 }
 function taskTable(tasks,projects){ const nameOf=id=>{ const p=projects.find(x=>x.id===id); return p?p.name:''; };
-  return `<div class="tbl-wrap"><table class="tbl"><thead><tr><th>Task</th><th>Project</th><th>Assignee</th><th>Priority</th><th>Status</th><th>Due</th></tr></thead><tbody>${tasks.map(t=>`<tr style="cursor:pointer" class="taskrow" data-id="${t.id}"><td><a href="javascript:void(0)" class="rlink">${esc(t.title)}</a>${t.checklist&&t.checklist.length?`<div class="muted" style="font-size:11px">${t.checklist.filter(c=>c.done).length}/${t.checklist.length} checklist</div>`:''}</td><td class="muted">${esc(nameOf(t.projectId))}</td><td>${esc(t.assigneeName||t.assigneeId||'—')}</td><td>${priorityBadge(t.priority)}</td><td>${statusBadge(t.status)}</td><td class="muted ${t.dueDate&&relDays(t.dueDate)<0&&!['Completed','Cancelled'].includes(t.status)?'':''}" style="${t.dueDate&&relDays(t.dueDate)<0&&!['Completed','Cancelled'].includes(t.status)?'color:var(--danger);font-weight:600':'' }">${t.dueDate?fmtDate(t.dueDate):'—'}</td></tr>`).join('')||'<tr><td colspan="6">'+emptyState('check','No tasks','Add tasks to organize the work.','New task','openTaskForm()')+'</td></tr>'}</tbody></table></div>`; }
+  return `<div class="tbl-wrap"><table class="tbl"><thead><tr><th>Task</th><th>Project</th><th>Assignee</th><th>Priority</th><th>Status</th><th>Due</th></tr></thead><tbody>${tasks.map(t=>`<tr style="cursor:pointer" class="taskrow" data-id="${t.id}"><td><a href="javascript:void(0)" class="rlink">${esc(t.title)}</a>${t.checklist&&t.checklist.length?`<div class="muted" style="font-size:11px">${t.checklist.filter(c=>c.done).length}/${t.checklist.length} checklist</div>`:''}</td><td class="muted">${esc(nameOf(t.projectId))}</td><td>${esc(t.assigneeName||t.assigneeId||'-')}</td><td>${priorityBadge(t.priority)}</td><td>${statusBadge(t.status)}</td><td class="muted ${t.dueDate&&relDays(t.dueDate)<0&&!['Completed','Cancelled'].includes(t.status)?'':''}" style="${t.dueDate&&relDays(t.dueDate)<0&&!['Completed','Cancelled'].includes(t.status)?'color:var(--danger);font-weight:600':'' }">${t.dueDate?fmtDate(t.dueDate):'-'}</td></tr>`).join('')||'<tr><td colspan="6">'+emptyState('check','No tasks','Add tasks to organize the work.','New task','openTaskForm()')+'</td></tr>'}</tbody></table></div>`; }
 function bindTaskTable(){ $$('.taskrow').forEach(r=>r.onclick=()=>openTaskDetail(r.getAttribute('data-id'))); }
 window.openTaskForm=async function(projectId){ projectId=projectId||state.project?.id; const projects=await dbAll('projects'); const teammates=['Olivia Bennett','Mateo Silva','Jordan Lee','Meridian Build Co.','Sophia Laurent','Daniel Okafor'];
   openModal(`<div class="modal-head"><h3 style="margin:0">New task</h3><button class="iconbtn" onclick="closeAllModals()">${icon('close')}</button></div><div class="modal-body">
@@ -1377,7 +1428,7 @@ async function renderConstruction(p){ const tickets=await dbFilter('issues',i=>i
   + `<div class="grid g3" style="margin-bottom:16px">${miniStat('Construction progress',(p.constructionProgress||0)+'%','var(--accent)')}${miniStat('Open issues',openIssues.length+'','var(--danger)')}${miniStat('Phase',esc(p.currentPhase||'Construction'),'var(--info)')}</div>
   <div class="card" style="margin-bottom:16px"><div class="card-body"><div class="muted" style="display:flex;justify-content:space-between;font-size:12px;margin-bottom:6px"><span>Construction progress</span><b>${p.constructionProgress||0}%</b></div>${progressBar(p.constructionProgress||0)}</div></div>
   <div class="grid g2">
-   <div class="card"><div class="card-head"><span class="card-title">Today's activities</span></div><div class="card-body" style="padding:8px 16px"><ul style="margin:0;padding-left:18px;color:var(--text-2);font-size:13px"><li>Roof tiling — north wing</li><li>Facade brick cladding — east</li><li>MEP rough-in — first floor</li></ul></div></div>
+   <div class="card"><div class="card-head"><span class="card-title">Today's activities</span></div><div class="card-body" style="padding:8px 16px"><ul style="margin:0;padding-left:18px;color:var(--text-2);font-size:13px"><li>Roof tiling - north wing</li><li>Facade brick cladding - east</li><li>MEP rough-in - first floor</li></ul></div></div>
    <div class="card"><div class="card-head"><span class="card-title">Open issues</span></div><div class="card-body" style="padding:8px 16px">${openIssues.length?openIssues.slice(0,5).map(i=>`<div style="display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--border);cursor:pointer" onclick="location.hash='#/projects/${p.id}/issues';renderFull()"><span class="truncate">${esc(i.title)}</span>${priorityBadge(i.priority)}</div>`).join(''):'<p class="muted">No open issues.</p>'}</div></div>
   </div>`;
 }
@@ -1388,16 +1439,16 @@ async function renderSiteDiary(p){ const diaries=(await dbFilter('site_diaries',
   return header('Site Diary',`${diaries.length} entries`,'<button class="btn btn-primary" onclick="openDiaryForm(\''+p.id+'\')">'+icon('plus',15)+' Add entry</button>')
   + (diaries.length? `<div style="display:flex;flex-direction:column;gap:14px">${diaries.map(d=>`<div class="card"><div class="card-head"><div style="display:flex;align-items:center;gap:8px"><span style="font-weight:700">${fmtDate(d.date)}</span>${weatherBadge(d.weather)}</div><span class="muted" style="font-size:12px">${esc(d.contractor||'')}</span></div><div class="card-body">
     <div class="grid g2" style="gap:10px">
-      ${diaryField('Work performed',d.workPerformed)}${diaryField('Workers on site',d.workers?d.workers+' workers':'—')}
+      ${diaryField('Work performed',d.workPerformed)}${diaryField('Workers on site',d.workers?d.workers+' workers':'-')}
       ${diaryField('Materials delivered',d.materialsDelivered)}${diaryField('Equipment',d.equipmentUsed)}
       ${diaryField('Problems',d.problems)}${diaryField('Safety notes',d.safetyNotes)}
       ${diaryField('Visitors',d.visitors)}${diaryField('Notes',d.notes)}
     </div></div></div>`).join('')}</div>` : emptyState('book','No site diaries yet','Record today\'s construction activity to start building the project history.','Add Site Diary','openDiaryForm(\''+p.id+'\')'));
 }
-function diaryField(l,v){ return `<div><div class="mini" style="margin-bottom:3px">${esc(l)}</div><div style="font-size:13px;color:var(--text-2)">${esc(v||'—')}</div></div>`; }
+function diaryField(l,v){ return `<div><div class="mini" style="margin-bottom:3px">${esc(l)}</div><div style="font-size:13px;color:var(--text-2)">${esc(v||'-')}</div></div>`; }
 function weatherBadge(w){ const m={Sunny:'☀',Cloudy:'☁',Rain:'☂',Storm:'⛈',Foggy:'≋',Windy:'~'}; return `<span class="badge b-info">${w?esc(w):''}</span>`; }
 async function openDiaryForm(projectId){ projectId=projectId||state.project?.id; const today=new Date().toISOString().slice(0,10);
-  openModal(`<div class="modal-head"><h3 style="margin:0">Site diary — ${fmtDate(today)}</h3><button class="iconbtn" onclick="closeAllModals()">${icon('close')}</button></div><div class="modal-body">
+  openModal(`<div class="modal-head"><h3 style="margin:0">Site diary - ${fmtDate(today)}</h3><button class="iconbtn" onclick="closeAllModals()">${icon('close')}</button></div><div class="modal-body">
   <div class="row"><div class="field"><label>Date</label><input id="sd-date" type="date" value="${today}"/></div><div class="field"><label>Weather</label><select id="sd-weather">${WEATHER.map(w=>`<option>${w}</option>`).join('')}</select></div></div>
   <div class="row"><div class="field"><label>Workers on site</label><input id="sd-workers" type="number"/></div><div class="field"><label>Contractor</label><input id="sd-contractor" value="Meridian Build Co."/></div></div>
   <div class="field"><label>Work performed *</label><textarea id="sd-work"></textarea></div>
@@ -1407,7 +1458,7 @@ async function openDiaryForm(projectId){ projectId=projectId||state.project?.id;
   <div class="field"><label>Safety notes</label><textarea id="sd-safety" style="min-height:50px"></textarea></div>
   <div class="row"><div class="field"><label>Visitors</label><input id="sd-visitors"/></div><div class="field"><label>Photos</label><input type="file" id="sd-photos" multiple accept="image/*"/></div></div>
   </div><div class="modal-foot"><button class="btn" onclick="closeAllModals()">Cancel</button><button class="btn btn-primary" id="sd-save">${icon('check',15)} Save diary</button></div>`,{w:620});
-  $('#sd-save').onclick=async()=>{ const work=$('#sd-work').value.trim(); if(!work){ toast('Work performed is required','err'); return; } const d=await createRecord('site_diaries',{projectId,date:$('#sd-date').value,weather:$('#sd-weather').value,workers:+$('#sd-workers').value||0,contractor:$('#sd-contractor').value||'—',workPerformed:work,materialsDelivered:$('#sd-materials').value,equipmentUsed:$('#sd-equip').value,problems:$('#sd-problems').value,safetyNotes:$('#sd-safety').value,visitors:$('#sd-visitors').value},'Site diary'); toast('Site diary saved'+(state.online?'':' offline')+'','ok'); closeAllModals(); routeProject(projectId,'site-diary'); }; };
+  $('#sd-save').onclick=async()=>{ const work=$('#sd-work').value.trim(); if(!work){ toast('Work performed is required','err'); return; } const d=await createRecord('site_diaries',{projectId,date:$('#sd-date').value,weather:$('#sd-weather').value,workers:+$('#sd-workers').value||0,contractor:$('#sd-contractor').value||'-',workPerformed:work,materialsDelivered:$('#sd-materials').value,equipmentUsed:$('#sd-equip').value,problems:$('#sd-problems').value,safetyNotes:$('#sd-safety').value,visitors:$('#sd-visitors').value},'Site diary'); toast('Site diary saved'+(state.online?'':' offline')+'','ok'); closeAllModals(); routeProject(projectId,'site-diary'); }; };
 
 /* ---------- Photos ---------- */
 async function renderPhotos(p){ const photos=(await dbFilter('site_photos',ph=>ph.projectId===p.id)).sort((a,b)=>b.date.localeCompare(a.date));
@@ -1422,7 +1473,7 @@ async function openPhotoForm(projectId){ openModal(`<div class="modal-head"><h3 
 /* ---------- Issues ---------- */
 async function renderIssues(p){ const issues=(await dbFilter('issues',i=>i.projectId===p.id)).sort((a,b)=>b.createdAt.localeCompare(a.createdAt));
   return header('Issues',`${issues.filter(i=>!['Resolved','Closed'].includes(i.status)).length} open`, (can('internal',p)?`<button class="btn btn-primary" onclick="openIssueForm('${p.id}')">${icon('plus',15)+' '}Report issue</button>`:''))
-  + (issues.length? `<div class="tbl-wrap"><table class="tbl"><thead><tr><th>Issue</th><th>Category</th><th>Priority</th><th>Status</th><th>Assigned</th><th>Due</th></tr></thead><tbody>${issues.map(i=>`<tr style="cursor:pointer" class="issuerow" data-id="${i.id}"><td><a href="javascript:void(0)" class="rlink">${esc(i.title)}</a><div class="muted" style="font-size:11px">${esc(i.location||'')}</div></td><td>${esc(i.category)}</td><td>${priorityBadge(i.priority)}</td><td>${statusBadge(i.status)}</td><td>${esc(i.assignedId||'—')}</td><td class="muted">${fmtDate(i.dueDate)}</td></tr>`).join('')}</tbody></table></div>`:emptyState('warn','No issues','All clear. Report an issue when something needs attention.','Report issue','openIssueForm(\''+p.id+'\')'));
+  + (issues.length? `<div class="tbl-wrap"><table class="tbl"><thead><tr><th>Issue</th><th>Category</th><th>Priority</th><th>Status</th><th>Assigned</th><th>Due</th></tr></thead><tbody>${issues.map(i=>`<tr style="cursor:pointer" class="issuerow" data-id="${i.id}"><td><a href="javascript:void(0)" class="rlink">${esc(i.title)}</a><div class="muted" style="font-size:11px">${esc(i.location||'')}</div></td><td>${esc(i.category)}</td><td>${priorityBadge(i.priority)}</td><td>${statusBadge(i.status)}</td><td>${esc(i.assignedId||'-')}</td><td class="muted">${fmtDate(i.dueDate)}</td></tr>`).join('')}</tbody></table></div>`:emptyState('warn','No issues','All clear. Report an issue when something needs attention.','Report issue','openIssueForm(\''+p.id+'\')'));
   $$('.issuerow').forEach(r=>r.onclick=()=>openIssueDetail(r.getAttribute('data-id')));
 }
 async function openIssueForm(projectId){ projectId=projectId||state.project?.id; openModal(`<div class="modal-head"><h3 style="margin:0">Report issue</h3><button class="iconbtn" onclick="closeAllModals()">${icon('close')}</button></div><div class="modal-body"><div class="field"><label>Title *</label><input id="is-title"/></div><div class="field"><label>Description</label><textarea id="is-desc"></textarea></div><div class="row"><div class="field"><label>Location</label><input id="is-loc"/></div><div class="field"><label>Category</label><select id="is-cat">${ISSUE_CAT.map(c=>`<option>${c}</option>`).join('')}</select></div></div><div class="row"><div class="field"><label>Priority</label><select id="is-pri">${TASK_PRIORITY.map(c=>`<option>${c}</option>`).join('')}</select></div><div class="field"><label>Due date</label><input id="is-due" type="date"/></div></div><div class="field"><label>Assign to</label><select id="is-assign"><option value="">Unassigned</option><option>Olivia Bennett</option><option>Meridian Build Co.</option><option>Jordan Lee</option><option>Mateo Silva</option></select></div></div><div class="modal-foot"><button class="btn" onclick="closeAllModals()">Cancel</button><button class="btn btn-primary" id="is-save">Report</button></div>`,{w:620}); $('#is-save').onclick=async()=>{ const t=$('#is-title').value.trim(); if(!t){ toast('Title required','err'); return; } await createRecord('issues',{projectId,title:t,description:$('#is-desc').value,location:$('#is-loc').value,category:$('#is-cat').value,priority:$('#is-pri').value,status:'Open',assignedId:$('#is-assign').value,dueDate:$('#is-due').value},'Issue'); toast('Issue reported','ok'); closeAllModals(); routeProject(projectId,'issues'); }; };
@@ -1430,15 +1481,15 @@ async function openIssueDetail(id){ const i=await dbGet('issues',id); openModal(
 window.delIssue=async id=>{ const i=await dbGet('issues',id); await deleteRecord('issues',id,'Issue'); toast('Issue deleted','ok'); routeProject(i.projectId,'issues'); };
 
 /* ============================================================
-   PROJECT ROUTES — PART 2 (RFI, Materials, Inspections, etc.)
+   PROJECT ROUTES - PART 2 (RFI, Materials, Inspections, etc.)
    ============================================================ */
 async function renderRFIs(p){ const rfis=(await dbFilter('rfis',r=>r.projectId===p.id)).sort((a,b)=>b.date.localeCompare(a.date));
   return header('RFIs','Request for Information', (can('internal',p)?`<button class="btn btn-primary" onclick="openRFIForm('${p.id}')">${icon('plus',15)} New RFI</button>`:''))
-  + (rfis.length? `<div class="tbl-wrap"><table class="tbl"><thead><tr><th>Number</th><th>Subject</th><th>Related</th><th>Status</th><th>Required by</th></tr></thead><tbody>${rfis.map(r=>`<tr style="cursor:pointer" class="rfirow" data-id="${r.id}"><td class="mono" style="font-weight:600">${esc(r.number)}</td><td><a href="javascript:void(0)" class="rlink">${esc(r.subject)}</a></td><td class="mono">${esc(r.relatedDrawing||'—')}</td><td>${statusBadge(r.status)}</td><td class="muted">${fmtDate(r.dueDate)}</td></tr>`).join('')}</tbody></table></div>`:emptyState('q','No RFIs','Submit a request for information to clarify design intent.','New RFI','openRFIForm(\''+p.id+'\')'));
+  + (rfis.length? `<div class="tbl-wrap"><table class="tbl"><thead><tr><th>Number</th><th>Subject</th><th>Related</th><th>Status</th><th>Required by</th></tr></thead><tbody>${rfis.map(r=>`<tr style="cursor:pointer" class="rfirow" data-id="${r.id}"><td class="mono" style="font-weight:600">${esc(r.number)}</td><td><a href="javascript:void(0)" class="rlink">${esc(r.subject)}</a></td><td class="mono">${esc(r.relatedDrawing||'-')}</td><td>${statusBadge(r.status)}</td><td class="muted">${fmtDate(r.dueDate)}</td></tr>`).join('')}</tbody></table></div>`:emptyState('q','No RFIs','Submit a request for information to clarify design intent.','New RFI','openRFIForm(\''+p.id+'\')'));
   $$('.rfirow').forEach(r=>r.onclick=()=>openRFIDetail(r.getAttribute('data-id')));
 }
 async function openRFIForm(projectId){ projectId=projectId||state.project?.id; const num='RFI-'+String((await dbAll('rfis')).length+1).padStart(3,'0'); openModal(`<div class="modal-head"><h3 style="margin:0">New RFI</h3><button class="iconbtn" onclick="closeAllModals()">${icon('close')}</button></div><div class="modal-body"><div class="field"><label>Number</label><input value="${num}" disabled/></div><div class="field"><label>Subject *</label><input id="rfi-subject"/></div><div class="field"><label>Question</label><textarea id="rfi-question"></textarea></div><div class="row"><div class="field"><label>Related drawing</label><input id="rfi-drawing" placeholder="A-102"/></div><div class="field"><label>Assigned to</label><input id="rfi-assign" value="Olivia Bennett"/></div></div><div class="field"><label>Required response date</label><input id="rfi-due" type="date"/></div></div><div class="modal-foot"><button class="btn" onclick="closeAllModals()">Cancel</button><button class="btn btn-primary" id="rfi-save">Submit</button></div>`,{w:600}); $('#rfi-save').onclick=async()=>{ const s=$('#rfi-subject').value.trim(); if(!s){ toast('Subject required','err'); return; } await createRecord('rfis',{projectId,number:num,subject:s,question:$('#rfi-question').value,relatedDrawing:$('#rfi-drawing').value,submittedBy:state.user.name,assignedTo:$('#rfi-assign').value,date:new Date().toISOString().slice(0,10),dueDate:$('#rfi-due').value,status:'Submitted'},'RFI'); toast('RFI submitted','ok'); closeAllModals(); routeProject(projectId,'rfis'); }; };
-async function openRFIDetail(id){ const r=await dbGet('rfis',id); openModal(`<div class="modal-head"><div><h3 style="margin:0">${esc(r.number)} — ${esc(r.subject)}</h3><div class="muted" style="font-size:11px">${esc(r.relatedDrawing||'')} · ${esc(r.submittedBy)}</div></div><button class="iconbtn" onclick="closeAllModals()">${icon('close')}</button></div><div class="modal-body"><div style="display:flex;gap:10px;margin-bottom:14px">${statusBadge(r.status)} <span class="badge b-neutral">${fmtDate(r.date)}</span></div><div class="mini">Question</div><p style="font-size:14px;color:var(--text-2);margin:6px 0 16px">${esc(r.question||'')}</p><div class="field"><label>Response</label><textarea id="rfi-response">${esc(r.response||'')}</textarea></div><div class="field"><label>Status</label><select id="rfi-status">${RFI_STATUS.map(s=>`<option ${r.status===s?'selected':''}>${s}</option>`).join('')}</select></div></div><div class="modal-foot"><button class="btn btn-primary" id="rfi-save">Save response</button></div>`); $('#rfi-save').onclick=async()=>{ await updateRecord('rfis',id,{response:$('#rfi-response').value,status:$('#rfi-status').value},'RFI'); toast('RFI updated','ok'); closeAllModals(); routeProject(r.projectId,'rfis'); }; };
+async function openRFIDetail(id){ const r=await dbGet('rfis',id); openModal(`<div class="modal-head"><div><h3 style="margin:0">${esc(r.number)} - ${esc(r.subject)}</h3><div class="muted" style="font-size:11px">${esc(r.relatedDrawing||'')} · ${esc(r.submittedBy)}</div></div><button class="iconbtn" onclick="closeAllModals()">${icon('close')}</button></div><div class="modal-body"><div style="display:flex;gap:10px;margin-bottom:14px">${statusBadge(r.status)} <span class="badge b-neutral">${fmtDate(r.date)}</span></div><div class="mini">Question</div><p style="font-size:14px;color:var(--text-2);margin:6px 0 16px">${esc(r.question||'')}</p><div class="field"><label>Response</label><textarea id="rfi-response">${esc(r.response||'')}</textarea></div><div class="field"><label>Status</label><select id="rfi-status">${RFI_STATUS.map(s=>`<option ${r.status===s?'selected':''}>${s}</option>`).join('')}</select></div></div><div class="modal-foot"><button class="btn btn-primary" id="rfi-save">Save response</button></div>`); $('#rfi-save').onclick=async()=>{ await updateRecord('rfis',id,{response:$('#rfi-response').value,status:$('#rfi-status').value},'RFI'); toast('RFI updated','ok'); closeAllModals(); routeProject(r.projectId,'rfis'); }; };
 
 async function renderMaterials(p){ const mat=(await dbFilter('materials',m=>m.projectId===p.id)).sort((a,b)=>b.createdAt.localeCompare(a.createdAt));
   return header('Materials',`${mat.length} items`, (can('internal',p)?`<button class="btn btn-primary" onclick="openMaterialForm('${p.id}')">${icon('plus',15)} Add material</button>`:''))
@@ -1453,18 +1504,18 @@ async function renderInspections(p){ const ins=(await dbFilter('inspections',i=>
   + (ins.length? `<div class="tbl-wrap"><table class="tbl"><thead><tr><th>Inspection</th><th>Date</th><th>Inspector</th><th>Area</th><th>Result</th><th>Status</th></tr></thead><tbody>${ins.map(i=>`<tr style="cursor:pointer" class="insrow" data-id="${i.id}"><td><a href="javascript:void(0)" class="rlink">${esc(i.title)}</a></td><td class="muted">${fmtDate(i.date)}</td><td>${esc(i.inspector||'')}</td><td>${esc(i.area||'')}</td><td>${resultBadge(i.result)}</td><td>${statusBadge(i.status||(i.result==='Fail'?'Open':'Closed'))}</td></tr>`).join('')}</tbody></table></div>`:emptyState('clipboard','No inspections','Schedule construction inspections with checklists.','New inspection','openInspectionForm(\''+p.id+'\')'));
   $$('.insrow').forEach(r=>r.onclick=()=>openInspectionDetail(r.getAttribute('data-id')));
 }
-function resultBadge(r){ const m={Pass:'b-ok','Pass with Comments':'b-warn',Fail:'b-danger'}; return `<span class="badge ${m[r]||'b-neutral'}"><span class="dot"></span>${esc(r||'—')}</span>`; }
+function resultBadge(r){ const m={Pass:'b-ok','Pass with Comments':'b-warn',Fail:'b-danger'}; return `<span class="badge ${m[r]||'b-neutral'}"><span class="dot"></span>${esc(r||'-')}</span>`; }
 async function openInspectionForm(projectId){ projectId=projectId||state.project?.id; openModal(`<div class="modal-head"><h3 style="margin:0">New inspection</h3><button class="iconbtn" onclick="closeAllModals()">${icon('close')}</button></div><div class="modal-body"><div class="field"><label>Title *</label><input id="in-title"/></div><div class="row"><div class="field"><label>Date</label><input id="in-date" type="date" value="${new Date().toISOString().slice(0,10)}"/></div><div class="field"><label>Inspector</label><input id="in-inspector"/></div></div><div class="row"><div class="field"><label>Area</label><input id="in-area"/></div><div class="field"><label>Contractor</label><input id="in-contractor"/></div></div><div class="field"><label>Checklist (one per line)</label><textarea id="in-checklist" placeholder="Item 1&#10;Item 2&#10;Item 3"></textarea></div><div class="row"><div class="field"><label>Result</label><select id="in-result">${INSPECT_RESULT.map(r=>`<option>${r}</option>`).join('')}</select></div><div class="field"><label>Notes</label><input id="in-notes"/></div></div></div><div class="modal-foot"><button class="btn" onclick="closeAllModals()">Cancel</button><button class="btn btn-primary" id="in-save">Save</button></div>`,{w:620}); $('#in-save').onclick=async()=>{ const t=$('#in-title').value.trim(); if(!t){ toast('Title required','err'); return; } const cls=($('#in-checklist').value||'').split('\n').map(l=>l.trim()).filter(Boolean).map(l=>({l,done:false})); await createRecord('inspections',{projectId,title:t,date:$('#in-date').value,inspector:$('#in-inspector').value,area:$('#in-area').value,contractor:$('#in-contractor').value,result:$('#in-result').value,notes:$('#in-notes').value,checklist:cls},'Inspection'); toast('Inspection saved','ok'); closeAllModals(); routeProject(projectId,'inspections'); }; };
 async function openInspectionDetail(id){ const i=await dbGet('inspections',id); openModal(`<div class="modal-head"><h3 style="margin:0">${esc(i.title)}</h3><button class="iconbtn" onclick="closeAllModals()">${icon('close')}</button></div><div class="modal-body"><div style="display:flex;gap:10px;margin-bottom:14px">${resultBadge(i.result)} <span class="badge b-neutral">${esc(i.inspector||'')}</span></div><div class="grid g2" style="gap:10px;margin-bottom:14px">${diaryField('Area',i.area)}${diaryField('Contractor',i.contractor)}</div>${i.checklist&&i.checklist.length?`<div class="mini" style="margin-bottom:8px">Checklist</div>${i.checklist.map(c=>`<label style="display:flex;align-items:center;gap:8px;font-weight:500;color:var(--text);padding:3px 0"><input type="checkbox" ${c.done?'checked':''} style="width:auto"/>${esc(c.l)}</label>`).join('')}`:''}${i.notes?`<div class="mini" style="margin:14px 0 6px">Notes</div><p style="color:var(--text-2)">${esc(i.notes)}</p>`:''}</div><div class="modal-foot"><button class="btn" onclick="closeAllModals()">Close</button></div>`); };
 
 /* ---------- Change Orders ---------- */
 async function renderChangeOrders(p){ const cos=(await dbFilter('change_orders',c=>c.projectId===p.id)).sort((a,b)=>b.createdAt.localeCompare(a.createdAt));
   return header('Change Orders',`${cos.length} changes`, (can('internal',p)?`<button class="btn btn-primary" onclick="openChangeOrderForm('${p.id}')">${icon('plus',15)} New change order</button>`:''))
-  + (cos.length? `<div class="tbl-wrap"><table class="tbl"><thead><tr><th>Number</th><th>Title</th><th>Cost impact</th><th>Schedule</th><th>Status</th></tr></thead><tbody>${cos.map(c=>`<tr style="cursor:pointer" class="corow" data-id="${c.id}"><td class="mono" style="font-weight:600">${esc(c.number)}</td><td><a href="javascript:void(0)" class="rlink">${esc(c.title)}</a></td><td class="${c.costImpact>0?'':'muted'}">${c.costImpact>0?'+':''}${fmtMoney(c.costImpact,p.currency)}</td><td>${c.scheduleImpact?c.scheduleImpact+' days':'—'}</td><td>${statusBadge(c.status)}</td></tr>`).join('')}</tbody></table></div>`:emptyState('swap','No change orders','Track scope, budget, and schedule changes.','New change order','openChangeOrderForm(\''+p.id+'\')'));
+  + (cos.length? `<div class="tbl-wrap"><table class="tbl"><thead><tr><th>Number</th><th>Title</th><th>Cost impact</th><th>Schedule</th><th>Status</th></tr></thead><tbody>${cos.map(c=>`<tr style="cursor:pointer" class="corow" data-id="${c.id}"><td class="mono" style="font-weight:600">${esc(c.number)}</td><td><a href="javascript:void(0)" class="rlink">${esc(c.title)}</a></td><td class="${c.costImpact>0?'':'muted'}">${c.costImpact>0?'+':''}${fmtMoney(c.costImpact,p.currency)}</td><td>${c.scheduleImpact?c.scheduleImpact+' days':'-'}</td><td>${statusBadge(c.status)}</td></tr>`).join('')}</tbody></table></div>`:emptyState('swap','No change orders','Track scope, budget, and schedule changes.','New change order','openChangeOrderForm(\''+p.id+'\')'));
   $$('.corow').forEach(r=>r.onclick=()=>openChangeOrderDetail(r.getAttribute('data-id')));
 }
 async function openChangeOrderForm(projectId){ projectId=projectId||state.project?.id; const num='CO-'+String((await dbAll('change_orders')).length+1).padStart(3,'0'); openModal(`<div class="modal-head"><h3 style="margin:0">New change order</h3><button class="iconbtn" onclick="closeAllModals()">${icon('close')}</button></div><div class="modal-body"><div class="field"><label>Number</label><input value="${num}" disabled/></div><div class="field"><label>Title *</label><input id="co-title"/></div><div class="field"><label>Description</label><textarea id="co-desc"></textarea></div><div class="row"><div class="field"><label>Reason</label><input id="co-reason" placeholder="Client request"/></div><div class="field"><label>Requested by</label><input id="co-req"/></div></div><div class="row"><div class="field"><label>Cost impact</label><input id="co-cost" type="number"/></div><div class="field"><label>Schedule impact (days)</label><input id="co-sched" type="number"/></div></div></div><div class="modal-foot"><button class="btn" onclick="closeAllModals()">Cancel</button><button class="btn btn-primary" id="co-save">Create</button></div>`,{w:600}); $('#co-save').onclick=async()=>{ const t=$('#co-title').value.trim(); if(!t){ toast('Title required','err'); return; } await createRecord('change_orders',{projectId,number:num,title:t,description:$('#co-desc').value,reason:$('#co-reason').value,requestedBy:$('#co-req').value,costImpact:+$('#co-cost').value||0,scheduleImpact:+$('#co-sched').value||0,status:'Proposed'},'Change order'); toast('Change order created','ok'); closeAllModals(); routeProject(projectId,'change-orders'); }; };
-async function openChangeOrderDetail(id){ const c=await dbGet('change_orders',id); openModal(`<div class="modal-head"><h3 style="margin:0">${esc(c.number)} — ${esc(c.title)}</h3><button class="iconbtn" onclick="closeAllModals()">${icon('close')}</button></div><div class="modal-body"><div style="display:flex;gap:10px;margin-bottom:14px">${statusBadge(c.status)}</div><div class="grid g3" style="gap:10px;margin-bottom:14px">${miniStat('Cost impact',(c.costImpact>0?'+':'')+fmtMoney(c.costImpact,state.project.currency),c.costImpact>0?'var(--warn)':'var(--ok)')}${miniStat('Schedule',(c.scheduleImpact||0)+' days','var(--info)')}${miniStat('Scope',esc(c.scope||'Design'),'')}</div><p style="color:var(--text-2)">${esc(c.description||'')}</p><div class="field"><label>Status</label><select id="codet-status">${CO_STATUS.map(s=>`<option ${c.status===s?'selected':''}>${s}</option>`).join('')}</select></div></div><div class="modal-foot"><button class="btn btn-primary" id="codet-save">Save</button></div>`); $('#codet-save').onclick=async()=>{ await updateRecord('change_orders',id,{status:$('#codet-status').value},'Change order'); toast('Updated','ok'); closeAllModals(); routeProject(c.projectId,'change-orders'); }; };
+async function openChangeOrderDetail(id){ const c=await dbGet('change_orders',id); openModal(`<div class="modal-head"><h3 style="margin:0">${esc(c.number)} - ${esc(c.title)}</h3><button class="iconbtn" onclick="closeAllModals()">${icon('close')}</button></div><div class="modal-body"><div style="display:flex;gap:10px;margin-bottom:14px">${statusBadge(c.status)}</div><div class="grid g3" style="gap:10px;margin-bottom:14px">${miniStat('Cost impact',(c.costImpact>0?'+':'')+fmtMoney(c.costImpact,state.project.currency),c.costImpact>0?'var(--warn)':'var(--ok)')}${miniStat('Schedule',(c.scheduleImpact||0)+' days','var(--info)')}${miniStat('Scope',esc(c.scope||'Design'),'')}</div><p style="color:var(--text-2)">${esc(c.description||'')}</p><div class="field"><label>Status</label><select id="codet-status">${CO_STATUS.map(s=>`<option ${c.status===s?'selected':''}>${s}</option>`).join('')}</select></div></div><div class="modal-foot"><button class="btn btn-primary" id="codet-save">Save</button></div>`); $('#codet-save').onclick=async()=>{ await updateRecord('change_orders',id,{status:$('#codet-status').value},'Change order'); toast('Updated','ok'); closeAllModals(); routeProject(c.projectId,'change-orders'); }; };
 
 /* ---------- Approvals ---------- */
 async function renderApprovals(p){ const apps=(await dbFilter('approvals',a=>a.projectId===p.id)).sort((a,b)=>b.createdAt.localeCompare(a.createdAt)); const pending=apps.filter(a=>a.status==='Pending');
@@ -1520,7 +1571,7 @@ async function renderArchive(p){ const docs=await dbFilter('documents',d=>d.proj
 /* ---------- Client portal ---------- */
 async function clientPortal(p){ const miles=await dbFilter('milestones',m=>m.projectId===p.id); const approvals=await dbFilter('approvals',a=>a.projectId===p.id&&a.status==='Pending'); const opts=await dbFilter('design_options',o=>o.projectId===p.id);
   return `<div class="banner" style="background:var(--info-soft);color:var(--info)">${icon('eye',16)} You are viewing the client portal. Some project details are hidden.</div>`
-  + header(p.name,'Client view — '+esc(p.status),'')
+  + header(p.name,'Client view - '+esc(p.status),'')
   + `<div class="grid g4" style="margin-bottom:16px">${miniStat('Overall progress',(p.progress||0)+'%','var(--ok)')}${miniStat('Construction',(p.constructionProgress||0)+'%','var(--accent)')}${miniStat('Milestones',miles.filter(m=>m.status==='Completed').length+'/'+miles.length,'')}${miniStat('Pending approvals',approvals.length+'','var(--info)')}</div>
   <div class="grid g2">
    <div class="card"><div class="card-head"><span class="card-title">Project timeline</span></div><div class="card-body"><div class="muted" style="display:flex;justify-content:space-between;font-size:11px;margin-bottom:8px"><span>${fmtDate(p.startDate)}</span><span>${fmtDate(p.targetDate)}</span></div>${progressBar(p.progress||0)}<div class="divider"></div>${miles.slice(0,6).map(m=>`<div style="display:flex;justify-content:space-between;padding:7px 0;border-bottom:1px solid var(--border)"><span style="font-size:13px">${esc(m.title)}</span>${statusBadge(m.status)}</div>`).join('')}</div></div>
@@ -1530,7 +1581,7 @@ async function clientPortal(p){ const miles=await dbFilter('milestones',m=>m.pro
 window.clientFeedback=async pid=>{ const v=$('#cp-comment').value.trim(); if(!v){ toast('Please write feedback','err'); return; } await createRecord('task_comments',{taskId:'client-feedback-'+pid,userId:state.user.id,userName:state.user.name,text:v},'Feedback'); toast('Feedback sent','ok'); $('#cp-comment').value=''; };
 
 /* ============================================================
-   PWA — Service worker + manifest (register via blob)
+   PWA - Service worker + manifest (register via blob)
    ============================================================ */
 function injectManifest(){ const m={name:'ARQORA',short_name:'ARQORA',description:'Architecture Project Operating System. From concept to construction. One connected workspace.',start_url:'.',display:'standalone',background_color:'#0f1115',theme_color:'#c8552b',icons:[{src:'data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" rx="20" fill="#c8552b"/><path d="M50 20 L78 78 L22 78 Z" fill="none" stroke="#fff" stroke-width="7" stroke-linejoin="round"/></svg>'),sizes:'any',type:'image/svg+xml',purpose:'any'}]};
   const link=$('#manifestlink'); if(link){ link.href='data:application/manifest+json,'+encodeURIComponent(JSON.stringify(m)); } }
@@ -1550,7 +1601,7 @@ self.addEventListener('fetch',e=>{
 });`;
   const blob=new Blob([swCode],{type:'text/javascript'}); const url=URL.createObjectURL(blob);
   // Service workers must be same-origin files; blob URLs aren't allowed,
-  // so for the single-file build we provide a graceful fallback — the app
+  // so for the single-file build we provide a graceful fallback - the app
   // remains fully functional offline via IndexedDB regardless.
   try{ await navigator.serviceWorker.register(url); }catch(e){ /* fallback silent */ }
   }catch(e){}
@@ -1563,8 +1614,8 @@ async function main(){ initTheme(); injectManifest(); await openDB(); await boot
   // migrate legacy fields
   const projects=await dbAll('projects'); for(const p of projects){ if(!p.clientName){ const cl=p.clientId?await dbGet('clients',p.clientId):null; if(cl) await dbPut('projects',{...p,clientName:cl.name,clientCompany:cl.company}); } if(!p.members) await dbPut('projects',{...p,members:[{userId:p.pmId||state.user?.id,role:'Owner'}]}); }
   await updatePending();
-  window.addEventListener('online',()=>{ state.online=true; syncUI(); flushSync(); toast('Back online — syncing changes','ok'); });
-  window.addEventListener('offline',()=>{ state.online=false; syncUI(); toast('You are offline — changes saved locally','warn'); });
+  window.addEventListener('online',()=>{ state.online=true; syncUI(); flushSync(); toast('Back online - syncing changes','ok'); });
+  window.addEventListener('offline',()=>{ state.online=false; syncUI(); toast('You are offline - changes saved locally','warn'); });
   window.addEventListener('hashchange',()=>{ if(stripHash(location.hash)!==state.currentHash){ state.currentHash=stripHash(location.hash); renderFull(); } });
   state.currentHash=stripHash(location.hash);
   registerSW();
