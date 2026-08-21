@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="system">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0f1115" />
+<meta name="description" content="ARQORA guide — learn how to create projects, manage tasks, track construction, and collaborate with your team." />
+<title>Guide — ARQORA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<style>
+:root{
+  --bg:#f7f7f5; --surface:#ffffff; --surface-2:#f1f1ee; --surface-3:#ebebe6; --border:#e6e6e1; --border-2:#d9d9d3;
+  --text:#17181a; --text-2:#595c63; --text-3:#8a8d94; --accent:#c8552b; --accent-soft:#f7e7e0;
+  --accent-text:#b54421; --accent-glow:rgba(200,85,43,.18); --ok:#2f7d4f; --ok-soft:#e3f1e8;
+  --warn:#b07a1a; --warn-soft:#f7eed7; --danger:#c0392b; --info:#2b62a0; --neutral:#6b6e75;
+  --shadow:0 1px 2px rgba(20,20,20,.04),0 4px 16px rgba(20,20,20,.06);
+  --shadow-md:0 4px 12px rgba(20,20,20,.08),0 8px 24px rgba(20,20,20,.06);
+  --radius:10px; --radius-sm:7px; --radius-lg:14px; --radius-xl:20px;
+  --font:'Inter',system-ui,-apple-system,sans-serif;
+  --ease:cubic-bezier(.4,0,.2,1); --ease-out:cubic-bezier(.16,1,.3,1); --transition:.18s var(--ease);
+}
+[data-theme="dark"]{
+  --bg:#0e0f12; --surface:#15171a; --surface-2:#1c1e23; --surface-3:#22252b; --border:#26282e; --border-2:#33363d;
+  --text:#eceef1; --text-2:#a6aab2; --text-3:#6e727b; --accent:#e06a3a; --accent-soft:#3a2620;
+  --accent-text:#ef8a5f; --accent-glow:rgba(224,106,58,.22); --ok:#4dbb76; --ok-soft:#18261d;
+  --warn:#d9a63f; --warn-soft:#2b2414; --danger:#e2776a; --info:#6da1d9;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 4px 16px rgba(0,0,0,.35);
+  --shadow-md:0 4px 12px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;height:100%}
+body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;letter-spacing:-.006em}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+::selection{background:var(--accent);color:#fff}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:var(--border-2);border-radius:8px;border:2px solid transparent;background-clip:content-box}
+::-webkit-scrollbar-thumb:hover{background:var(--text-3)}
+::-webkit-scrollbar-track{background:transparent}
+
+.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 84%,transparent);backdrop-filter:blur(16px) saturate(1.4);border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 24px}
+.nav-brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px;letter-spacing:-.03em}
+.nav-brand .mark{width:30px;height:30px;border-radius:8px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800}
+.nav-links{display:flex;gap:6px;align-items:center}
+.nav-links a{padding:7px 14px;border-radius:var(--radius-sm);font-size:13px;font-weight:600;color:var(--text-2);transition:var(--transition)}
+.nav-links a:hover{background:var(--surface-2);color:var(--text)}
+.nav-links a.btn-primary{background:var(--accent);color:#fff;border:none}
+.nav-links a.btn-primary:hover{background:var(--accent-text)}
+@media(max-width:640px){.nav-links a:not(.btn-primary){display:none}.nav{padding:0 16px}}
+
+.hero{max-width:780px;margin:0 auto;padding:72px 24px 40px;text-align:center}
+.hero h1{font-size:clamp(30px,5vw,46px);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin:0 0 16px}
+.hero p{font-size:clamp(15px,2.5vw,18px);color:var(--text-2);line-height:1.6;margin:0 auto;max-width:580px}
+.hero .tag{display:inline-flex;align-items:center;gap:7px;padding:5px 14px;border-radius:20px;background:var(--accent-soft);color:var(--accent-text);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:20px}
+.hero .tag .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+.layout{max-width:1100px;margin:0 auto;padding:0 24px 80px;display:grid;grid-template-columns:240px 1fr;gap:32px}
+@media(max-width:760px){.layout{grid-template-columns:1fr;gap:0}}
+
+.toc{position:sticky;top:80px;align-self:start;padding:24px 0}
+.toc h4{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-3);margin:0 0 12px}
+.toc a{display:block;padding:6px 12px;border-radius:var(--radius-sm);font-size:13px;font-weight:500;color:var(--text-2);transition:var(--transition);border-left:2px solid transparent}
+.toc a:hover{background:var(--surface-2);color:var(--text)}
+.toc a.active{border-left-color:var(--accent);color:var(--accent-text);background:var(--accent-soft)}
+@media(max-width:760px){.toc{position:static;display:none}}
+
+.content{padding:24px 0}
+.content section{margin-bottom:48px;scroll-margin-top:80px}
+.content h2{font-size:clamp(20px,3.5vw,28px);font-weight:800;letter-spacing:-.03em;margin:0 0 14px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.content h3{font-size:16px;font-weight:700;margin:28px 0 10px}
+.content p{color:var(--text-2);margin:0 0 14px}
+.content ol,.content ul{color:var(--text-2);line-height:1.8;padding-left:20px;margin:0 0 14px}
+.content li{margin-bottom:6px}
+.content code{font-family:ui-monospace,monospace;font-size:13px;background:var(--surface-2);padding:2px 6px;border-radius:4px;border:1px solid var(--border)}
+.content strong{color:var(--text)}
+
+.tip{background:var(--accent-soft);border:1px solid color-mix(in srgb,var(--accent) 20%,transparent);border-radius:var(--radius);padding:14px 18px;margin:16px 0;font-size:13px;color:var(--text-2);line-height:1.55}
+.tip strong{color:var(--accent-text)}
+.tip:before{content:'\1F4A1';margin-right:8px}
+
+.steps{display:grid;gap:16px;margin:20px 0}
+.step{display:flex;gap:16px;align-items:flex-start;padding:18px;background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow);transition:transform .2s var(--ease-out),box-shadow .2s var(--ease-out)}
+.step:hover{transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.step .sn{width:32px;height:32px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;flex-shrink:0}
+.step h3{margin:0 0 6px;font-size:15px}
+.step p{margin:0;font-size:13px;color:var(--text-3)}
+
+.cta{max-width:780px;margin:0 auto 80px;padding:32px 24px;text-align:center}
+.cta-inner{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-xl);padding:40px 32px;box-shadow:var(--shadow-md);position:relative;overflow:hidden}
+.cta-inner:before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,transparent,var(--accent),transparent)}
+.cta h2{font-size:clamp(20px,4vw,28px);font-weight:800;letter-spacing:-.03em;margin:0 0 10px}
+.cta p{color:var(--text-2);margin:0 0 20px}
+.cta .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:var(--radius);font-size:14px;font-weight:700;border:none}
+.cta .btn-primary{background:var(--accent);color:#fff}
+.cta .btn-primary:hover{background:var(--accent-text);transform:translateY(-1px)}
+
+.footer{max-width:1240px;margin:0 auto;padding:40px 24px 32px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer .copy{font-size:12px;color:var(--text-3)}
+.footer .copy strong{color:var(--text-2)}
+.footer .links{display:flex;gap:20px}
+.footer .links a{font-size:12px;color:var(--text-3);font-weight:500;transition:color .15s var(--ease)}
+.footer .links a:hover{color:var(--text)}
+@media(max-width:520px){.footer{flex-direction:column;align-items:flex-start;gap:14px}}
+
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out)}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-brand"><span class="mark">A</span> ARQORA</a>
+  <div class="nav-links">
+    <a href="about.html">About</a>
+    <a href="guide.html">Guide</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="workspace.html" class="btn-primary" style="padding:8px 16px;border-radius:8px">Open workspace</a>
+  </div>
+</nav>
+
+<section class="hero fade-in">
+  <span class="tag"><span class="dot"></span> Getting started</span>
+  <h1>How ARQORA works.</h1>
+  <p>A quick tour of the platform — from creating your first project to tracking construction on site.</p>
+</section>
+
+<div class="layout">
+  <aside class="toc">
+    <h4>Contents</h4>
+    <a href="#start" class="active">1. Getting started</a>
+    <a href="#project">2. Create a project</a>
+    <a href="#tasks">3. Tasks & issues</a>
+    <a href="#docs">4. Documents & drawings</a>
+    <a href="#site">5. Site & construction</a>
+    <a href="#budget">6. Budget & BOQ</a>
+    <a href="#team">7. Team & approvals</a>
+    <a href="#offline">8. Offline mode</a>
+  </aside>
+
+  <div class="content">
+    <section id="start" class="fade-in">
+      <h2>1. Getting started</h2>
+      <p>When you open the ARQORA workspace, you'll land on the dashboard. It gives you an overview of all active projects, overdue tasks, pending approvals, and recent activity across your studio.</p>
+      <div class="tip"><strong>Tip:</strong> Use the search bar (or press <code>Ctrl+K</code> / <code>Cmd+K</code>) to instantly find any project, task, drawing, or document.</div>
+
+      <h3>Navigation</h3>
+      <ul>
+        <li><strong>Sidebar (left)</strong> — switch between Dashboard, Projects, Calendar, Tasks, Documents, Team, Reports, and Settings.</li>
+        <li><strong>Top bar</strong> — search, notifications, sync status, and quick-add button.</li>
+        <li><strong>Mobile</strong> — tap the menu icon to open the sidebar, or use the bottom navigation bar.</li>
+      </ul>
+    </section>
+
+    <section id="project" class="fade-in">
+      <h2>2. Create a project</h2>
+      <p>Every project in ARQORA goes through an 8-step wizard that captures all the essential details up front.</p>
+      <div class="steps">
+        <div class="step"><div class="sn">1</div><div><h3>Project details</h3><p>Name, code, type (Residential, Commercial, etc.), and description.</p></div></div>
+        <div class="step"><div class="sn">2</div><div><h3>Client</h3><p>Client name, company, email, and phone.</p></div></div>
+        <div class="step"><div class="sn">3</div><div><h3>Site</h3><p>Address, city, country, and GPS coordinates for site navigation.</p></div></div>
+        <div class="step"><div class="sn">4</div><div><h3>Schedule</h3><p>Start date and target completion date.</p></div></div>
+        <div class="step"><div class="sn">5</div><div><h3>Budget</h3><p>Estimated budget and currency.</p></div></div>
+        <div class="step"><div class="sn">6</div><div><h3>Team</h3><p>Assign a project manager and team members.</p></div></div>
+        <div class="step"><div class="sn">7</div><div><h3>Brief</h3><p>Objectives, requirements, and constraints.</p></div></div>
+        <div class="step"><div class="sn">8</div><div><h3>Review & create</h3><p>Review all details and create the project.</p></div></div>
+      </div>
+      <div class="tip"><strong>Tip:</strong> You can edit any project detail later from the project's Overview tab.</div>
+    </section>
+
+    <section id="tasks" class="fade-in">
+      <h2>3. Tasks & issues</h2>
+      <h3>Tasks</h3>
+      <p>Tasks are the day-to-day work items. Each task has a title, assignee, due date, priority, and status. You can view tasks within a project or across all projects from the global Tasks page.</p>
+      <p>To create a task, click the <strong>Add</strong> button (or the floating + button on mobile) and select <strong>Task</strong>.</p>
+
+      <h3>Issues</h3>
+      <p>Issues track problems that need resolution — design conflicts, site defects, or anything blocking progress. Each issue has a status (Open, In Progress, Resolved, Closed) and can be linked to a specific project.</p>
+
+      <h3>RFIs</h3>
+      <p>Requests for Information let you formally ask questions about the design or scope. Each RFI has a number, subject, status, and response.</p>
+    </section>
+
+    <section id="docs" class="fade-in">
+      <h2>4. Documents & drawings</h2>
+      <h3>Documents</h3>
+      <p>Upload and organize project documents — contracts, permits, specifications, reports. Each document has a category and can be linked to a project.</p>
+
+      <h3>Drawings</h3>
+      <p>Track drawing revisions with a number, title, revision, and status (Draft, Review, Approved, Superseded). The system keeps a full revision history so you always know which version is current.</p>
+      <div class="tip"><strong>Tip:</strong> Use the global Documents page to search across all projects at once.</div>
+    </section>
+
+    <section id="site" class="fade-in">
+      <h2>5. Site & construction</h2>
+      <h3>Site diary</h3>
+      <p>Record daily site activity — weather, workforce, equipment, progress notes, and incidents. Site diaries are timestamped and linked to the project.</p>
+
+      <h3>Photos</h3>
+      <p>Log site photos with captions and categories. Photos appear in the project's Photos tab and can be referenced in site diaries.</p>
+
+      <h3>Progress tracking</h3>
+      <p>Update construction progress by section or phase. The progress bar on the project overview reflects the latest updates.</p>
+
+      <h3>Inspections</h3>
+      <p>Schedule and record inspections with a status (Pending, Passed, Failed, Re-inspection) and inspector notes.</p>
+
+      <h3>Site mode</h3>
+      <p>Tap <strong>Site mode</strong> in the user menu to switch to a field-optimized layout with quick access to diary, photos, and progress.</p>
+    </section>
+
+    <section id="budget" class="fade-in">
+      <h2>6. Budget & BOQ</h2>
+      <h3>Budget</h3>
+      <p>Track budget items with estimated, committed, and actual costs. The budget summary shows total estimated vs. actual spending per category.</p>
+
+      <h3>BOQ / RAB</h3>
+      <p>The Bill of Quantities (RAB in Indonesian) lists every item with a code, description, category, quantity, unit, and unit price. The system calculates the total project value automatically.</p>
+
+      <h3>Change orders</h3>
+      <p>Document changes to scope or budget with a status (Draft, Submitted, Approved, Rejected) and the cost impact.</p>
+    </section>
+
+    <section id="team" class="fade-in">
+      <h2>7. Team & approvals</h2>
+      <h3>Team</h3>
+      <p>Invite members to your workspace and assign roles (Owner, Admin, Member). Each member's active task count is visible on the Team page.</p>
+
+      <h3>Approvals</h3>
+      <p>Submit items for approval (drawings, change orders, payments). Approvers see pending items on the dashboard and can approve or reject with a comment.</p>
+
+      <h3>Discussions</h3>
+      <p>Each project has a discussions tab for threaded conversations. Keep design decisions and project communication in one place.</p>
+
+      <h3>Calendar</h3>
+      <p>The global calendar shows all deadlines, milestones, and task due dates across projects in a monthly view.</p>
+    </section>
+
+    <section id="offline" class="fade-in">
+      <h2>8. Offline mode</h2>
+      <p>ARQORA is designed to work fully offline. Your data is stored locally in your browser, so you can create tasks, write site diaries, and update progress even with no internet connection.</p>
+      <div class="tip"><strong>How it works:</strong> When you're offline, a banner appears at the top. Your changes are saved locally and sync automatically when you reconnect. Check the sync status in the top bar or the user menu.</div>
+      <h3>Sync status</h3>
+      <p>Click the sync indicator in the top bar to see pending changes, last sync time, and any failed items that need retrying.</p>
+    </section>
+  </div>
+</div>
+
+<section class="cta fade-in">
+  <div class="cta-inner">
+    <h2>Try it yourself</h2>
+    <p>Open the demo workspace and explore everything you just read about.</p>
+    <a href="workspace.html" class="btn btn-primary">Open workspace &rarr;</a>
+  </div>
+</section>
+
+<footer class="footer">
+  <span class="copy"><strong>ARQORA</strong> &copy; 2026 · Architecture Project Operating System</span>
+  <div class="links">
+    <a href="about.html">About</a>
+    <a href="guide.html">Guide</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="cookies.html">Cookies</a>
+    <a href="https://github.com/opencutvideo/Arqora" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var stored=localStorage.getItem('arqora-theme');
+  if(stored==='dark') document.documentElement.setAttribute('data-theme','dark');
+  else if(stored==='light') document.documentElement.setAttribute('data-theme','light');
+  else if(stored==='system' || !stored){
+    if(window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)
+      document.documentElement.setAttribute('data-theme','dark');
+  }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+  },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.fade-in').forEach(function(el){ io.observe(el); });
+  var tocLinks=document.querySelectorAll('.toc a');
+  var sections=document.querySelectorAll('.content section');
+  window.addEventListener('scroll',function(){
+    var cur='';
+    sections.forEach(function(s){ if(window.scrollY>=s.offsetTop-100) cur=s.id; });
+    tocLinks.forEach(function(a){ a.classList.toggle('active',a.getAttribute('href')==='#'+cur); });
+  });
+})();
+</script>
+</body>
+</html>

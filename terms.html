@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="system">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0f1115" />
+<meta name="description" content="ARQORA terms of service — the terms and conditions for using the ARQORA platform." />
+<title>Terms of Service — ARQORA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<style>
+:root{
+  --bg:#f7f7f5; --surface:#ffffff; --surface-2:#f1f1ee; --surface-3:#ebebe6; --border:#e6e6e1; --border-2:#d9d9d3;
+  --text:#17181a; --text-2:#595c63; --text-3:#8a8d94; --accent:#c8552b; --accent-soft:#f7e7e0;
+  --accent-text:#b54421; --accent-glow:rgba(200,85,43,.18); --ok:#2f7d4f; --ok-soft:#e3f1e8;
+  --warn:#b07a1a; --warn-soft:#f7eed7; --danger:#c0392b; --info:#2b62a0; --neutral:#6b6e75;
+  --shadow:0 1px 2px rgba(20,20,20,.04),0 4px 16px rgba(20,20,20,.06);
+  --shadow-md:0 4px 12px rgba(20,20,20,.08),0 8px 24px rgba(20,20,20,.06);
+  --radius:10px; --radius-sm:7px; --radius-lg:14px; --radius-xl:20px;
+  --font:'Inter',system-ui,-apple-system,sans-serif;
+  --ease:cubic-bezier(.4,0,.2,1); --ease-out:cubic-bezier(.16,1,.3,1); --transition:.18s var(--ease);
+}
+[data-theme="dark"]{
+  --bg:#0e0f12; --surface:#15171a; --surface-2:#1c1e23; --surface-3:#22252b; --border:#26282e; --border-2:#33363d;
+  --text:#eceef1; --text-2:#a6aab2; --text-3:#6e727b; --accent:#e06a3a; --accent-soft:#3a2620;
+  --accent-text:#ef8a5f; --accent-glow:rgba(224,106,58,.22); --ok:#4dbb76; --ok-soft:#18261d;
+  --warn:#d9a63f; --warn-soft:#2b2414; --danger:#e2776a; --info:#6da1d9;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 4px 16px rgba(0,0,0,.35);
+  --shadow-md:0 4px 12px rgba(0,0,0,.4),0 8px 24px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;height:100%}
+body{font-family:var(--font);background:var(--bg);color:var(--text);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;letter-spacing:-.006em}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer}
+::selection{background:var(--accent);color:#fff}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-thumb{background:var(--border-2);border-radius:8px;border:2px solid transparent;background-clip:content-box}
+::-webkit-scrollbar-thumb:hover{background:var(--text-3)}
+::-webkit-scrollbar-track{background:transparent}
+
+.nav{position:sticky;top:0;z-index:50;background:color-mix(in srgb,var(--bg) 84%,transparent);backdrop-filter:blur(16px) saturate(1.4);border-bottom:1px solid var(--border);height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 24px}
+.nav-brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:17px;letter-spacing:-.03em}
+.nav-brand .mark{width:30px;height:30px;border-radius:8px;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800}
+.nav-links{display:flex;gap:6px;align-items:center}
+.nav-links a{padding:7px 14px;border-radius:var(--radius-sm);font-size:13px;font-weight:600;color:var(--text-2);transition:var(--transition)}
+.nav-links a:hover{background:var(--surface-2);color:var(--text)}
+.nav-links a.btn-primary{background:var(--accent);color:#fff;border:none}
+.nav-links a.btn-primary:hover{background:var(--accent-text)}
+@media(max-width:640px){.nav-links a:not(.btn-primary){display:none}.nav{padding:0 16px}}
+
+.hero{max-width:780px;margin:0 auto;padding:64px 24px 32px;text-align:center}
+.hero h1{font-size:clamp(28px,5vw,44px);font-weight:800;letter-spacing:-.04em;line-height:1.05;margin:0 0 12px}
+.hero .meta{font-size:13px;color:var(--text-3);margin-top:8px}
+.hero .tag{display:inline-flex;align-items:center;gap:7px;padding:5px 14px;border-radius:20px;background:var(--accent-soft);color:var(--accent-text);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;margin-bottom:18px}
+.hero .tag .dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+
+.legal{max-width:760px;margin:0 auto;padding:0 24px 80px}
+.legal section{margin-bottom:36px;scroll-margin-top:80px}
+.legal h2{font-size:clamp(18px,3vw,24px);font-weight:800;letter-spacing:-.03em;margin:0 0 12px;padding-bottom:8px;border-bottom:1px solid var(--border)}
+.legal h3{font-size:15px;font-weight:700;margin:20px 0 8px}
+.legal p{color:var(--text-2);margin:0 0 14px}
+.legal ul{color:var(--text-2);line-height:1.8;padding-left:20px;margin:0 0 14px}
+.legal li{margin-bottom:6px}
+.legal strong{color:var(--text)}
+.legal code{font-family:ui-monospace,monospace;font-size:13px;background:var(--surface-2);padding:2px 6px;border-radius:4px;border:1px solid var(--border)}
+
+.toc{max-width:760px;margin:0 auto;padding:0 24px 24px}
+.toc h4{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-3);margin:0 0 10px}
+.toc-links{display:flex;flex-wrap:wrap;gap:8px}
+.toc-links a{padding:5px 12px;border-radius:20px;background:var(--surface);border:1px solid var(--border);font-size:12px;font-weight:600;color:var(--text-2);transition:var(--transition)}
+.toc-links a:hover{border-color:var(--accent);color:var(--accent-text);background:var(--accent-soft)}
+
+.footer{max-width:1240px;margin:0 auto;padding:40px 24px 32px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer .copy{font-size:12px;color:var(--text-3)}
+.footer .copy strong{color:var(--text-2)}
+.footer .links{display:flex;gap:20px}
+.footer .links a{font-size:12px;color:var(--text-3);font-weight:500;transition:color .15s var(--ease)}
+.footer .links a:hover{color:var(--text)}
+@media(max-width:520px){.footer{flex-direction:column;align-items:flex-start;gap:14px}}
+
+.fade-in{opacity:0;transform:translateY(20px);transition:opacity .6s var(--ease-out),transform .6s var(--ease-out)}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-brand"><span class="mark">A</span> ARQORA</a>
+  <div class="nav-links">
+    <a href="about.html">About</a>
+    <a href="guide.html">Guide</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="workspace.html" class="btn-primary" style="padding:8px 16px;border-radius:8px">Open workspace</a>
+  </div>
+</nav>
+
+<section class="hero fade-in">
+  <span class="tag"><span class="dot"></span> Legal</span>
+  <h1>Terms of Service</h1>
+  <div class="meta">Last updated: August 21, 2026</div>
+</section>
+
+<div class="toc fade-in">
+  <h4>Contents</h4>
+  <div class="toc-links">
+    <a href="#accept">Acceptance</a>
+    <a href="#service">The Service</a>
+    <a href="#accounts">Accounts</a>
+    <a href="#use">Acceptable use</a>
+    <a href="#data">Your data</a>
+    <a href="#ip">Intellectual property</a>
+    <a href="#fees">Fees</a>
+    <a href="#termination">Termination</a>
+    <a href="#warranty">Warranty</a>
+    <a href="#liability">Liability</a>
+    <a href="#governing">Governing law</a>
+    <a href="#changes">Changes</a>
+    <a href="#contact">Contact</a>
+  </div>
+</div>
+
+<div class="legal">
+  <section id="accept" class="fade-in">
+    <h2>1. Acceptance of terms</h2>
+    <p>By accessing or using ARQORA (the "Service"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use the Service.</p>
+    <p>These Terms apply to all visitors, users, and others who access or use the Service.</p>
+  </section>
+
+  <section id="service" class="fade-in">
+    <h2>2. The Service</h2>
+    <p>ARQORA is an architecture project operating system that provides tools for project management, document management, construction tracking, budgeting, and team collaboration for architecture and construction studios.</p>
+    <p>The Service is provided "as is" and may be modified, updated, or discontinued at any time without prior notice. We strive to maintain service availability but do not guarantee uninterrupted access.</p>
+  </section>
+
+  <section id="accounts" class="fade-in">
+    <h2>3. Accounts</h2>
+    <ul>
+      <li>You must provide accurate and complete information when creating an account.</li>
+      <li>You are responsible for safeguarding your password and for any activity under your account.</li>
+      <li>You must be at least 16 years old to use this Service.</li>
+      <li>One person or entity may not maintain multiple accounts for the purpose of circumventing usage limits.</li>
+      <li>You are responsible for all content created under your account, including project data, documents, and communications.</li>
+    </ul>
+  </section>
+
+  <section id="use" class="fade-in">
+    <h2>4. Acceptable use</h2>
+    <p>You agree not to:</p>
+    <ul>
+      <li>Use the Service for any illegal or unauthorized purpose.</li>
+      <li>Upload or share content that is unlawful, harmful, defamatory, or infringes on intellectual property rights.</li>
+      <li>Attempt to gain unauthorized access to other users' data or system resources.</li>
+      <li>Use the Service to store or transmit malware, viruses, or malicious code.</li>
+      <li>Interfere with or disrupt the Service's servers, networks, or security measures.</li>
+      <li>Scrape, crawl, or automated-extract data from the Service without permission.</li>
+      <li>Share your account credentials with others outside your workspace.</li>
+    </ul>
+  </section>
+
+  <section id="data" class="fade-in">
+    <h2>5. Your data</h2>
+    <p>You retain ownership of all data you create in ARQORA, including projects, documents, drawings, and site records.</p>
+    <ul>
+      <li>You grant us a limited license to store, process, and display your data solely to provide the Service.</li>
+      <li>You are responsible for the accuracy and legality of content you upload.</li>
+      <li>You can export your data at any time via the Reports page.</li>
+      <li>You can delete your data at any time. Deletion is permanent after 30 days.</li>
+      <li>We do not claim ownership of your project data, drawings, or documents.</li>
+    </ul>
+    <p>See our <a href="privacy.html" style="color:var(--accent-text);font-weight:600">Privacy Policy</a> for details on data handling.</p>
+  </section>
+
+  <section id="ip" class="fade-in">
+    <h2>6. Intellectual property</h2>
+    <h3>Our rights</h3>
+    <p>The ARQORA platform, including its design, code, branding, and features, is owned by us and protected by intellectual property laws. You may not copy, modify, distribute, or reverse-engineer the platform.</p>
+    <h3>Your rights</h3>
+    <p>You retain all intellectual property rights to the content you upload — drawings, documents, photos, and project information. We claim no ownership over your work product.</p>
+    <h3>Open source</h3>
+    <p>ARQORA's source code is available on <a href="https://github.com/opencutvideo/Arqora" target="_blank" rel="noopener" style="color:var(--accent-text);font-weight:600">GitHub</a>. Contributions are welcome under the repository's license terms.</p>
+  </section>
+
+  <section id="fees" class="fade-in">
+    <h2>7. Fees and billing</h2>
+    <ul>
+      <li>The current demo version of ARQORA is free to use.</li>
+      <li>Paid plans may be introduced in the future with additional features, higher limits, or priority support.</li>
+      <li>If paid plans are introduced, existing free-tier users will retain access to their data.</li>
+      <li>All fees are non-refundable unless required by law.</li>
+      <li>We will provide at least 30 days' notice before introducing paid features.</li>
+    </ul>
+  </section>
+
+  <section id="termination" class="fade-in">
+    <h2>8. Termination</h2>
+    <ul>
+      <li>You may close your account at any time from Settings.</li>
+      <li>We may suspend or terminate your account if you violate these Terms.</li>
+      <li>We may terminate inactive accounts after 12 months of inactivity, with prior notice.</li>
+      <li>Upon termination, your data will be deleted within 30 days.</li>
+      <li>Sections on intellectual property, liability, and governing law survive termination.</li>
+    </ul>
+  </section>
+
+  <section id="warranty" class="fade-in">
+    <h2>9. Warranty disclaimer</h2>
+    <p>The Service is provided "as is" and "as available" without warranties of any kind, whether express or implied. We do not guarantee that:</p>
+    <ul>
+      <li>The Service will be uninterrupted, secure, or error-free at all times.</li>
+      <li>Your data will never be lost, though we take reasonable measures to prevent this.</li>
+      <li>The Service will meet your specific requirements or expectations.</li>
+    </ul>
+    <p>You use the Service at your own risk.</p>
+  </section>
+
+  <section id="liability" class="fade-in">
+    <h2>10. Limitation of liability</h2>
+    <p>To the maximum extent permitted by law, ARQORA and its operators shall not be liable for:</p>
+    <ul>
+      <li>Indirect, incidental, special, or consequential damages.</li>
+      <li>Loss of profits, data, or business opportunities.</li>
+      <li>Damages resulting from loss of data or service interruption.</li>
+      <li>Any third-party actions or content.</li>
+    </ul>
+    <p>Our total liability shall not exceed the amount you paid for the Service in the 12 months preceding the claim, or zero if you used the free tier.</p>
+  </section>
+
+  <section id="governing" class="fade-in">
+    <h2>11. Governing law</h2>
+    <p>These Terms are governed by the laws applicable in the jurisdiction where the Service is operated. Any disputes shall be resolved in the courts of that jurisdiction, unless otherwise required by local consumer protection laws.</p>
+  </section>
+
+  <section id="changes" class="fade-in">
+    <h2>12. Changes to these Terms</h2>
+    <p>We may update these Terms from time to time. We will notify you of material changes by posting a notice in the application or by email. Continued use of the Service after changes take effect constitutes acceptance of the updated Terms.</p>
+  </section>
+
+  <section id="contact" class="fade-in">
+    <h2>13. Contact</h2>
+    <p>If you have questions about these Terms, please contact us:</p>
+    <ul>
+      <li>Email: <code>legal@arqora.app</code></li>
+      <li>GitHub: <a href="https://github.com/opencutvideo/Arqora" target="_blank" rel="noopener" style="color:var(--accent-text);font-weight:600">github.com/opencutvideo/Arqora</a></li>
+    </ul>
+  </section>
+</div>
+
+<footer class="footer">
+  <span class="copy"><strong>ARQORA</strong> &copy; 2026 · Architecture Project Operating System</span>
+  <div class="links">
+    <a href="about.html">About</a>
+    <a href="guide.html">Guide</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="terms.html">Terms</a>
+    <a href="cookies.html">Cookies</a>
+    <a href="https://github.com/opencutvideo/Arqora" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var stored=localStorage.getItem('arqora-theme');
+  if(stored==='dark') document.documentElement.setAttribute('data-theme','dark');
+  else if(stored==='light') document.documentElement.setAttribute('data-theme','light');
+  else if(stored==='system' || !stored){
+    if(window.matchMedia&&window.matchMedia('(prefers-color-scheme:dark)').matches)
+      document.documentElement.setAttribute('data-theme','dark');
+  }
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('visible'); io.unobserve(e.target); } });
+  },{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.fade-in').forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
