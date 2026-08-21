@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "buildCommand": "PORT=4173 BASE_PATH=/app/ pnpm --filter @workspace/arqora-app run build && rm -rf app && cp -R artifacts/arqora-app/dist/public app",
+  "outputDirectory": ".",
+  "cleanUrls": false
+}
