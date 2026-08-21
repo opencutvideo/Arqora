@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/app/"
+title = "ARQORA Workspace"
+description = "A multilingual project operations workspace for architecture and construction teams to manage projects, tasks, documents, approvals, calendars, people, and reports without changing the public landing page."
+version = "1.0.0"
+id = "artifacts/arqora-app"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/app/" ]
+localPort = 20596
+
+[services.development]
+run = "pnpm --filter @workspace/arqora-app run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/arqora-app", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/arqora-app/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "20596"
+BASE_PATH = "/app/"
